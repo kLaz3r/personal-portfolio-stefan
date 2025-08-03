@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Italiana, Sora } from "next/font/google";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import "./globals.css";
 
@@ -27,7 +29,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${sora.variable} antialiased`}>
-                <ThemeProvider>{children}</ThemeProvider>
+                <ThemeProvider>
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );

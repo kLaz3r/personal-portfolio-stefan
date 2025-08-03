@@ -21,14 +21,14 @@ const ProjectCard = (props: ProjectCardProps) => {
                 width={300}
                 height={200}
             />
-            <h1 className=" font-italiana pb-1 text-4xl text-foreground">
+            <h1 className=" font-italiana pb-1 text-5xl text-foreground">
                 {props.title}
             </h1>
             <h2 className="font-base">{props.description}</h2>
             {props.tags.map((tag) => {
                 return (
                     <span
-                        className="text-xs pr-2 text-text-secondary"
+                        className="text-xs pr-2 font-light text-text-secondary"
                         key={tag}
                     >
                         {tag}
@@ -37,13 +37,13 @@ const ProjectCard = (props: ProjectCardProps) => {
             })}
             <div className="flex pt-2 w-full items-center justify-between">
                 <Link
-                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full"
+                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors"
                     href={props.liveUrl}
                 >
                     Live Site
                 </Link>
                 <Link
-                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full"
+                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors"
                     href={props.repoUrl}
                 >
                     Github
