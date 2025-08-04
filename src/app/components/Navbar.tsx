@@ -31,7 +31,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="fixed w-screen top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-brand-primary/50">
+        <nav className="fixed w-screen top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-md border-b border-brand-primary/50">
             <div className="container mx-auto w-screen">
                 <div className="flex px-4 justify-between items-center h-20">
                     {/* Logo/Brand */}
@@ -123,7 +123,7 @@ const Navbar = () => {
             {/* Mobile Navigation */}
             {isOpen && (
                 <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 bg-background border-t border-foreground/10">
+                    <div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 border-t border-foreground/10">
                         {navItems.map((item) => (
                             <a
                                 key={item.name}
