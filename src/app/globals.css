@@ -24,6 +24,7 @@
     --brand-primary: #e96500;
     --text-secondary: #141414;
     --background-secondary: #fcfcfc;
+    --background-tertiary: #eeeeee;
 }
 
 /* Dark theme */
@@ -33,6 +34,7 @@
     --brand-primary: #ff8b33;
     --text-secondary: #c8c8c8;
     --background-secondary: #141414;
+    --background-tertiary: #222222;
 }
 
 body {
