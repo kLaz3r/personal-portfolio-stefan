@@ -44,13 +44,28 @@ const ProjectsSection = () => {
     return (
         <section
             id="projects"
-            className="text-foreground bg-background relative min-h-screen pt-20 -z-50"
+            className="text-foreground bg-background relative min-h-screen pt-20"
         >
-            <div className="hidden md:block absolute left-0 top-0 w-full min-h-screen h-screen -z-40">
+            <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <HalftoneBg color="var(--background-tertiary)" />
             </div>
-            <div className="container font-italiana text-9xl md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
-                Projects
+            <div className="container mx-auto flex flex-col items-center md:items-center justify-evenly min-h-[calc(100vh-5rem)]">
+                <div className="font-italiana z-10 text-9xl">
+                    <h1 className="text-center pb-2 text-7xl/14 md:text-8xl/20">
+                        Projects
+                    </h1>
+                    <h2 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
+                        My best Work
+                    </h2>
+                </div>
+                <div className="flex flex-col items-start justify-center gap-6 md:gap-12 md:flex-row relative z-10">
+                    {projects.map((project, index) => (
+                        <ProjectCard
+                            key={`${project.title}-${index}`}
+                            {...project}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     );

@@ -3,7 +3,7 @@ const HalftoneBg = ({ color }: { color: string }) => {
         <svg
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
-            className="w-full h-full"
+            className="w-full h-full pointer-events-none absolute inset-0"
             style={{ width: "100%", height: "100%" }}
             viewBox="0 0 400 400"
             preserveAspectRatio="xMidYMin slice"
@@ -466,7 +466,7 @@ const HalftoneBg = ({ color }: { color: string }) => {
             />
             <path
                 fill={color}
-                d="M201.3,260l2.2,1c.4.2.8.5,1,1l1,2.2c.7,1.5,2.8,1.5,3.5,0l1-2.2c.2-.4.5-.8,1-1l2.2-1c1.5-.7,1.5-2.8,0-3.5l-2.2-1c-.4-.2-.8-.5-1-1l-1-2.2c-.7-1.5-2.8-1.5-3.5,0l-1,2.2c-.2.4-.5.8-1,1l-2.2,1c-1.5.7-1.5,2.8,0,3.5Z"
+                d="M201.3,260l2.2,1c.4.2.8.5,1,1l1,2.2c.7,1.5,2.8,1.5,3.5,0l1-2.2c.2-.4.5-.8,1-1l2.2-1c1.5-.7,1.5-2.8,0,3.5l-2.2-1c-.4-.2-.8-.5-1-1l-1-2.2c-.7-1.5-2.8-1.5-3.5,0l-1,2.2c-.2.4-.5.8-1,1l-2.2,1c-1.5.7-1.5,2.8,0,3.5Z"
             />
             <path
                 fill={color}

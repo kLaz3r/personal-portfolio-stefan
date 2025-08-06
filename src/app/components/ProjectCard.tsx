@@ -1,5 +1,6 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 
 type ProjectCardProps = {
     title: string;
@@ -12,8 +13,9 @@ type ProjectCardProps = {
 
 const ProjectCard = (props: ProjectCardProps) => {
     console.log("ProjectCardProps:", props);
+
     return (
-        <div className="bg-background-secondary min-h-60 w-80 p-5 rounded-2xl border-1 shadow-lg shadow-brand-primary/20 border-brand-primary/50">
+        <div className="bg-background-secondary min-h-60 w-80 p-5 rounded-2xl border shadow-lg shadow-brand-primary/20 border-brand-primary/50">
             <Image
                 className="pb-2"
                 alt={props.title}
@@ -21,7 +23,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 width={300}
                 height={200}
             />
-            <h1 className=" font-italiana pb-1 text-5xl text-foreground">
+            <h1 className="font-italiana pb-1 text-5xl text-foreground">
                 {props.title}
             </h1>
             <h2 className="font-base">{props.description}</h2>
@@ -36,20 +38,25 @@ const ProjectCard = (props: ProjectCardProps) => {
                 );
             })}
             <div className="flex pt-2 w-full items-center justify-between">
-                <Link
-                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors"
+                <a
+                    className="font-sora border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
                     href={props.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Live Site
-                </Link>
-                <Link
-                    className="text-sora border-1 border-brand-primary/50 text-foreground bg-background-secondary font-xl px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors"
+                </a>
+                <a
+                    className="font-sora border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
                     href={props.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Github
-                </Link>
+                </a>
             </div>
         </div>
     );
 };
+
 export default ProjectCard;
