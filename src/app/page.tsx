@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import HalftoneBg from "./components/HalftoneBg";
+import PhotosSection from "./components/PhotosSection";
 import ProjectCard from "./components/ProjectCard";
 import { projects } from "./data/projects";
 
@@ -79,6 +80,7 @@ export default function Home() {
         <div className="">
             <HeroSection />
             <ProjectsSection />
+            <PhotosSection />
         </div>
     );
 }
