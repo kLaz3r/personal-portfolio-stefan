@@ -1,3 +1,5 @@
+// FUCK CSS GRID AND CSS IN GENERAL
+
 import Image from "next/image";
 import { photos } from "../data/photos";
 import ApertureIcon from "./ApertureIcon";
