@@ -1,89 +1,91 @@
 import Image from "next/image";
 import { photos } from "../data/photos";
+import ApertureIcon from "./ApertureIcon";
 
 const PhotosSection = () => {
-    const displayPhotos = photos;
-
     return (
         <section
             id="photos"
             className="text-foreground bg-background relative min-h-screen pt-20"
         >
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
-                <div className="w-full lg:w-1/2 grid grid-cols-3 gap-4 max-w-lg">
-                    <div className="col-span-1">
+                {/* Photo Grid */}
+                <div
+                    className="
+                        w-full lg:w-1/2 
+                        grid grid-cols-3 gap-4 max-w-lg
+                        auto-rows-[128px] /* each row is 96px tall */
+                    "
+                >
+                    {/* Left tall image */}
+                    <div className="col-span-1 row-span-2 relative">
                         <Image
-                            src={
-                                displayPhotos[21]?.src ||
-                                "/images/20140121-DSC07657.jpg"
-                            }
-                            alt="Photography sample"
-                            width={150}
-                            height={200}
-                            className="w-full h-48 object-cover rounded-lg"
-                        />
-                    </div>
-                    <div className="col-span-1">
-                        <Image
-                            src={
-                                displayPhotos[20]?.src ||
-                                "/images/20231224-DSC06719.jpg"
-                            }
-                            alt="Photography sample"
-                            width={150}
-                            height={150}
-                            className="w-full h-36 object-cover rounded-lg mb-4"
-                        />
-                        <Image
-                            src={
-                                displayPhotos[17]?.src ||
-                                "/images/20240320-DSC08061.jpg"
-                            }
-                            alt="Photography sample"
-                            width={150}
-                            height={100}
-                            className="w-full h-24 object-cover rounded-lg"
-                        />
-                    </div>
-                    <div className="col-span-1">
-                        <Image
-                            src={
-                                displayPhotos[15]?.src ||
-                                "/images/20240323-DSC08494.jpg"
-                            }
-                            alt="Photography sample"
-                            width={150}
-                            height={200}
-                            className="w-full h-48 object-cover rounded-lg"
+                            src={photos[21].src}
+                            alt={photos[21].alt}
+                            fill
+                            className="object-cover rounded-lg"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            priority
                         />
                     </div>
 
-                    <div className="col-span-2">
+                    {/* Two stacked images */}
+                    <div className="col-span-1">
+                        <div className="relative w-full h-[128px] mb-4">
+                            <Image
+                                src={photos[20].src}
+                                alt={photos[20].alt}
+                                fill
+                                className="object-cover rounded-lg"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
+                        <div className="relative w-full h-[128px]">
+                            <Image
+                                src={photos[17].src}
+                                alt={photos[17].alt}
+                                fill
+                                className="object-cover rounded-lg"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Right tall image */}
+                    <div className="col-span-1 row-span-2 relative">
                         <Image
-                            src={
-                                displayPhotos[5]?.src ||
-                                "/images/20240328-DSC08942-Edit.jpg"
-                            }
-                            alt="Photography sample"
-                            width={300}
-                            height={200}
-                            className="w-full h-40 object-cover rounded-lg"
+                            src={photos[15].src}
+                            alt={photos[15].alt}
+                            fill
+                            className="object-cover rounded-lg"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </div>
-                    <div className="col-span-1">
+
+                    {/* Bottom wide image */}
+                    <div className="col-span-2 relative h-[256px]">
                         <Image
-                            src={
-                                displayPhotos[3]?.src ||
-                                "/images/20240329-DSC09067.jpg"
-                            }
-                            alt="Photography sample"
-                            width={150}
-                            height={200}
-                            className="w-full h-40 object-cover rounded-lg"
+                            src={photos[5].src}
+                            alt={photos[5].alt}
+                            fill
+                            className="object-cover rounded-lg"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
+                    </div>
+
+                    {/* Bottom single image */}
+                    <div className="col-span-1 relative h-[256px]">
+                        <Image
+                            src={photos[3].src}
+                            alt={photos[3].alt}
+                            fill
+                            className="object-cover rounded-lg"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </div>
                 </div>
 
+                {/* Text Section */}
                 <div className="w-full lg:w-1/2 flex flex-col items-start justify-center space-y-6">
                     <div>
                         <h1 className="font-italiana text-6xl lg:text-7xl text-foreground mb-2">
@@ -95,14 +97,12 @@ const PhotosSection = () => {
                     </div>
 
                     <div className="flex items-center space-x-3">
-                        <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
-                            <svg
-                                className="w-6 h-6 text-background"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path d="M12 15.5c1.93 0 3.5-1.57 3.5-3.5s-1.57-3.5-3.5-3.5-3.5 1.57-3.5 3.5 1.57 3.5 3.5 3.5zM17.5 9c.28 0 .5-.22.5-.5s-.22-.5-.5-.5-.5.22-.5.5.22.5.5.5zM20 4h-3.17l-1.24-1.35c-.37-.41-.91-.65-1.47-.65H9.88c-.56 0-1.1.24-1.47.65L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
-                            </svg>
+                        <div className="w-12 h-12 bg-background rounded-full flex items-center justify-center">
+                            <ApertureIcon
+                                width={50}
+                                height={50}
+                                color={"var(--brand-primary)"}
+                            />
                         </div>
                         <div>
                             <p className="font-sora font-semibold text-foreground">
