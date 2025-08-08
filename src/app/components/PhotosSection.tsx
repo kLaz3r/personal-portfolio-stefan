@@ -2,8 +2,7 @@ import Image from "next/image";
 import { photos } from "../data/photos";
 
 const PhotosSection = () => {
-    // Select first 6 photos for the grid display
-    const displayPhotos = photos.slice(0, 6);
+    const displayPhotos = photos;
 
     return (
         <section
@@ -11,13 +10,11 @@ const PhotosSection = () => {
             className="text-foreground bg-background relative min-h-screen pt-20"
         >
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
-                {/* Photo Grid */}
                 <div className="w-full lg:w-1/2 grid grid-cols-3 gap-4 max-w-lg">
-                    {/* First row - 2 photos */}
                     <div className="col-span-1">
                         <Image
                             src={
-                                displayPhotos[0]?.src ||
+                                displayPhotos[21]?.src ||
                                 "/images/20140121-DSC07657.jpg"
                             }
                             alt="Photography sample"
@@ -29,7 +26,7 @@ const PhotosSection = () => {
                     <div className="col-span-1">
                         <Image
                             src={
-                                displayPhotos[1]?.src ||
+                                displayPhotos[20]?.src ||
                                 "/images/20231224-DSC06719.jpg"
                             }
                             alt="Photography sample"
@@ -39,7 +36,7 @@ const PhotosSection = () => {
                         />
                         <Image
                             src={
-                                displayPhotos[2]?.src ||
+                                displayPhotos[17]?.src ||
                                 "/images/20240320-DSC08061.jpg"
                             }
                             alt="Photography sample"
@@ -51,7 +48,7 @@ const PhotosSection = () => {
                     <div className="col-span-1">
                         <Image
                             src={
-                                displayPhotos[3]?.src ||
+                                displayPhotos[15]?.src ||
                                 "/images/20240323-DSC08494.jpg"
                             }
                             alt="Photography sample"
@@ -61,11 +58,10 @@ const PhotosSection = () => {
                         />
                     </div>
 
-                    {/* Second row - 2 photos spanning different widths */}
                     <div className="col-span-2">
                         <Image
                             src={
-                                displayPhotos[4]?.src ||
+                                displayPhotos[5]?.src ||
                                 "/images/20240328-DSC08942-Edit.jpg"
                             }
                             alt="Photography sample"
@@ -77,7 +73,7 @@ const PhotosSection = () => {
                     <div className="col-span-1">
                         <Image
                             src={
-                                displayPhotos[5]?.src ||
+                                displayPhotos[3]?.src ||
                                 "/images/20240329-DSC09067.jpg"
                             }
                             alt="Photography sample"
@@ -88,7 +84,6 @@ const PhotosSection = () => {
                     </div>
                 </div>
 
-                {/* Content Section */}
                 <div className="w-full lg:w-1/2 flex flex-col items-start justify-center space-y-6">
                     <div>
                         <h1 className="font-italiana text-6xl lg:text-7xl text-foreground mb-2">
@@ -99,7 +94,6 @@ const PhotosSection = () => {
                         </h2>
                     </div>
 
-                    {/* Camera Info */}
                     <div className="flex items-center space-x-3">
                         <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
                             <svg
@@ -120,7 +114,6 @@ const PhotosSection = () => {
                         </div>
                     </div>
 
-                    {/* Photo Gallery Button */}
                     <button className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all font-bold text-xl px-8 py-4 text-background rounded-full">
                         Photo Gallery
                     </button>
