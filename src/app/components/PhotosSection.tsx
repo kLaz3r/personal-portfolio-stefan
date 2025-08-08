@@ -6,14 +6,14 @@ const PhotosSection = () => {
     return (
         <section
             id="photos"
-            className="text-foreground bg-background relative min-h-screen pt-20"
+            className="text-foreground overflow-clip relative min-h-screen pt-20"
         >
             <div className="container mx-auto flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
                 {/* Photo Grid */}
                 <div
                     className="
                         w-full lg:w-1/2 
-                        grid grid-cols-3 gap-4 max-w-lg
+                        grid grid-cols-3  gap-4 max-w-lg
                         auto-rows-[128px] /* each row is 96px tall */
                     "
                 >
@@ -86,9 +86,23 @@ const PhotosSection = () => {
                 </div>
 
                 {/* Text Section */}
-                <div className="w-full lg:w-1/2 flex flex-col items-start justify-center space-y-6">
+                <div className="w-full lg:w-1/2 flex flex-col items-start justify-center space-y-6 relative">
+                    {/* Background image - only visible on desktop */}
+                    <Image
+                        src="/aperture.svg"
+                        alt=""
+                        width={1600} // adjust as needed
+                        height={1600}
+                        className="block -z-10 opacity-100 pointer-events-none absolute"
+                        style={{
+                            left: "50%",
+                            transform: "translateX(-50%) scale(300%)",
+                            top: "60%", // tweak until it lines up under your button
+                        }}
+                    />
+
                     <div>
-                        <h1 className="font-italiana text-6xl lg:text-7xl text-foreground mb-2">
+                        <h1 className="font-italiana text-6xl drop-shadow-background shadow-md lg:text-7xl text-foreground mb-2">
                             Photography
                         </h1>
                         <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
