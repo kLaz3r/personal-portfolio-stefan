@@ -98,13 +98,15 @@ const PhotosSection = () => {
                 {/* Text Section */}
                 <div className="lg:w-1/2 flex flex-col items-start justify-center flex-grow space-y-6 relative">
                     {/* Background image - only visible on desktop */}
-                    <Image
-                        src="/aperture.svg"
-                        alt=""
-                        width={1600} // adjust as needed
-                        height={1600}
+                    <ApertureIcon
+                        width={800} // adjust as needed
+                        height={800}
                         className="block -z-10 opacity-100 pointer-events-none absolute"
                         style={{
+                            // Add this line to set the color
+                            color: "var(--background-secondary)",
+
+                            // Keep all your original styles
                             left: "50%",
                             transform: "translateX(-50%) scale(300%)",
                             top: "60%", // tweak until it lines up under your button
@@ -126,6 +128,8 @@ const PhotosSection = () => {
                                 width={50}
                                 height={50}
                                 color={"var(--brand-primary)"}
+                                className={undefined}
+                                style={undefined}
                             />
                         </div>
                         <div>
