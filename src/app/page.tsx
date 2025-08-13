@@ -211,9 +211,12 @@ const PhotosSection = () => {
                                 </div>
                             </div>
 
-                            <button className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all font-bold text-xl px-6 py-3 text-background max-w-5/8 rounded-full">
+                            <Link
+                                href="/gallery"
+                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all font-bold text-xl px-6 py-3 text-background max-w-5/8 rounded-full"
+                            >
                                 Photo Gallery
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
