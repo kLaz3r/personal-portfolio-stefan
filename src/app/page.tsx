@@ -11,7 +11,7 @@ const HeroSection = () => {
     return (
         <section
             id="home"
-            className="text-foreground relative min-h-screen pt-20"
+            className="text-foreground relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
             <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
@@ -50,13 +50,13 @@ const ProjectsSection = () => {
     return (
         <section
             id="projects"
-            className="text-foreground bg-background relative min-h-screen pt-20"
+            className="text-foreground bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <HalftoneBg color="var(--background-tertiary)" />
             </div>
             <div className="container mx-auto flex flex-col items-center md:items-center justify-evenly min-h-[calc(100vh-5rem)]">
-                <div className="font-italiana z-10 text-9xl">
+                <div className="font-italiana pb-10 z-10 text-9xl">
                     <h1 className="text-center pb-2 text-7xl/14 md:text-8xl/20">
                         Projects
                     </h1>
@@ -81,11 +81,10 @@ const PhotosSection = () => {
     return (
         <section
             id="photos"
-            className="text-foreground overflow-clip relative min-h-screen pt-20"
+            className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
             <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
                 <div className="flex flex-col lg:flex-row items-start justify-center md:gap-18 gap-3 pb-6">
-                    {/* Photo Grid */}
                     <div className="flex flex-col gap-3 w-full max-w-[700px]">
                         <div className="flex flex-row gap-3 h-full w-full">
                             <div className="md:w-1/3">
@@ -169,21 +168,16 @@ const PhotosSection = () => {
                         </div>
                     </div>
 
-                    {/* Text Section */}
                     <div className="lg:w-1/2 flex flex-col items-start justify-center flex-grow space-y-6 relative">
-                        {/* Background image - only visible on desktop */}
                         <ApertureIcon
-                            width={800} // adjust as needed
+                            width={800}
                             height={800}
                             className="block -z-10 opacity-100 pointer-events-none absolute"
                             style={{
-                                // Add this line to set the color
                                 color: "var(--background-tertiary)",
-
-                                // Keep all your original styles
                                 left: "50%",
                                 transform: "translateX(-50%) scale(220%)",
-                                top: "60%", // tweak until it lines up under your button
+                                top: "60%",
                             }}
                         />
 
@@ -232,45 +226,88 @@ const AboutSection = () => {
     return (
         <section
             id="about"
-            className="text-foreground overflow-clip relative min-h-screen pt-20"
+            className="text-foreground overflow-clip relative min-h-screen pt-20 pb-12 border-b-2 border-background-tertiary"
         >
-            <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
-                <div>
-                    <h1 className="font-italiana text-7xl">About Me</h1>
-                    <p className="font-sora text-base">
-                        Hey, I’m Ștefan, a 22-year-old from Bacău, Romania. I’ve
-                        been into computers since I was 4, when my dad first
-                        introduced me to them — and I’ve been hooked ever since.
-                        I started out learning how to fix problems, install
-                        programs, and make Windows run smoother. Eventually, I
-                        got curious about Linux and began using it as my daily
-                        OS, which opened up a whole new world of learning. In
-                        high school, I got into web development — starting with
-                        the basics like HTML and CSS, then moving on to
-                        JavaScript, React, Next.js, and TypeScript. I also spent
-                        two years working in graphic design and desktop
-                        publishing, where I got hands-on with tools like
-                        Photoshop, Illustrator, InDesign, and CorelDRAW. I
-                        learned how to turn creative ideas into high-quality
+            <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-5rem)] px-6 gap-12">
+                <div className="xl:max-w-1/2">
+                    <h1 className="font-italiana text-7xl pb-4">About Me</h1>
+                    <p className="font-sora text-base text-justify">
+                        Hey, I’m{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Ștefan
+                        </span>
+                        , a 22-year-old from{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Bacău
+                        </span>
+                        , Romania. I’ve been into computers since I was 4, when
+                        my dad first introduced me to them — and I’ve been
+                        hooked ever since. I started out learning how to fix
+                        problems, install programs, and make{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Windows
+                        </span>{" "}
+                        run smoother. Eventually, I got curious about{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Linux
+                        </span>{" "}
+                        and began using it as my daily OS, which opened up a
+                        whole new world of learning. In high school, I got into
+                        web development — starting with the basics like{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            HTML
+                        </span>{" "}
+                        and{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            CSS
+                        </span>
+                        , then moving on to{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            JavaScript
+                        </span>
+                        , React, Next.js, and TypeScript. I also spent two years
+                        working in{" "}
+                        <span className="font-sora font-bold">
+                            graphic design and desktop publishing
+                        </span>
+                        , where I got hands-on with tools like{" "}
+                        <span className="font-sora font-bold">Photoshop</span>,{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Illustrator
+                        </span>
+                        , <span className="font-sora font-bold">InDesign</span>,
+                        and{" "}
+                        <span className="font-sora font-bold">CorelDRAW</span>.
+                        I learned how to turn creative ideas into high-quality
                         printed materials on all kinds of surfaces. I recently
-                        finished my Computer Science degree, and right now I’m
-                        focused on growing my skills, building cool stuff, and
-                        staying curious about everything tech and
-                        design-related.
+                        finished my{" "}
+                        <span className="font-sora font-bold text-brand-primary">
+                            Computer Science
+                        </span>{" "}
+                        degree, and right now I’m focused on growing my skills,
+                        building cool stuff, and staying curious about
+                        everything tech and design-related.
                     </p>
                 </div>
                 <div>
                     <QuestionMarkIcon
-                        width={200} // Example width, adjust as needed
-                        height={290} // Example height, adjust to maintain aspect ratio
-                        className="absolute pointer-events-none -z-10" // Add your classes for positioning
+                        width={200}
+                        height={290}
+                        className="absolute pointer-events-none -z-10"
                         style={{
-                            // Set the color for the SVG fill
                             color: "var(--background-tertiary)",
 
-                            transform: "translate(-200%, -50%) scale(400%)",
+                            transform: "translate(-20%, 20%) scale(500%)",
                         }}
                     />
+                    <div className="relative w-[300px] h-[350px] md:w-[500px] md:h-[550px]">
+                        <Image
+                            src="/helo.jpg"
+                            alt="portrait"
+                            fill
+                            className="object-cover rounded-2xl shadow-md shadow-brand-primary border-1 border-brand-primary"
+                        ></Image>
+                    </div>
                 </div>
             </div>
         </section>
