@@ -3,6 +3,7 @@ import Link from "next/link";
 import ApertureIcon from "./components/ApertureIcon";
 import HalftoneBg from "./components/HalftoneBg";
 import ProjectCard from "./components/ProjectCard";
+import QuestionMarkIcon from "./components/QuestionMarkIcon";
 import { photos } from "./data/photos";
 import { projects } from "./data/projects";
 
@@ -227,12 +228,62 @@ const PhotosSection = () => {
     );
 };
 
+const AboutSection = () => {
+    return (
+        <section
+            id="about"
+            className="text-foreground overflow-clip relative min-h-screen pt-20"
+        >
+            <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
+                <div>
+                    <h1 className="font-italiana text-7xl">About Me</h1>
+                    <p className="font-sora text-base">
+                        Hey, I’m Ștefan, a 22-year-old from Bacău, Romania. I’ve
+                        been into computers since I was 4, when my dad first
+                        introduced me to them — and I’ve been hooked ever since.
+                        I started out learning how to fix problems, install
+                        programs, and make Windows run smoother. Eventually, I
+                        got curious about Linux and began using it as my daily
+                        OS, which opened up a whole new world of learning. In
+                        high school, I got into web development — starting with
+                        the basics like HTML and CSS, then moving on to
+                        JavaScript, React, Next.js, and TypeScript. I also spent
+                        two years working in graphic design and desktop
+                        publishing, where I got hands-on with tools like
+                        Photoshop, Illustrator, InDesign, and CorelDRAW. I
+                        learned how to turn creative ideas into high-quality
+                        printed materials on all kinds of surfaces. I recently
+                        finished my Computer Science degree, and right now I’m
+                        focused on growing my skills, building cool stuff, and
+                        staying curious about everything tech and
+                        design-related.
+                    </p>
+                </div>
+                <div>
+                    <QuestionMarkIcon
+                        width={200} // Example width, adjust as needed
+                        height={290} // Example height, adjust to maintain aspect ratio
+                        className="absolute pointer-events-none -z-10" // Add your classes for positioning
+                        style={{
+                            // Set the color for the SVG fill
+                            color: "var(--background-tertiary)",
+
+                            transform: "translate(-200%, -50%) scale(400%)",
+                        }}
+                    />
+                </div>
+            </div>
+        </section>
+    );
+};
+
 export default function Home() {
     return (
         <div className="">
             <HeroSection />
             <ProjectsSection />
             <PhotosSection />
+            <AboutSection />
         </div>
     );
 }

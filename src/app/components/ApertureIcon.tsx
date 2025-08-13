@@ -1,14 +1,14 @@
 import React from "react";
 
-const ApertureIcon = ({ className, style, ...props }) => {
+type ApertureIconProps = React.SVGProps<SVGSVGElement>;
+
+const ApertureIcon: React.FC<ApertureIconProps> = ({ ...props }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1344 1344"
             aria-hidden="true"
             focusable="false"
-            className={className}
-            style={style}
             {...props}
         >
             <g fill="currentColor">
