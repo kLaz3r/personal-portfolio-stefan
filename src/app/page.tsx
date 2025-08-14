@@ -27,7 +27,7 @@ const HeroSection = () => {
                         concept to deployment.
                     </h2>
                     <Link
-                        href="#Projects"
+                        href="#projects"
                         className="font-sora hover:bg-background hover:text-brand-primary border-2 hover:border-brand-primary active:opacity-60 transition-all font-bold text-2xl px-6 py-4 bg-brand-primary text-background rounded-full"
                     >
                         View My Work

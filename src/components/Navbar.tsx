@@ -20,10 +20,10 @@ const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
 
     const navItems = [
-        { name: "Home", href: "#home", icon: HiHome },
-        { name: "Projects", href: "#projects", icon: HiBriefcase },
-        { name: "Photos", href: "#photos", icon: HiCamera },
-        { name: "About", href: "#about", icon: HiUser },
+        { name: "Home", href: "/#home", icon: HiHome },
+        { name: "Projects", href: "/#projects", icon: HiBriefcase },
+        { name: "Photos", href: "/#photos", icon: HiCamera },
+        { name: "About", href: "/#about", icon: HiUser },
     ];
 
     const toggleMenu = () => {
@@ -36,8 +36,8 @@ const Navbar = () => {
                 <div className="flex px-4 justify-between items-center h-20">
                     {/* Logo/Brand */}
                     <div className="pl-2 flex-shrink-0">
-                        <a
-                            href="#home"
+                        <Link
+                            href="/#home"
                             className="text-xl font-bold text-foreground hover:text-brand-primary transition-colors"
                         >
                             <Image
@@ -50,7 +50,7 @@ const Navbar = () => {
                                 width={50}
                                 height={50}
                             />
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Desktop Navigation and Theme Toggle */}
