@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import ApertureIcon from "./components/ApertureIcon";
-import HalftoneBg from "./components/HalftoneBg";
-import ProjectCard from "./components/ProjectCard";
-import QuestionMarkIcon from "./components/QuestionMarkIcon";
-import { photos } from "./data/photos";
-import { projects } from "./data/projects";
+import ApertureIcon from "../components/ApertureIcon";
+import HalftoneBg from "../components/HalftoneBg";
+import ProjectCard from "../components/ProjectCard";
+import QuestionMarkIcon from "../components/QuestionMarkIcon";
+import { photos } from "../data/photos";
+import { projects } from "../data/projects";
 
 const HeroSection = () => {
     return (

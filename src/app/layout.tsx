@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Italiana, Sora } from "next/font/google";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import { ThemeProvider } from "./contexts/ThemeContext";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import { ThemeProvider } from "../contexts/ThemeContext";
 import "./globals.css";
 
 const sora = Sora({
