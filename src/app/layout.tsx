@@ -27,7 +27,30 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
+            <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                (function() {
+                  function getInitialTheme() {
+                    const persistedColorPreference = window.localStorage.getItem('theme');
+                    if (typeof persistedColorPreference === 'string') {
+                      return persistedColorPreference;
+                    }
+                    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+                    if (typeof mql.matches === 'boolean') {
+                      return mql.matches ? 'dark' : 'light';
+                    }
+                    return 'light';
+                  }
+                  const theme = getInitialTheme();
+                  document.documentElement.className = theme;
+                })();
+              `,
+                    }}
+                />
+            </head>
             <body className={`${sora.variable} antialiased`}>
                 <ThemeProvider>
                     <Navbar />

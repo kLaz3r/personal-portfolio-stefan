@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     HiBriefcase,
     HiCamera,
@@ -18,6 +18,11 @@ import { useTheme } from "../contexts/ThemeContext";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const { theme, toggleTheme } = useTheme();
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const navItems = [
         { name: "Home", href: "/#home", icon: HiHome },
@@ -40,16 +45,20 @@ const Navbar = () => {
                             href="/#home"
                             className="text-xl font-bold text-foreground hover:text-brand-primary transition-colors"
                         >
-                            <Image
-                                src={
-                                    theme == "light"
-                                        ? "/Logo-light.svg"
-                                        : "/Logo-dark.svg"
-                                }
-                                alt="Logo"
-                                width={50}
-                                height={50}
-                            />
+                            {isMounted ? (
+                                <Image
+                                    src={
+                                        theme == "light"
+                                            ? "/Logo-light.svg"
+                                            : "/Logo-dark.svg"
+                                    }
+                                    alt="Logo"
+                                    width={50}
+                                    height={50}
+                                />
+                            ) : (
+                                <div style={{ width: 50, height: 50 }} />
+                            )}
                         </Link>
                     </div>
 
@@ -68,36 +77,40 @@ const Navbar = () => {
                         </div>
 
                         {/* Theme Toggle Button */}
-                        <button
-                            onClick={toggleTheme}
-                            className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200"
-                            aria-label={`Switch to ${
-                                theme === "light" ? "dark" : "light"
-                            } mode`}
-                        >
-                            {theme === "light" ? (
-                                <HiMoon className="h-8 w-8" />
-                            ) : (
-                                <HiSun className="h-8 w-8" />
-                            )}
-                        </button>
+                        {isMounted && (
+                            <button
+                                onClick={toggleTheme}
+                                className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200"
+                                aria-label={`Switch to ${
+                                    theme === "light" ? "dark" : "light"
+                                } mode`}
+                            >
+                                {theme === "light" ? (
+                                    <HiMoon className="h-8 w-8" />
+                                ) : (
+                                    <HiSun className="h-8 w-8" />
+                                )}
+                            </button>
+                        )}
                     </div>
 
                     {/* Mobile menu button and theme toggle */}
                     <div className="md:hidden flex items-center space-x-2">
-                        <button
-                            onClick={toggleTheme}
-                            className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200"
-                            aria-label={`Switch to ${
-                                theme === "light" ? "dark" : "light"
-                            } mode`}
-                        >
-                            {theme === "light" ? (
-                                <HiMoon className="h-8 w-8" />
-                            ) : (
-                                <HiSun className="h-8 w-8" />
-                            )}
-                        </button>
+                        {isMounted && (
+                            <button
+                                onClick={toggleTheme}
+                                className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200"
+                                aria-label={`Switch to ${
+                                    theme === "light" ? "dark" : "light"
+                                } mode`}
+                            >
+                                {theme === "light" ? (
+                                    <HiMoon className="h-8 w-8" />
+                                ) : (
+                                    <HiSun className="h-8 w-8" />
+                                )}
+                            </button>
+                        )}
                         <button
                             onClick={toggleMenu}
                             className="text-foreground hover:text-brand-primary inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200"
