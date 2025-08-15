@@ -25,7 +25,7 @@ const HeroSection = () => {
                     transition={{
                         type: "spring",
                         ease: "anticipate",
-                        duration: 1,
+                        duration: 0.7,
                     }}
                     className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
                 >
@@ -53,7 +53,7 @@ const HeroSection = () => {
                     transition={{
                         type: "spring",
                         ease: "easeInOut",
-                        duration: 1,
+                        duration: 1.5,
                     }}
                     className="px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
                 >
@@ -254,14 +254,14 @@ const PhotosSection = () => {
                             }}
                             whileInView={{
                                 opacity: 1,
-                                scale: 1,   
+                                scale: 1,
                                 x: 0,
                                 rotate: 0,
                             }}
                             transition={{
                                 type: "spring",
                                 ease: "anticipate",
-                                duration: 1,
+                                duration: 0.7,
                                 staggerChildren: 0.5,
                                 delayChildren: 1,
                             }}
@@ -318,7 +318,27 @@ const AboutSection = () => {
             className="text-foreground overflow-clip relative min-h-screen pt-20 pb-12 border-b-2 border-background-tertiary"
         >
             <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-between min-h-[calc(100vh-5rem)] px-6 gap-12">
-                <div className="xl:max-w-1/2">
+                <motion.div
+                    initial={{
+                        opacity: 0,
+                        scale: 0,
+                        x: 500,
+                    }}
+                    whileInView={{
+                        opacity: 1,
+                        scale: 1,
+                        x: 0,
+                    }}
+                    transition={{
+                        type: "spring",
+                        ease: "anticipate",
+                        duration: 0.5,
+                        staggerChildren: 0.5,
+                        delayChildren: 1,
+                    }}
+                    viewport={{ margin: "0px 0px 200px 0px" }}
+                    className="xl:max-w-1/2"
+                >
                     <h1 className="font-italiana text-7xl pb-4">About Me</h1>
                     <p className="font-sora text-base text-justify">
                         Hey, I’m{" "}
@@ -377,7 +397,7 @@ const AboutSection = () => {
                         building cool stuff, and staying curious about
                         everything tech and design-related.
                     </p>
-                </div>
+                </motion.div>
                 <div>
                     <QuestionMarkIcon
                         width={200}
@@ -389,14 +409,34 @@ const AboutSection = () => {
                             transform: "translate(-20%, 20%) scale(500%)",
                         }}
                     />
-                    <div className="relative w-[300px] h-[350px] md:w-[500px] md:h-[550px]">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            scale: 0,
+                            x: -500,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                        }}
+                        transition={{
+                            type: "spring",
+                            ease: "anticipate",
+                            duration: 0.7,
+                            staggerChildren: 0.5,
+                            delayChildren: 1,
+                        }}
+                        viewport={{ margin: "0px 0px 200px 0px" }}
+                        className="relative w-[300px] h-[350px] md:w-[500px] md:h-[550px]"
+                    >
                         <Image
                             src="/helo.jpg"
                             alt="portrait"
                             fill
                             className="object-cover rounded-2xl shadow-md shadow-brand-primary border-1 border-brand-primary"
                         ></Image>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
