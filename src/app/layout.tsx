@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Italiana, Sora } from "next/font/google";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import ScrollProgressBar from "../components/ScrollProgressBar";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import "./globals.css";
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             </head>
             <body className={`${sora.variable} antialiased`}>
                 <ThemeProvider>
+                    <ScrollProgressBar />
                     <Navbar />
                     {children}
                     <Footer />
