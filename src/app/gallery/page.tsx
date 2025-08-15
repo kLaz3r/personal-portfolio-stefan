@@ -9,6 +9,7 @@ import {
 import "react-photo-album/masonry.css";
 import "yet-another-react-lightbox/styles.css";
 
+import { motion } from "motion/react";
 import { photos } from "../../data/photos";
 
 import Lightbox from "yet-another-react-lightbox";
@@ -21,7 +22,15 @@ function renderNextImage(
     { photo, width, height }: RenderImageContext
 ) {
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, scale: 0.6, y: 0 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{
+                type: "spring",
+                ease: "anticipate",
+                duration: 1,
+            }}
+            viewport={{ amount: "some", margin: "0px 0px 100px 0px" }}
             style={{
                 width: "100%",
                 position: "relative",
@@ -37,7 +46,7 @@ function renderNextImage(
                 sizes={sizes}
                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
             />
-        </div>
+        </motion.div>
     );
 }
 
