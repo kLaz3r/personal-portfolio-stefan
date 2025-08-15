@@ -332,7 +332,7 @@ const AboutSection = () => {
                     transition={{
                         type: "spring",
                         ease: "anticipate",
-                        duration: 0.5,
+                        duration: 0.8,
                         staggerChildren: 0.5,
                         delayChildren: 1,
                     }}
@@ -423,7 +423,7 @@ const AboutSection = () => {
                         transition={{
                             type: "spring",
                             ease: "anticipate",
-                            duration: 0.7,
+                            duration: 1,
                             staggerChildren: 0.5,
                             delayChildren: 1,
                         }}
