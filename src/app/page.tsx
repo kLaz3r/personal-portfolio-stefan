@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import ApertureIcon from "../components/ApertureIcon";
@@ -15,7 +18,17 @@ const HeroSection = () => {
         >
             <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
-                <div className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start">
+                <motion.div
+                    viewport={{ once: false }}
+                    initial={{ opacity: 0, scale: 0.6, x: -200 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{
+                        type: "spring",
+                        ease: "anticipate",
+                        duration: 1,
+                    }}
+                    className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
+                >
                     <h1 className="text-5xl/14 md:text-7xl/20 font-italiana">
                         Hi, I am{" "}
                         <span className="text-brand-primary">Stefan</span>
@@ -32,15 +45,25 @@ const HeroSection = () => {
                     >
                         View My Work
                     </Link>
-                </div>
-                <div className="px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]">
+                </motion.div>
+                <motion.div
+                    viewport={{ once: false }}
+                    initial={{ opacity: 0, scale: 0.6, x: 200 }}
+                    whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{
+                        type: "spring",
+                        ease: "easeInOut",
+                        duration: 1,
+                    }}
+                    className="px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
+                >
                     <Image
                         width={500}
                         height={700}
                         src="/abominatie.svg"
                         alt="Why?"
                     ></Image>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
@@ -56,22 +79,41 @@ const ProjectsSection = () => {
                 <HalftoneBg color="var(--background-tertiary)" />
             </div>
             <div className="container mx-auto flex flex-col items-center md:items-center justify-evenly min-h-[calc(100vh-5rem)]">
-                <div className="font-italiana pb-10 z-10 text-9xl">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.6, y: -200 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{
+                        type: "spring",
+                        ease: "anticipate",
+                        duration: 1,
+                    }}
+                    className="font-italiana pb-10 z-10 text-9xl"
+                >
                     <h1 className="text-center pb-2 text-7xl/14 md:text-8xl/20">
                         Projects
                     </h1>
                     <h2 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
                         My best Work
                     </h2>
-                </div>
-                <div className="flex flex-col items-start justify-center gap-6 md:gap-12 md:flex-row relative z-10">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.6, y: 200 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{
+                        type: "spring",
+                        ease: "anticipate",
+                        duration: 1,
+                    }}
+                    viewport={{ margin: "0px 0px 200px 0px" }}
+                    className="flex flex-col items-start justify-center gap-6 md:gap-12 md:flex-row relative z-10"
+                >
                     {projects.map((project, index) => (
                         <ProjectCard
                             key={`${project.title}-${index}`}
                             {...project}
                         />
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );
@@ -85,7 +127,29 @@ const PhotosSection = () => {
         >
             <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
                 <div className="flex flex-col lg:flex-row items-start justify-center md:gap-18 gap-3 pb-6">
-                    <div className="flex flex-col gap-3 w-full max-w-[700px]">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            scale: 0,
+                            x: -500,
+                            rotate: 90,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                            rotate: 0,
+                        }}
+                        transition={{
+                            type: "spring",
+                            ease: "anticipate",
+                            duration: 1,
+                            staggerChildren: 0.5,
+                            delayChildren: 1,
+                        }}
+                        viewport={{ margin: "0px 0px 200px 0px" }}
+                        className="flex flex-col gap-3 w-full max-w-[700px]"
+                    >
                         <div className="flex flex-row gap-3 h-full w-full">
                             <div className="md:w-1/3">
                                 <Image
@@ -166,7 +230,7 @@ const PhotosSection = () => {
                                 ></Image>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     <div className="lg:w-1/2 flex flex-col items-start justify-center flex-grow space-y-6 relative">
                         <ApertureIcon
