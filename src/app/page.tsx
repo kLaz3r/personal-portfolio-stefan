@@ -245,7 +245,29 @@ const PhotosSection = () => {
                             }}
                         />
 
-                        <div className="flex gap-3 flex-col">
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                                scale: 0,
+                                x: 500,
+                                rotate: -90,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                scale: 1,   
+                                x: 0,
+                                rotate: 0,
+                            }}
+                            transition={{
+                                type: "spring",
+                                ease: "anticipate",
+                                duration: 1,
+                                staggerChildren: 0.5,
+                                delayChildren: 1,
+                            }}
+                            viewport={{ margin: "0px 0px 200px 0px" }}
+                            className="flex gap-3 flex-col"
+                        >
                             <div>
                                 <h1 className=" font-italiana text-6xl lg:text-7xl text-foreground mb-2">
                                     Photography
@@ -281,7 +303,7 @@ const PhotosSection = () => {
                             >
                                 Photo Gallery
                             </Link>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
