@@ -38,7 +38,7 @@ const Navbar = () => {
     return (
         <nav className="fixed w-screen top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-md border-b border-brand-primary/50">
             <div className="container mx-auto w-screen">
-                <div className="flex px-4 justify-between items-center h-20">
+                <div className="flex px-4 justify-between items-center h-16 md:h-20">
                     {/* Logo/Brand */}
                     <div className="pl-2 flex-shrink-0">
                         <Link
@@ -53,11 +53,12 @@ const Navbar = () => {
                                             : "/Logo-dark.svg"
                                     }
                                     alt="Logo"
-                                    width={50}
-                                    height={50}
+                                    className="h-10 w-10 md:h-14 md:w-14"
+                                    width={40}
+                                    height={40}
                                 />
                             ) : (
-                                <div style={{ width: 50, height: 50 }} />
+                                <div style={{ width: 40, height: 40 }} />
                             )}
                         </Link>
                     </div>
@@ -119,12 +120,12 @@ const Navbar = () => {
                             <span className="sr-only">Open main menu</span>
                             {isOpen ? (
                                 <HiX
-                                    className="block h-12 w-12"
+                                    className="block h-10 w-10"
                                     aria-hidden="true"
                                 />
                             ) : (
                                 <HiMenu
-                                    className="block h-12 w-12"
+                                    className="block h-10 w-10"
                                     aria-hidden="true"
                                 />
                             )}
@@ -141,10 +142,10 @@ const Navbar = () => {
                             <a
                                 key={item.name}
                                 href={item.href}
-                                className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
+                                className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-3 rounded-md text-5xl font-italiana transition-colors duration-200 flex items-center"
                                 onClick={() => setIsOpen(false)}
                             >
-                                <item.icon className="mr-3 h-20 w-20" />
+                                <item.icon className="mr-3 h-14 w-14" />
                                 {item.name}
                             </a>
                         ))}
