@@ -131,7 +131,7 @@ const PhotosSection = () => {
                         initial={{
                             opacity: 0,
                             scale: 0,
-                            x: -500,
+                            x: -200,
                             rotate: 90,
                         }}
                         whileInView={{
@@ -249,7 +249,7 @@ const PhotosSection = () => {
                             initial={{
                                 opacity: 0,
                                 scale: 0,
-                                x: 500,
+                                x: 200,
                                 rotate: -90,
                             }}
                             whileInView={{
@@ -322,7 +322,7 @@ const AboutSection = () => {
                     initial={{
                         opacity: 0,
                         scale: 0,
-                        x: 500,
+                        x: 200,
                     }}
                     whileInView={{
                         opacity: 1,
@@ -413,7 +413,7 @@ const AboutSection = () => {
                         initial={{
                             opacity: 0,
                             scale: 0,
-                            x: -500,
+                            x: -200,
                         }}
                         whileInView={{
                             opacity: 1,
