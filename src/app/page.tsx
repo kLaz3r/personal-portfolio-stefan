@@ -78,7 +78,7 @@ const ProjectsSection = () => {
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <HalftoneBg color="var(--background-tertiary)" />
             </div>
-            <div className="container mx-auto flex flex-col items-center md:items-center justify-evenly min-h-[calc(100vh-5rem)]">
+            <div className="container mx-auto flex flex-col items-center md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.6, y: -200 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
