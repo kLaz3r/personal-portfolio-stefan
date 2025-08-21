@@ -12,12 +12,10 @@ type ProjectCardProps = {
 };
 
 const ProjectCard = (props: ProjectCardProps) => {
-    console.log("ProjectCardProps:", props);
-
     return (
-        <div className="bg-background-secondary/20 backdrop-blur-md min-h-60 w-80 p-5 rounded-2xl border shadow-lg shadow-brand-primary/20 border-brand-primary/50">
+        <div className="bg-background-secondary/20 backdrop-blur-md min-h-70 w-80 p-5 rounded-2xl border shadow-lg shadow-brand-primary/20 border-brand-primary/50">
             <Image
-                className="pb-2"
+                className="pb-2 aspect-video"
                 alt={props.title}
                 src={props.imageUrl}
                 width={300}

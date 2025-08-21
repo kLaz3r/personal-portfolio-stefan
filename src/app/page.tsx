@@ -14,7 +14,7 @@ const HeroSection = () => {
     return (
         <section
             id="home"
-            className="text-foreground relative min-h-screen pt-20 border-b-2 border-background-tertiary"
+            className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
             <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
@@ -73,12 +73,12 @@ const ProjectsSection = () => {
     return (
         <section
             id="projects"
-            className="text-foreground bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
+            className="text-foreground overflow-clip bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <HalftoneBg color="var(--background-tertiary)" />
             </div>
-            <div className="container mx-auto flex flex-col items-center md:items-center justify-evenly min-h-[calc(100vh-5rem)]">
+            <div className="container mx-auto flex flex-col items-center md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.6, y: -200 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -131,7 +131,7 @@ const PhotosSection = () => {
                         initial={{
                             opacity: 0,
                             scale: 0,
-                            x: -500,
+                            x: -200,
                             rotate: 90,
                         }}
                         whileInView={{
@@ -249,7 +249,7 @@ const PhotosSection = () => {
                             initial={{
                                 opacity: 0,
                                 scale: 0,
-                                x: 500,
+                                x: 200,
                                 rotate: -90,
                             }}
                             whileInView={{
@@ -322,7 +322,7 @@ const AboutSection = () => {
                     initial={{
                         opacity: 0,
                         scale: 0,
-                        x: 500,
+                        x: 200,
                     }}
                     whileInView={{
                         opacity: 1,
@@ -413,7 +413,7 @@ const AboutSection = () => {
                         initial={{
                             opacity: 0,
                             scale: 0,
-                            x: -500,
+                            x: -200,
                         }}
                         whileInView={{
                             opacity: 1,

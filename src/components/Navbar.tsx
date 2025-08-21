@@ -65,7 +65,7 @@ const Navbar = () => {
     return (
         <nav className="fixed w-screen top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-md border-b border-brand-primary/50">
             <div className="container mx-auto w-screen">
-                <div className="flex px-4 justify-between items-center h-20">
+                <div className="flex px-4 justify-between items-center h-16 md:h-20">
                     {/* Logo/Brand */}
                     <div className="pl-2 flex-shrink-0">
                         <Link
@@ -80,11 +80,12 @@ const Navbar = () => {
                                             : "/Logo-dark.svg"
                                     }
                                     alt="Logo"
-                                    width={50}
-                                    height={50}
+                                    className="h-10 w-10 md:h-14 md:w-14"
+                                    width={40}
+                                    height={40}
                                 />
                             ) : (
-                                <div style={{ width: 50, height: 50 }} />
+                                <div style={{ width: 40, height: 40 }} />
                             )}
                         </Link>
                     </div>
