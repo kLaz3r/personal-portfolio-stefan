@@ -18,8 +18,60 @@ const italiana = Italiana({
 });
 
 export const metadata: Metadata = {
-    title: "Personal Portfolio - Stefan Nasturas",
-    description: "Showcase website for a developer and designer",
+    title: "Stefan Nasturas - Web Developer & Designer Portfolio | React, Next.js, UI/UX",
+    description:
+        "Professional portfolio of Stefan Nasturas, a skilled web developer and designer from Romania. Specializing in React, Next.js, TypeScript, and modern web technologies. View projects, photography, and get in touch.",
+    keywords: [
+        "web developer",
+        "frontend developer",
+        "React developer",
+        "Next.js",
+        "TypeScript",
+        "UI/UX designer",
+        "portfolio",
+        "JavaScript",
+        "web design",
+        "Romania",
+    ],
+    authors: [{ name: "Stefan Nasturas" }],
+    creator: "Stefan Nasturas",
+    publisher: "Stefan Nasturas",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://stefan-nasturas.dev",
+        title: "Stefan Nasturas - Web Developer & Designer Portfolio",
+        description:
+            "Professional portfolio showcasing web development projects, UI/UX design work, and photography by Stefan Nasturas. Expert in React, Next.js, and modern web technologies.",
+        siteName: "Stefan Nasturas Portfolio",
+        images: [
+            {
+                url: "/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Stefan Nasturas - Web Developer Portfolio",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Stefan Nasturas - Web Developer & Designer Portfolio",
+        description:
+            "Professional portfolio showcasing web development projects, UI/UX design work, and photography by Stefan Nasturas.",
+        images: ["/og-image.jpg"],
+        creator: "@stefannasturas",
+    },
 };
 
 export default function RootLayout({
@@ -34,6 +86,7 @@ export default function RootLayout({
                     name="apple-mobile-web-app-title"
                     content="StefanWebDev"
                 />
+                <link rel="canonical" href="https://stefan-nasturas.dev" />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -53,6 +106,57 @@ export default function RootLayout({
                   document.documentElement.className = theme;
                 })();
               `,
+                    }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify([
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "Person",
+                                name: "Stefan Nasturas",
+                                jobTitle: "Web Developer & Designer",
+                                url: "https://stefan-nasturas.dev",
+                                sameAs: [
+                                    "https://github.com/kLaz3r",
+                                    "https://linkedin.com/in/stefan-nasturas",
+                                ],
+                                knowsAbout: [
+                                    "Web Development",
+                                    "React",
+                                    "Next.js",
+                                    "TypeScript",
+                                    "UI/UX Design",
+                                    "Photography",
+                                    "JavaScript",
+                                    "HTML",
+                                    "CSS",
+                                ],
+                                address: {
+                                    "@type": "PostalAddress",
+                                    addressCountry: "RO",
+                                },
+                            },
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "WebSite",
+                                name: "Stefan Nasturas Portfolio",
+                                url: "https://stefan-nasturas.dev",
+                                description:
+                                    "Professional portfolio of Stefan Nasturas, showcasing web development projects, design work, and photography.",
+                                author: {
+                                    "@type": "Person",
+                                    name: "Stefan Nasturas",
+                                },
+                                potentialAction: {
+                                    "@type": "SearchAction",
+                                    target: "https://stefan-nasturas.dev/search?q={search_term_string}",
+                                    "query-input":
+                                        "required name=search_term_string",
+                                },
+                            },
+                        ]),
                     }}
                 />
             </head>

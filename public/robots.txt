@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /node_modules/
+
+# Allow crawling of main content
+Allow: /#home
+Allow: /#projects
+Allow: /#photos
+Allow: /#about
+Allow: /gallery
+
+# Sitemap location
+Sitemap: https://stefan-nasturas.dev/sitemap.xml

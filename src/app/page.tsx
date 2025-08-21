@@ -61,7 +61,7 @@ const HeroSection = () => {
                         width={500}
                         height={700}
                         src="/abominatie.svg"
-                        alt="Why?"
+                        alt="Creative illustration representing innovative web development and design solutions by Stefan Nasturas"
                         priority={true}
                         quality={90}
                         className="select-none"
