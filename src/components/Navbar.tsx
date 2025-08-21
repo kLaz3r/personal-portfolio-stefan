@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -14,6 +15,32 @@ import {
     HiX,
 } from "react-icons/hi";
 import { useTheme } from "../contexts/ThemeContext";
+
+// Simple Hamburger Menu Button
+const HamburgerButton = ({
+    isOpen,
+    onClick,
+}: {
+    isOpen: boolean;
+    onClick: () => void;
+}) => {
+    return (
+        <motion.button
+            onClick={onClick}
+            className="text-foreground hover:text-brand-primary inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200"
+            aria-expanded={isOpen}
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.3 }}
+        >
+            <span className="sr-only">Open main menu</span>
+            {isOpen ? (
+                <HiX className="block h-12 w-12" aria-hidden="true" />
+            ) : (
+                <HiMenu className="block h-12 w-12" aria-hidden="true" />
+            )}
+        </motion.button>
+    );
+};
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -111,46 +138,43 @@ const Navbar = () => {
                                 )}
                             </button>
                         )}
-                        <button
-                            onClick={toggleMenu}
-                            className="text-foreground hover:text-brand-primary inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200"
-                            aria-expanded="false"
-                        >
-                            <span className="sr-only">Open main menu</span>
-                            {isOpen ? (
-                                <HiX
-                                    className="block h-12 w-12"
-                                    aria-hidden="true"
-                                />
-                            ) : (
-                                <HiMenu
-                                    className="block h-12 w-12"
-                                    aria-hidden="true"
-                                />
-                            )}
-                        </button>
+                        <HamburgerButton isOpen={isOpen} onClick={toggleMenu} />
                     </div>
                 </div>
             </div>
 
             {/* Mobile Navigation */}
-            {isOpen && (
-                <div className="md:hidden">
-                    <div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 border-t border-foreground/10">
-                        {navItems.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                <item.icon className="mr-3 h-20 w-20" />
-                                {item.name}
-                            </a>
-                        ))}
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        className="md:hidden"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                        <div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 border-t border-foreground/10">
+                            {navItems.map((item, index) => (
+                                <motion.a
+                                    key={item.name}
+                                    href={item.href}
+                                    className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
+                                    onClick={() => setIsOpen(false)}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: index * 0.1,
+                                    }}
+                                >
+                                    <item.icon className="mr-3 h-20 w-20" />
+                                    {item.name}
+                                </motion.a>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 };
