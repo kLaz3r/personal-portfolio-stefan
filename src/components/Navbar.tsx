@@ -156,11 +156,8 @@ const Navbar = () => {
                     >
                         <div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 border-t border-foreground/10">
                             {navItems.map((item, index) => (
-                                <motion.a
+                                <motion.div
                                     key={item.name}
-                                    href={item.href}
-                                    className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
-                                    onClick={() => setIsOpen(false)}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{
@@ -168,9 +165,16 @@ const Navbar = () => {
                                         delay: index * 0.1,
                                     }}
                                 >
-                                    <item.icon className="mr-3 h-20 w-20" />
-                                    {item.name}
-                                </motion.a>
+                                    <Link
+                                        href={item.href}
+                                        className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
+                                        onClick={() => setIsOpen(false)}
+                                        scroll={true}
+                                    >
+                                        <item.icon className="mr-3 h-20 w-20" />
+                                        {item.name}
+                                    </Link>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
