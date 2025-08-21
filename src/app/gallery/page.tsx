@@ -39,11 +39,13 @@ function renderNextImage(
         >
             <Image
                 fill
-                className="rounded-md"
+                className="rounded-md object-cover"
                 src={photo}
                 alt={alt}
                 title={title}
                 sizes={sizes}
+                loading="lazy"
+                quality={85}
                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
             />
         </motion.div>

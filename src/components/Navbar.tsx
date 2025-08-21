@@ -69,7 +69,7 @@ const Navbar = () => {
                     {/* Logo/Brand */}
                     <div className="pl-2 flex-shrink-0">
                         <Link
-                            href="/#home"
+                            href="/"
                             className="text-xl font-bold text-foreground hover:text-brand-primary transition-colors"
                         >
                             {isMounted ? (

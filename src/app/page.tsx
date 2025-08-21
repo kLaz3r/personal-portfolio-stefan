@@ -62,6 +62,9 @@ const HeroSection = () => {
                         height={700}
                         src="/abominatie.svg"
                         alt="Why?"
+                        priority={true}
+                        quality={90}
+                        className="select-none"
                     ></Image>
                 </motion.div>
             </div>
@@ -158,6 +161,11 @@ const PhotosSection = () => {
                                     alt={photos[21].alt}
                                     width={photos[21].width}
                                     height={photos[21].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 ></Image>
                             </div>
                             <div className="flex flex-col gap-3 relative md:w-1/3">
@@ -168,6 +176,11 @@ const PhotosSection = () => {
                                         alt={photos[20].alt}
                                         width={photos[20].width}
                                         height={photos[20].height}
+                                        loading="lazy"
+                                        quality={85}
+                                        placeholder="blur"
+                                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                     ></Image>
                                 </div>
                                 <div className="h-full">
@@ -177,6 +190,11 @@ const PhotosSection = () => {
                                         alt={photos[17].alt}
                                         width={photos[17].width}
                                         height={photos[17].height}
+                                        loading="lazy"
+                                        quality={85}
+                                        placeholder="blur"
+                                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                        sizes="(max-width: 768px) 100vw, 50vw"
                                     ></Image>
                                 </div>
                             </div>
@@ -187,6 +205,11 @@ const PhotosSection = () => {
                                     alt={photos[15].alt}
                                     width={photos[15].width}
                                     height={photos[15].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 ></Image>
                             </div>
                         </div>
@@ -198,6 +221,11 @@ const PhotosSection = () => {
                                     alt={photos[5].alt}
                                     width={photos[5].width}
                                     height={photos[5].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="(max-width: 768px) 100vw, 67vw"
                                 ></Image>
                             </div>
                             <div className="md:block hidden md:w-1/3">
@@ -207,6 +235,11 @@ const PhotosSection = () => {
                                     alt={photos[3].alt}
                                     width={photos[3].width}
                                     height={photos[3].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 ></Image>
                             </div>
                         </div>
@@ -218,6 +251,11 @@ const PhotosSection = () => {
                                     alt={photos[15].alt}
                                     width={photos[15].width}
                                     height={photos[15].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="50vw"
                                 ></Image>
                             </div>
                             <div className="w-1/2">
@@ -227,6 +265,11 @@ const PhotosSection = () => {
                                     alt={photos[3].alt}
                                     width={photos[3].width}
                                     height={photos[3].height}
+                                    loading="lazy"
+                                    quality={85}
+                                    placeholder="blur"
+                                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                                    sizes="50vw"
                                 ></Image>
                             </div>
                         </div>
@@ -432,8 +475,13 @@ const AboutSection = () => {
                     >
                         <Image
                             src="/helo.jpg"
-                            alt="portrait"
+                            alt="Portrait of Stefan Nasturas"
                             fill
+                            loading="lazy"
+                            quality={85}
+                            placeholder="blur"
+                            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="object-cover rounded-2xl shadow-md shadow-brand-primary border-1 border-brand-primary"
                         ></Image>
                     </motion.div>

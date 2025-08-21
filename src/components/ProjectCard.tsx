@@ -15,11 +15,16 @@ const ProjectCard = (props: ProjectCardProps) => {
     return (
         <div className="bg-background-secondary/20 backdrop-blur-md min-h-70 w-80 p-5 rounded-2xl border shadow-lg shadow-brand-primary/20 border-brand-primary/50">
             <Image
-                className="pb-2 aspect-video"
-                alt={props.title}
+                className="pb-2 aspect-video rounded-lg"
+                alt={`${props.title} - Project Screenshot`}
                 src={props.imageUrl}
                 width={300}
                 height={200}
+                loading="lazy"
+                quality={85}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                sizes="320px"
             />
             <h1 className="font-italiana pb-1 text-5xl text-foreground">
                 {props.title}
