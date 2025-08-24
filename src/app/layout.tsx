@@ -159,6 +159,11 @@ export default function RootLayout({
                         ]),
                     }}
                 />
+                <script
+                    defer
+                    src="https://umami.stefann.duckdns.org/script.js"
+                    data-website-id="3569f73a-4882-49da-b305-604fdd3b1389"
+                />
             </head>
             <body className={`${sora.variable} antialiased`}>
                 <ThemeProvider>
