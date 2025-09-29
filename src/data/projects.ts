@@ -1,5 +1,13 @@
 export const projects = [
     {
+        title: "PhotoWeave",
+        description: "Automatic collage generator",
+        imageUrl: "/ss/photoweave.png",
+        tags: ["Next.js", "TypeScript", "Python Backend"],
+        liveUrl: "https://photoweave.vercel.app",
+        repoUrl: "https://github.com/photoweave/",
+    },
+    {
         title: "Nuvtra",
         description: "Where Thoughts Take Flight.",
         imageUrl: "/ss/nuvtra-ss.png",
@@ -14,13 +22,5 @@ export const projects = [
         tags: ["Next.js", "Emulator.js", "TailwindCSS"],
         liveUrl: "https://retroweb.stefannasturas.com",
         repoUrl: "https://github.com/kLaz3r/retroweb",
-    },
-    {
-        title: "TBA",
-        description: "Where will we go next?",
-        imageUrl: "/ss/placeholder.webp",
-        tags: ["Mystery"],
-        liveUrl: "https://stefannasturas.com",
-        repoUrl: "https://github.com/kLaz3r/",
     },
 ];
