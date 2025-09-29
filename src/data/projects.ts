@@ -11,7 +11,7 @@ export const projects = [
         title: "Retroweb",
         description: "Old games right in the browser",
         imageUrl: "/ss/retroweb-ss.png",
-        tags: ["Next.js", "Emulator.js", "WIP"],
+        tags: ["Next.js", "Emulator.js", "TailwindCSS"],
         liveUrl: "https://retroweb.stefannasturas.com",
         repoUrl: "https://github.com/kLaz3r/retroweb",
     },
