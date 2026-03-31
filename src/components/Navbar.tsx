@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import {
     HiBriefcase,
     HiCamera,
+    HiColorSwatch,
     HiHome,
     HiMenu,
     HiMoon,
@@ -53,8 +54,9 @@ const Navbar = () => {
 
     const navItems = [
         { name: "Home", href: "/#home", icon: HiHome },
-        { name: "Projects", href: "/#projects", icon: HiBriefcase },
-        { name: "Photos", href: "/#photos", icon: HiCamera },
+        { name: "Graphics", href: "/#graphics", icon: HiColorSwatch },
+        { name: "Web Dev", href: "/#webdev", icon: HiBriefcase },
+        { name: "Photography", href: "/#photos", icon: HiCamera },
         { name: "About", href: "/#about", icon: HiUser },
     ];
 
@@ -97,7 +99,7 @@ const Navbar = () => {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-foreground hover:text-brand-primary px-3 py-2 rounded-md text-xl font-sora transition-all duration-200 hover:underline"
+                                    className="text-foreground hover:text-brand-primary px-1 py-2 rounded-md text-xl font-sora transition-all duration-200 hover:underline"
                                 >
                                     {item.name}
                                 </Link>

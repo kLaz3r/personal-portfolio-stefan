@@ -4,10 +4,10 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="bg-background border-t-1 border-brand-primary/50 flex items-center justify-center py-8">
-            <div className="container flex flex-col-reverse gap-6 md:flex-row justify-between items-center">
+        <footer className="bg-background border-t border-brand-primary/50 flex items-center justify-center py-8 px-8">
+            <div className="container font-montserrat flex flex-col-reverse gap-6 md:flex-row justify-between items-center">
                 <p className="md:text-left text-center">
-                    ©Copyright 2025 Stefan Nasturas.
+                    © Copyright 2026 Stefan Nasturas.
                     <br />
                     All rights reserved.
                 </p>

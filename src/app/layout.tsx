@@ -1,20 +1,14 @@
 import type { Metadata } from "next";
-import { Italiana, Sora } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ScrollProgressBar from "../components/ScrollProgressBar";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import "./globals.css";
 
-const sora = Sora({
+const montserrat = Montserrat({
     subsets: ["latin"],
-    variable: "--font-sora",
-});
-
-const italiana = Italiana({
-    weight: ["400"],
-    subsets: ["latin"],
-    variable: "--font-italiana",
+    variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -165,7 +159,7 @@ export default function RootLayout({
                     data-website-id="3569f73a-4882-49da-b305-604fdd3b1389"
                 />
             </head>
-            <body className={`${sora.variable} antialiased`}>
+            <body className={`${montserrat.variable} antialiased`}>
                 <ThemeProvider>
                     <ScrollProgressBar />
                     <Navbar />

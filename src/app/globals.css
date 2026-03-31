@@ -17,8 +17,9 @@
     --color-background-secondary: var(--background-secondary);
     --color-background-tertiary: var(--background-tertiary);
 
-    --font-sora: "Sora", sans-serif;
-    --font-italiana: "Italiana", serif;
+    --font-sora: "Montserrat", sans-serif;
+    --font-italiana: "Montserrat", serif;
+    --font-montserrat: "Montserrat", serif;
 }
 
 /* Light theme (default) */

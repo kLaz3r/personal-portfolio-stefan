@@ -29,18 +29,23 @@ const HeroSection = () => {
                     }}
                     className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
                 >
-                    <h1 className="text-5xl/14 md:text-7xl/20 font-italiana">
+                    <h1 className="text-5xl/14 md:text-7xl/20 font-bold font-italiana">
                         Hi, I am{" "}
-                        <span className="text-brand-primary">Stefan</span>
-                        <br />
-                        Web Developer <br />& Designer
+                        <span className="text-brand-primary">Stefan,</span>
+                        <br />A Digital{" "}
+                        <span className="text-brand-primary underline">
+                            Craftsman
+                        </span>
                     </h1>
-                    <h2 className="font-sora text-xl mr-12 md:max-w-sm">
-                        I build beautiful and intuitive web applications from
-                        concept to deployment.
+                    <h2 className="font-sora text-xl mr-12 md:max-w-md">
+                        I solve <span className="font-bold">complex</span>{" "}
+                        problems, create{" "}
+                        <span className="font-bold">beautiful</span> graphics,
+                        and capture the <span className="font-bold">best</span>{" "}
+                        moments of life.
                     </h2>
                     <Link
-                        href="#projects"
+                        href="#webdev"
                         className="font-sora hover:bg-background hover:text-brand-primary border-2 hover:border-brand-primary active:scale-90 active:opacity-60 transition-all font-bold text-2xl px-6 py-4 bg-brand-primary text-background rounded-full"
                     >
                         View My Work
@@ -72,10 +77,10 @@ const HeroSection = () => {
     );
 };
 
-const ProjectsSection = () => {
+const WebDevSection = () => {
     return (
         <section
-            id="projects"
+            id="webdev"
             className="text-foreground overflow-clip bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
             <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -92,8 +97,8 @@ const ProjectsSection = () => {
                     }}
                     className="font-italiana pb-10 z-10 text-9xl"
                 >
-                    <h1 className="text-center pb-2 text-7xl/14 md:text-8xl/20">
-                        Projects
+                    <h1 className="text-center font-bold pb-2 text-7xl/14 md:text-8xl/20">
+                        Web Dev
                     </h1>
                     <h2 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
                         My best Work
@@ -312,7 +317,7 @@ const PhotosSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h1 className=" font-italiana text-6xl lg:text-7xl text-foreground mb-2">
+                                <h1 className=" font-italiana font-bold text-6xl lg:text-7xl text-foreground mb-2">
                                     Photography
                                 </h1>
                                 <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
@@ -342,7 +347,7 @@ const PhotosSection = () => {
 
                             <Link
                                 href="/gallery"
-                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-xl px-6 py-3 text-background max-w-5/8 rounded-full"
+                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-1/2 rounded-full"
                             >
                                 Photo Gallery
                             </Link>
@@ -382,7 +387,9 @@ const AboutSection = () => {
                     viewport={{ margin: "0px 0px 200px 0px" }}
                     className="xl:max-w-1/2"
                 >
-                    <h1 className="font-italiana text-7xl pb-4">About Me</h1>
+                    <h1 className="font-italiana text-7xl pb-8 font-bold">
+                        About Me
+                    </h1>
                     <p className="font-sora text-base text-justify">
                         Hey, I’m{" "}
                         <span className="font-sora font-bold text-brand-primary">
@@ -399,7 +406,8 @@ const AboutSection = () => {
                         <span className="font-sora font-bold text-brand-primary">
                             Windows
                         </span>{" "}
-                        run smoother. Eventually, I got curious about{" "}
+                        run smoother. <br />
+                        <br /> Eventually, I got curious about{" "}
                         <span className="font-sora font-bold text-brand-primary">
                             Linux
                         </span>{" "}
@@ -417,8 +425,8 @@ const AboutSection = () => {
                         <span className="font-sora font-bold text-brand-primary">
                             JavaScript
                         </span>
-                        , React, Next.js, and TypeScript. I also spent two years
-                        working in{" "}
+                        , React, Next.js, and TypeScript. <br />
+                        <br /> I also spent two years working in{" "}
                         <span className="font-sora font-bold">
                             graphic design and desktop publishing
                         </span>
@@ -431,8 +439,8 @@ const AboutSection = () => {
                         and{" "}
                         <span className="font-sora font-bold">CorelDRAW</span>.
                         I learned how to turn creative ideas into high-quality
-                        printed materials on all kinds of surfaces. I recently
-                        finished my{" "}
+                        printed materials on all kinds of surfaces. <br />
+                        <br /> I recently finished my{" "}
                         <span className="font-sora font-bold text-brand-primary">
                             Computer Science
                         </span>{" "}
@@ -495,7 +503,7 @@ export default function Home() {
     return (
         <div className="">
             <HeroSection />
-            <ProjectsSection />
+            <WebDevSection />
             <PhotosSection />
             <AboutSection />
         </div>
