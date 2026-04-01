@@ -1,5 +1,7 @@
 "use client";
 
+import CodeIcon from "@/components/CodeIcon";
+import SwatchIcon from "@/components/SwatchIcon";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -68,10 +70,106 @@ const HeroSection = () => {
                         src="/abominatie.svg"
                         alt="Creative illustration representing innovative web development and design solutions by Stefan Nasturas"
                         priority={true}
-                        quality={90}
+                        quality={75}
                         className="select-none"
                     ></Image>
                 </motion.div>
+            </div>
+        </section>
+    );
+};
+
+const GraphicsSection = () => {
+    return (
+        <section
+            id="graphics"
+            className="text-foreground overflow-clip bg-background relative min-h-screen -z-20 pt-20 pb-6 border-b-2 border-background-tertiary"
+        >
+            <div className="absolute flex -z-10 items-center justify-center inset-0 w-full h-full pointer-events-none">
+                <SwatchIcon
+                    width={200}
+                    height={290}
+                    className="absolute pointer-events-none"
+                    style={{
+                        color: "var(--background-tertiary)",
+                        transform: "scale(500%) translate(40%, -10%)",
+                    }}
+                />
+            </div>
+            <div className="container mx-auto flex w-full flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-5rem)] px-6 gap-12">
+                <div className="flex flex-col lg:flex-row items-start justify-center md:gap-18 gap-3 pb-6">
+                    <motion.div
+                        initial={{
+                            opacity: 0,
+                            scale: 0,
+                            x: -200,
+                            rotate: 90,
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                            rotate: 0,
+                        }}
+                        transition={{
+                            type: "spring",
+                            ease: "anticipate",
+                            duration: 1,
+                            staggerChildren: 0.5,
+                            delayChildren: 1,
+                        }}
+                        viewport={{ margin: "0px 0px 200px 0px" }}
+                        className="flex flex-col gap-3 w-full max-w-[700px]"
+                    >
+                        <div className="w-[600px] h-[600px] flex items-center justify-center bg-black">
+                            <h1 className="text-9xl font-bold">Mockups</h1>
+                        </div>
+                    </motion.div>
+
+                    <div className="lg:w-1/2 flex flex-col items-start justify-center flex-grow space-y-6 relative">
+                        <motion.div
+                            initial={{
+                                opacity: 0,
+                                scale: 0,
+                                x: 200,
+                                rotate: -90,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                scale: 1,
+                                x: 0,
+                                rotate: 0,
+                            }}
+                            transition={{
+                                type: "spring",
+                                ease: "anticipate",
+                                duration: 0.7,
+                                staggerChildren: 0.5,
+                                delayChildren: 1,
+                            }}
+                            viewport={{ margin: "0px 0px 200px 0px" }}
+                            className="flex gap-3 flex-col"
+                        >
+                            <div>
+                                <h1 className=" font-italiana font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                    Graphics
+                                </h1>
+                                <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
+                                    Branding and Design
+                                </h2>
+                            </div>
+
+                            <div className="flex items-center space-x-3"></div>
+
+                            <Link
+                                href="/graphics-gallery"
+                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-3/4 rounded-full"
+                            >
+                                Graphics Gallery
+                            </Link>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );
@@ -83,8 +181,16 @@ const WebDevSection = () => {
             id="webdev"
             className="text-foreground overflow-clip bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
-            <div className="absolute inset-0 w-full h-full pointer-events-none">
-                <HalftoneBg color="var(--background-tertiary)" />
+            <div className="absolute flex items-center justify-center inset-0 w-full h-full pointer-events-none">
+                <CodeIcon
+                    width={200}
+                    height={290}
+                    className="absolute pointer-events-none"
+                    style={{
+                        color: "var(--background-tertiary)",
+                        transform: "scale(1200%)",
+                    }}
+                />
             </div>
             <div className="container mx-auto flex flex-col items-center md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
@@ -101,7 +207,7 @@ const WebDevSection = () => {
                         Web Dev
                     </h1>
                     <h2 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
-                        My best Work
+                        Online Presence
                     </h2>
                 </motion.div>
                 <motion.div
@@ -167,7 +273,7 @@ const PhotosSection = () => {
                                     width={photos[21].width}
                                     height={photos[21].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -182,7 +288,7 @@ const PhotosSection = () => {
                                         width={photos[20].width}
                                         height={photos[20].height}
                                         loading="lazy"
-                                        quality={85}
+                                        quality={75}
                                         placeholder="blur"
                                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -196,7 +302,7 @@ const PhotosSection = () => {
                                         width={photos[17].width}
                                         height={photos[17].height}
                                         loading="lazy"
-                                        quality={85}
+                                        quality={75}
                                         placeholder="blur"
                                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -211,7 +317,7 @@ const PhotosSection = () => {
                                     width={photos[15].width}
                                     height={photos[15].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -227,7 +333,7 @@ const PhotosSection = () => {
                                     width={photos[5].width}
                                     height={photos[5].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="(max-width: 768px) 100vw, 67vw"
@@ -241,7 +347,7 @@ const PhotosSection = () => {
                                     width={photos[3].width}
                                     height={photos[3].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="(max-width: 768px) 100vw, 33vw"
@@ -257,7 +363,7 @@ const PhotosSection = () => {
                                     width={photos[15].width}
                                     height={photos[15].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="50vw"
@@ -271,7 +377,7 @@ const PhotosSection = () => {
                                     width={photos[3].width}
                                     height={photos[3].height}
                                     loading="lazy"
-                                    quality={85}
+                                    quality={75}
                                     placeholder="blur"
                                     blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                                     sizes="50vw"
@@ -321,7 +427,7 @@ const PhotosSection = () => {
                                     Photography
                                 </h1>
                                 <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
-                                    My passion
+                                    Capturing Life-shaped Light
                                 </h2>
                             </div>
 
@@ -486,7 +592,7 @@ const AboutSection = () => {
                             alt="Portrait of Stefan Nasturas"
                             fill
                             loading="lazy"
-                            quality={85}
+                            quality={75}
                             placeholder="blur"
                             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -503,6 +609,7 @@ export default function Home() {
     return (
         <div className="">
             <HeroSection />
+            <GraphicsSection />
             <WebDevSection />
             <PhotosSection />
             <AboutSection />

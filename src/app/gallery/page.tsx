@@ -19,7 +19,7 @@ import React from "react";
 
 function renderNextImage(
     { alt = "", title, sizes }: RenderImageProps,
-    { photo, width, height }: RenderImageContext
+    { photo, width, height }: RenderImageContext,
 ) {
     return (
         <motion.div
@@ -45,7 +45,7 @@ function renderNextImage(
                 title={title}
                 sizes={sizes}
                 loading="lazy"
-                quality={85}
+                quality={75}
                 placeholder={"blurDataURL" in photo ? "blur" : undefined}
             />
         </motion.div>
