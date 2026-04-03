@@ -26,7 +26,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                 sizes="320px"
             />
-            <h1 className="font-italiana font-bold pb-1 text-4xl text-foreground">
+            <h1 className="font-montserrat font-bold pb-1 text-4xl text-foreground">
                 {props.title}
             </h1>
             <h2 className="font-montserrat">{props.description}</h2>
@@ -42,7 +42,7 @@ const ProjectCard = (props: ProjectCardProps) => {
             })}
             <div className="flex pt-2 w-full items-center justify-between">
                 <a
-                    className="font-sora border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
+                    className="font-montserrat border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
                     href={props.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -50,7 +50,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                     Live Site
                 </a>
                 <a
-                    className="font-sora border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
+                    className="font-montserrat border border-brand-primary/50 text-foreground bg-background-secondary text-sm px-4 py-1.5 rounded-full hover:bg-brand-primary hover:text-background transition-colors cursor-pointer"
                     href={props.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"

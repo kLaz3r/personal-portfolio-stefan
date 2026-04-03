@@ -32,7 +32,7 @@ const HeroSection = () => {
                     }}
                     className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
                 >
-                    <h1 className="text-5xl/14 md:text-7xl/20 font-bold font-italiana">
+                    <h1 className="text-5xl/14 md:text-7xl/20 font-bold font-montserrat">
                         Hi, I am{" "}
                         <span className="text-brand-primary">Stefan,</span>
                         <br />A Digital{" "}
@@ -40,7 +40,7 @@ const HeroSection = () => {
                             Craftsman
                         </span>
                     </h1>
-                    <h2 className="font-sora text-xl mr-12 md:max-w-md">
+                    <h2 className="font-montserrat text-xl mr-12 md:max-w-md">
                         I solve <span className="font-bold">complex</span>{" "}
                         problems, create{" "}
                         <span className="font-bold">beautiful</span> graphics,
@@ -49,7 +49,7 @@ const HeroSection = () => {
                     </h2>
                     <Link
                         href="#webdev"
-                        className="font-sora hover:bg-background hover:text-brand-primary border-2 hover:border-brand-primary active:scale-90 active:opacity-60 transition-all font-bold text-2xl px-6 py-4 bg-brand-primary text-background rounded-full"
+                        className="font-montserrat hover:bg-background hover:text-brand-primary border-2 hover:border-brand-primary active:scale-90 active:opacity-60 transition-all font-bold text-2xl px-6 py-4 bg-brand-primary text-background rounded-full"
                     >
                         View My Work
                     </Link>
@@ -150,10 +150,10 @@ const GraphicsSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h1 className=" font-italiana font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h1 className=" font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
                                     Graphics
                                 </h1>
-                                <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
+                                <h2 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
                                     Branding and Design
                                 </h2>
                             </div>
@@ -162,7 +162,7 @@ const GraphicsSection = () => {
 
                             <Link
                                 href="/graphics-gallery"
-                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-3/4 rounded-full"
+                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-3/4 rounded-full"
                             >
                                 Graphics Gallery
                             </Link>
@@ -200,7 +200,7 @@ const WebDevSection = () => {
                         ease: "anticipate",
                         duration: 1,
                     }}
-                    className="font-italiana pb-10 z-10 text-9xl"
+                    className="font-montserrat pb-10 z-10 text-9xl"
                 >
                     <h1 className="text-center font-bold pb-2 text-7xl/14 md:text-8xl/20">
                         Web Dev
@@ -422,10 +422,10 @@ const PhotosSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h1 className=" font-italiana font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h1 className=" font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
                                     Photography
                                 </h1>
-                                <h2 className="font-sora text-2xl lg:text-3xl text-text-secondary">
+                                <h2 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
                                     Capturing Life-shaped Light
                                 </h2>
                             </div>
@@ -441,10 +441,10 @@ const PhotosSection = () => {
                                     />
                                 </div>
                                 <div>
-                                    <p className="font-sora font-semibold text-foreground">
+                                    <p className="font-montserrat font-semibold text-foreground">
                                         Sony A6000
                                     </p>
-                                    <p className="font-sora text-sm text-text-secondary">
+                                    <p className="font-montserrat text-sm text-text-secondary">
                                         w/ Various Lenses
                                     </p>
                                 </div>
@@ -452,7 +452,7 @@ const PhotosSection = () => {
 
                             <Link
                                 href="/gallery"
-                                className="font-sora bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-1/2 rounded-full"
+                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-1/2 rounded-full"
                             >
                                 Photo Gallery
                             </Link>
@@ -492,61 +492,61 @@ const AboutSection = () => {
                     viewport={{ margin: "0px 0px 200px 0px" }}
                     className="xl:max-w-1/2"
                 >
-                    <h1 className="font-italiana text-7xl pb-8 font-bold">
+                    <h1 className="font-montserrat text-7xl pb-8 font-bold">
                         About Me
                     </h1>
-                    <p className="font-sora text-base text-justify">
+                    <p className="font-montserrat text-base text-justify">
                         Hey, I’m{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Ștefan
                         </span>
                         , a 22-year-old from{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Bacău
                         </span>
                         , Romania. I’ve been into computers since I was 4, when
                         my dad first introduced me to them — and I’ve been
                         hooked ever since. I started out learning how to fix
                         problems, install programs, and make{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Windows
                         </span>{" "}
                         run smoother. <br />
                         <br /> Eventually, I got curious about{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Linux
                         </span>{" "}
                         and began using it as my daily OS, which opened up a
                         whole new world of learning. In high school, I got into
                         web development — starting with the basics like{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             HTML
                         </span>{" "}
                         and{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             CSS
                         </span>
                         , then moving on to{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             JavaScript
                         </span>
                         , React, Next.js, and TypeScript. <br />
                         <br /> I also spent two years working in{" "}
-                        <span className="font-sora font-bold">
+                        <span className="font-montserrat font-bold">
                             graphic design and desktop publishing
                         </span>
                         , where I got hands-on with tools like{" "}
-                        <span className="font-sora font-bold">Photoshop</span>,{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold">Photoshop</span>,{" "}
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Illustrator
                         </span>
-                        , <span className="font-sora font-bold">InDesign</span>,
+                        , <span className="font-montserrat font-bold">InDesign</span>,
                         and{" "}
-                        <span className="font-sora font-bold">CorelDRAW</span>.
+                        <span className="font-montserrat font-bold">CorelDRAW</span>.
                         I learned how to turn creative ideas into high-quality
                         printed materials on all kinds of surfaces. <br />
                         <br /> I recently finished my{" "}
-                        <span className="font-sora font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-brand-primary">
                             Computer Science
                         </span>{" "}
                         degree, and right now I’m focused on growing my skills,

@@ -25,14 +25,19 @@ npm start
 npm run lint
 ```
 
+**Note**: Dev server runs on `http://localhost:3000` by default
+
 ## Project Structure
 
 - `src/app/` - Next.js App Router structure (pages at page.tsx, global CSS at globals.css)
+  - `src/app/page.tsx` - Main landing page with all sections
+  - `src/app/gallery/page.tsx` - Full photo gallery with lightbox
 - `src/components/` - Reusable React components (all have relative imports to `../data` and `../contexts`)
 - `src/data/` - Static data files (projects.ts and automatically-generated photos.ts)
 - `src/contexts/` - React context providers (ThemeContext for dark/light mode)
 - `public/` - Static assets including images, SVGs, and mockup screenshots
 - `public/images/` - Source images for the photo gallery (for Python automation)
+- `public/mockups/` - Project showcase images and graphics carousel images
 
 ## Architecture Details
 
@@ -42,13 +47,15 @@ npm run lint
 - Image optimization disabled via `next.config.ts` (image optimization redirects disabled)
 - Custom allowed dev origin: `192.168.3.3` configured for local network testing
 - Path aliases: `@/*` maps to `./src/*` (can use `@/components/ComponentName`)
+- TypeScript config: strict mode enabled, ES2017 target, bundler module resolution
 
 ### Styling System
 
 - Tailwind CSS 4.2.2 with PostCSS handling compilation
 - Global styles in `src/app/globals.css` with CSS variables for fonts and halftone patterns
-- Montserrat font from Google Fonts loaded in layout.tsx
+- **Fonts**: Montserrat (Google Fonts) loaded in layout.tsx as CSS variable `--font-montserrat`
 - Native CSS transitions preferred over library animations for performance
+- **Color system**: CSS variables for brand-primary, background, background-tertiary, text-secondary, foreground
 
 ### Data Management
 
@@ -56,9 +63,9 @@ npm run lint
 ```typescript
 title: string
 description: string
-imageUrl: string (must be in /ss/ directory)
+imageUrl: string (must be in /mockups/ directory)
 tags: string[]
-liveUrl: string? 
+liveUrl: string?
 repoUrl: string?
 ```
 
@@ -75,9 +82,28 @@ repoUrl: string?
 
 - **Layout Components**: Footer, Navbar, ScrollProgressBar, RootLayout
 - **Project Showcase**: ProjectCard, ImageCarousel (together in carousel on homepage)
-- **Photo Gallery**: NextJsImageLightbox (wrapper for lightbox) 
+- **Photo Gallery**: NextJsImageLightbox (wrapper for lightbox)
 - **Icons**: Custom SVG icons in ApertureIcon, CodeIcon, QuestionMarkIcon, SwatchIcon
 - **Background**: HalftoneBg generates complex SVG patterns (do not modify lightly)
+
+### Animation Patterns
+
+All animations use the `motion` library with consistent patterns:
+- Spring transitions with `anticipate` or `easeInOut` easing
+- `viewport={{ once: false }}` for re-triggering animations on scroll
+- `whileInView` for scroll-triggered animations
+- Common transforms: opacity, scale, x/y translation, rotation
+- Staggered children for sequential animations
+- `active:scale-90` for button press feedback
+
+### Page Structure
+
+The main page (`src/app/page.tsx`) consists of these sections in order:
+1. **HeroSection** - Introduction with animated text and illustration
+2. **GraphicsSection** - Design work showcase with ImageCarousel
+3. **WebDevSection** - Project cards displaying web development work
+4. **PhotosSection** - Photography preview with masonry-style layout
+5. **AboutSection** - Personal bio with portrait image
 
 ## Automation: Photo Gallery
 
@@ -116,3 +142,5 @@ python generate-image-array.py
 - Props follow the type alias (`type Props = { ... }`) pattern
 - Components use arrow functions (e.g., `export const ComponentName = ({ prop }): JSX.Element => {`)
 - Image imports use Next.js built-in optimization (same domain only)
+- **Image optimization settings**: `quality={75}`, `loading="lazy"` (except priority images), `placeholder="blur"` with base64 data URLs
+- **Responsive images**: Use `sizes` prop for proper responsive image loading

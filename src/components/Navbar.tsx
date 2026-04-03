@@ -99,7 +99,7 @@ const Navbar = () => {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-foreground hover:text-brand-primary px-1 py-2 rounded-md text-xl font-sora transition-all duration-200 hover:underline"
+                                    className="text-foreground hover:text-brand-primary px-1 py-2 rounded-md text-xl font-montserrat transition-all duration-200 hover:underline"
                                 >
                                     {item.name}
                                 </Link>
@@ -169,7 +169,7 @@ const Navbar = () => {
                                 >
                                     <Link
                                         href={item.href}
-                                        className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-italiana transition-colors duration-200 flex items-center"
+                                        className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-montserrat transition-colors duration-200 flex items-center"
                                         onClick={() => setIsOpen(false)}
                                         scroll={true}
                                     >
