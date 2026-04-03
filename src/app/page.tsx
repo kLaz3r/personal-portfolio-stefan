@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ApertureIcon from "../components/ApertureIcon";
 import HalftoneBg from "../components/HalftoneBg";
+import ImageCarousel from "../components/ImageCarousel";
 import ProjectCard from "../components/ProjectCard";
 import QuestionMarkIcon from "../components/QuestionMarkIcon";
 import { photos } from "../data/photos";
@@ -18,7 +19,7 @@ const HeroSection = () => {
             id="home"
             className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
-            <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] bg-cover w-1/2 min-h-screen -z-50"></div>
+            <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
                     viewport={{ once: false }}
@@ -83,7 +84,7 @@ const GraphicsSection = () => {
     return (
         <section
             id="graphics"
-            className="text-foreground overflow-clip bg-background relative min-h-screen -z-20 pt-20 pb-6 border-b-2 border-background-tertiary"
+            className="text-foreground overflow-clip relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
             <div className="absolute flex -z-10 items-center justify-center inset-0 w-full h-full pointer-events-none">
                 <SwatchIcon
@@ -121,9 +122,51 @@ const GraphicsSection = () => {
                         viewport={{ margin: "0px 0px 200px 0px" }}
                         className="flex flex-col gap-3 w-full max-w-[700px]"
                     >
-                        <div className="w-[600px] h-[600px] flex items-center justify-center bg-black">
-                            <h1 className="text-9xl font-bold">Mockups</h1>
-                        </div>
+        <ImageCarousel
+          images={[
+            { src: "/mockups/agricola poster salam de sibiu premii.png", alt: "Agricola Poster Salam De Sibiu Premii", width: 2000, height: 2828 },
+            { src: "/mockups/artificii.png", alt: "Artificii", width: 2000, height: 2828 },
+            { src: "/mockups/Banner Biserica Narcisa Sfantul dumitru.png", alt: "Banner Biserica Narcisa Sfantul Dumitru", width: 2000, height: 2828 },
+            { src: "/mockups/Banner Erasmus 1.png", alt: "Banner Erasmus 1", width: 2000, height: 2828 },
+            { src: "/mockups/Banner Erasmus 2.png", alt: "Banner Erasmus 2", width: 2000, height: 2828 },
+            { src: "/mockups/Banner Erasmus 3.png", alt: "Banner Erasmus 3", width: 2000, height: 2828 },
+            { src: "/mockups/billboard kaufland fresh.png", alt: "Billboard Kaufland Fresh", width: 2000, height: 2828 },
+            { src: "/mockups/billboard kaufland gogosi 2.png", alt: "Billboard Kaufland Gogosi 2", width: 2000, height: 2828 },
+            { src: "/mockups/billboard kaufland gogosi.png", alt: "Billboard Kaufland Gogosi", width: 2000, height: 2828 },
+            { src: "/mockups/billboard salam de sibiu premii.png", alt: "Billboard Salam De Sibiu Premii", width: 2000, height: 2828 },
+            { src: "/mockups/calendar agricola 2025 1.png", alt: "Calendar Agricola 2025 1", width: 2000, height: 2828 },
+            { src: "/mockups/calendar agricola 2025 2.png", alt: "Calendar Agricola 2025 2", width: 2000, height: 2828 },
+            { src: "/mockups/calendar agricola 2025 3.png", alt: "Calendar Agricola 2025 3", width: 2000, height: 2828 },
+            { src: "/mockups/capra discover imobiliare.png", alt: "Capra Discover Imobiliare", width: 2000, height: 2828 },
+            { src: "/mockups/catalog agricola carne de pui 1.png", alt: "Catalog Agricola Carne De Pui 1", width: 2000, height: 2828 },
+            { src: "/mockups/catalog agricola carne de pui 2.png", alt: "Catalog Agricola Carne De Pui 2", width: 2000, height: 2828 },
+            { src: "/mockups/catalog agricola carne de pui 3.png", alt: "Catalog Agricola Carne De Pui 3", width: 2000, height: 2828 },
+            { src: "/mockups/e-lev banner 4.png", alt: "E Lev Banner 4", width: 2000, height: 2828 },
+            { src: "/mockups/flyer salam sibiu germania 1.png", alt: "Flyer Salam Sibiu Germania 1", width: 2000, height: 2828 },
+            { src: "/mockups/flyer salam sibiu germania 2.png", alt: "Flyer Salam Sibiu Germania 2", width: 2000, height: 2828 },
+            { src: "/mockups/magazin jina sibiului.png", alt: "Magazin Jina Sibiului", width: 2000, height: 2828 },
+            { src: "/mockups/meniu nunta 1.png", alt: "Meniu Nunta 1", width: 2000, height: 2828 },
+            { src: "/mockups/meniu nunta 2.png", alt: "Meniu Nunta 2", width: 2000, height: 2828 },
+            { src: "/mockups/meniu nunta 3.png", alt: "Meniu Nunta 3", width: 2000, height: 2828 },
+            { src: "/mockups/Mockup Salam de bacau.png", alt: "Mockup Salam De Bacau", width: 2000, height: 2828 },
+            { src: "/mockups/Mockup Snack2go Produse.png", alt: "Mockup Snack2Go Produse", width: 2000, height: 2828 },
+            { src: "/mockups/pliant all clean and clear 2.png", alt: "Pliant All Clean And Clear 2", width: 2000, height: 2828 },
+            { src: "/mockups/pliant all clean and clear.png", alt: "Pliant All Clean And Clear", width: 2000, height: 2828 },
+            { src: "/mockups/Promo reducere pui fericit grill selgros sorin.png", alt: "Promo Reducere Pui Fericit Grill Selgros Sorin", width: 2000, height: 2828 },
+            { src: "/mockups/Raport de sustenabilitate Agricola.png", alt: "Raport De Sustenabilitate Agricola", width: 2000, height: 2828 },
+            { src: "/mockups/rollup aeroport enescu business lounge 1.png", alt: "Rollup Aeroport Enescu Business Lounge 1", width: 2000, height: 2828 },
+            { src: "/mockups/rollup aeroport enescu business lounge 2.png", alt: "Rollup Aeroport Enescu Business Lounge 2", width: 2000, height: 2828 },
+            { src: "/mockups/Rollup AGR 1.png", alt: "Rollup Agr 1", width: 2000, height: 2828 },
+            { src: "/mockups/Rollup AGR 2.png", alt: "Rollup Agr 2", width: 2000, height: 2828 },
+            { src: "/mockups/Rollup AGR 3.png", alt: "Rollup Agr 3", width: 2000, height: 2828 },
+            { src: "/mockups/Rollup AGR 4.png", alt: "Rollup Agr 4", width: 2000, height: 2828 },
+            { src: "/mockups/rollup lory avon.png", alt: "Rollup Lory Avon", width: 2000, height: 2828 },
+            { src: "/mockups/rollup seby sax.png", alt: "Rollup Seby Sax", width: 2000, height: 2828 },
+            { src: "/mockups/spune nu obezitatii.png", alt: "Spune Nu Obezitatii", width: 2000, height: 2828 }
+          ]}
+          autoPlay={true}
+          interval={5000}
+        />
                     </motion.div>
 
                     <div className="lg:w-1/2 flex flex-col items-start justify-center flex-grow space-y-6 relative">
