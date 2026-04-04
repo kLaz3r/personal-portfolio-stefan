@@ -1,5 +1,6 @@
 "use client";
 
+import { BLUR_DATA_URL } from "@/lib/blur-data-url";
 import Image from "next/image";
 
 type ProjectCardProps = {
@@ -21,9 +22,9 @@ const ProjectCard = (props: ProjectCardProps) => {
                 width={300}
                 height={200}
                 loading="lazy"
-                quality={75}
+                quality={60}
                 placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
+                blurDataURL={BLUR_DATA_URL}
                 sizes="320px"
             />
             <h3 className="font-montserrat font-bold pb-1 text-4xl text-foreground">
