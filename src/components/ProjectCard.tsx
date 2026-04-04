@@ -26,9 +26,9 @@ const ProjectCard = (props: ProjectCardProps) => {
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwA/AB//2Q=="
                 sizes="320px"
             />
-            <h1 className="font-montserrat font-bold pb-1 text-4xl text-foreground">
+            <h3 className="font-montserrat font-bold pb-1 text-4xl text-foreground">
                 {props.title}
-            </h1>
+            </h3>
             <h2 className="font-montserrat">{props.description}</h2>
             {props.tags.map((tag) => {
                 return (

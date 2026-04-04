@@ -15,14 +15,14 @@ import { projects } from "../data/projects";
 
 const HeroSection = () => {
     return (
-        <section
+        <section aria-labelledby="home-heading"
             id="home"
             className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
             <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     initial={{ opacity: 0, scale: 0.6, x: -200 }}
                     whileInView={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{
@@ -32,7 +32,7 @@ const HeroSection = () => {
                     }}
                     className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
                 >
-                    <h1 className="text-5xl/14 md:text-7xl/20 font-bold font-montserrat">
+                    <h1 id="home-heading" className="text-5xl/14 md:text-7xl/20 font-bold font-montserrat">
                         Hi, I am{" "}
                         <span className="text-brand-primary">Stefan,</span>
                         <br />A Digital{" "}
@@ -55,7 +55,7 @@ const HeroSection = () => {
                     </Link>
                 </motion.div>
                 <motion.div
-                    viewport={{ once: false }}
+                    viewport={{ once: true }}
                     initial={{ opacity: 0, scale: 0.6, x: 200 }}
                     whileInView={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{
@@ -82,7 +82,7 @@ const HeroSection = () => {
 
 const GraphicsSection = () => {
     return (
-        <section
+        <section aria-labelledby="graphics-heading"
             id="graphics"
             className="text-foreground overflow-clip relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
@@ -150,12 +150,12 @@ const GraphicsSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h1 className=" font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h2 id="graphics-heading" className="font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
                                     Graphics
-                                </h1>
-                                <h2 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
-                                    Branding and Design
                                 </h2>
+                                <h3 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
+                                    Branding and Design
+                                </h3>
                             </div>
 
                             <div className="flex items-center space-x-3"></div>
@@ -176,7 +176,7 @@ const GraphicsSection = () => {
 
 const WebDevSection = () => {
     return (
-        <section
+        <section aria-labelledby="webdev-heading"
             id="webdev"
             className="text-foreground overflow-clip bg-background relative min-h-screen pt-20 pb-6 border-b-2 border-background-tertiary"
         >
@@ -202,12 +202,12 @@ const WebDevSection = () => {
                     }}
                     className="font-montserrat pb-10 z-10 text-9xl"
                 >
-                    <h1 className="text-center font-bold pb-2 text-7xl/14 md:text-8xl/20">
+                    <h2 id="webdev-heading" className="text-center font-bold pb-2 text-7xl/14 md:text-8xl/20">
                         Web Dev
-                    </h1>
-                    <h2 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
-                        Online Presence
                     </h2>
+                    <h3 className="text-center text-3xl/10 pb-6 md:text-4xl/14">
+                        Online Presence
+                    </h3>
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, scale: 0.6, y: 200 }}
@@ -234,7 +234,7 @@ const WebDevSection = () => {
 
 const PhotosSection = () => {
     return (
-        <section
+        <section aria-labelledby="photos-heading"
             id="photos"
             className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
@@ -422,12 +422,12 @@ const PhotosSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h1 className=" font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h2 id="photos-heading" className="font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
                                     Photography
-                                </h1>
-                                <h2 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
-                                    Capturing Life-shaped Light
                                 </h2>
+                                <h3 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
+                                    Capturing Life-shaped Light
+                                </h3>
                             </div>
 
                             <div className="flex items-center space-x-3">
@@ -466,7 +466,7 @@ const PhotosSection = () => {
 
 const AboutSection = () => {
     return (
-        <section
+        <section aria-labelledby="about-heading"
             id="about"
             className="text-foreground overflow-clip relative min-h-screen pt-20 pb-12 border-b-2 border-background-tertiary"
         >
@@ -492,9 +492,9 @@ const AboutSection = () => {
                     viewport={{ margin: "0px 0px 200px 0px" }}
                     className="xl:max-w-1/2"
                 >
-                    <h1 className="font-montserrat text-7xl pb-8 font-bold">
+                    <h2 id="about-heading" className="font-montserrat text-7xl pb-8 font-bold">
                         About Me
-                    </h1>
+                    </h2>
                     <p className="font-montserrat text-base text-justify">
                         Hey, I’m{" "}
                         <span className="font-montserrat font-bold text-brand-primary">

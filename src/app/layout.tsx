@@ -81,6 +81,8 @@ export default function RootLayout({
                     content="StefanWebDev"
                 />
                 <link rel="canonical" href="https://stefan-nasturas.dev" />
+    <link rel="preconnect" href="https://umami.stefann.duckdns.org" />
+    <link rel="dns-prefetch" href="https://umami.stefann.duckdns.org" />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -160,10 +162,16 @@ export default function RootLayout({
                 />
             </head>
             <body className={`${montserrat.variable} antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-primary focus:text-background focus:rounded-md focus:font-bold"
+        >
+          Skip to main content
+        </a>
                 <ThemeProvider>
                     <ScrollProgressBar />
                     <Navbar />
-                    {children}
+                    <main id="main-content">{children}</main>
                     <Footer />
                 </ThemeProvider>
             </body>

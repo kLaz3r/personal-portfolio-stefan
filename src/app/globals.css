@@ -1,57 +1,89 @@
 @import "tailwindcss";
 
 :root {
-    --background: #fff;
-    --foreground: #101010;
-    --brand-primary: #e96500;
-    --text-secondary: #141414;
-    --background-secondary: #fcfcfc;
-    --background-tertiary: #eeeeee;
+--background: #fff;
+--foreground: #101010;
+--brand-primary: #e96500;
+--text-secondary: #141414;
+--background-secondary: #fcfcfc;
+--background-tertiary: #eeeeee;
 }
 
 @theme inline {
-    --color-background: var(--background);
-    --color-foreground: var(--foreground);
-    --color-brand-primary: var(--brand-primary);
-    --color-text-secondary: var(--text-secondary);
-    --color-background-secondary: var(--background-secondary);
-    --color-background-tertiary: var(--background-tertiary);
+--color-background: var(--background);
+--color-foreground: var(--foreground);
+--color-brand-primary: var(--brand-primary);
+--color-text-secondary: var(--text-secondary);
+--color-background-secondary: var(--background-secondary);
+--color-background-tertiary: var(--background-tertiary);
 
-    --font-montserrat: "Montserrat", sans-serif;
+--font-montserrat: "Montserrat", sans-serif;
 }
 
 /* Light theme (default) */
 .light {
-    --background: #ffffff;
-    --foreground: #101010;
-    --brand-primary: #e96500;
-    --text-secondary: #141414;
-    --background-secondary: #fcfcfc;
-    --background-tertiary: #eeeeee;
+--background: #ffffff;
+--foreground: #101010;
+--brand-primary: #e96500;
+--text-secondary: #141414;
+--background-secondary: #fcfcfc;
+--background-tertiary: #eeeeee;
 }
 
 /* Dark theme */
 .dark {
-    --background: #101010;
-    --foreground: #ebebeb;
-    --brand-primary: #ff8b33;
-    --text-secondary: #c8c8c8;
-    --background-secondary: #141414;
-    --background-tertiary: #222222;
+--background: #101010;
+--foreground: #ebebeb;
+--brand-primary: #ff8b33;
+--text-secondary: #c8c8c8;
+--background-secondary: #141414;
+--background-tertiary: #222222;
 }
 
 body {
-    background: var(--background);
-    color: var(--foreground);
-    font-family: "Montserrat", Helvetica, sans-serif;
+background: var(--background);
+color: var(--foreground);
+font-family: "Montserrat", Helvetica, sans-serif;
 }
 
 html {
-    @apply scroll-smooth;
-    scroll-behavior: smooth !important;
-    scrollbar-width: none; /* Firefox */
+@apply scroll-smooth;
+scroll-behavior: smooth !important;
+scrollbar-width: none; /* Firefox */
 }
 
 html::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+display: none; /* Safari and Chrome */
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+outline: 3px solid var(--brand-primary);
+outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+outline: none;
+}
+
+/* Ensure interactive elements have visible focus */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+outline: 3px solid var(--brand-primary);
+outline-offset: 2px;
+border-radius: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+scroll-behavior: auto !important;
+}
 }
