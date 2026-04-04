@@ -133,7 +133,7 @@ src={images[currentIndex].src}
 alt={images[currentIndex].alt}
 fill
 loading="lazy"
-quality={80}
+quality={75}
 className="object-cover"
 sizes="(max-width: 768px) 80vw, 600px"
 />

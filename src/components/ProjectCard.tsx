@@ -22,7 +22,7 @@ const ProjectCard = (props: ProjectCardProps) => {
                 width={300}
                 height={200}
                 loading="lazy"
-                quality={60}
+                quality={75}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
                 sizes="320px"

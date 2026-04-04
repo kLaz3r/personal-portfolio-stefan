@@ -72,7 +72,7 @@ const HeroSection = () => {
                         src="/abominatie.svg"
                         alt="Creative illustration representing innovative web development and design solutions by Stefan Nasturas"
                         priority={true}
-                        quality={90}
+                        quality={75}
                         className="select-none"
                     ></Image>
                 </motion.div>
@@ -592,7 +592,7 @@ const AboutSection = () => {
                             alt="Portrait of Stefan Nasturas"
                             fill
                             loading="lazy"
-                            quality={85}
+                            quality={75}
                             placeholder="blur"
                             blurDataURL={BLUR_DATA_URL}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
