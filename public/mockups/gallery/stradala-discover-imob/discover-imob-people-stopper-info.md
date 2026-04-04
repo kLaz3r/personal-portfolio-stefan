@@ -1,0 +1,1 @@
+Discover Imobiliare, People Stopper Design 500x700mm. Tools used: CorelDRAW.

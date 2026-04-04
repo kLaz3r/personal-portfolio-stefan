@@ -1,0 +1,1 @@
+Kaufland Billboard Design For fresh vegetables and donuts. 3000x1000mm Dimensions. Tools used: CorelDRAW, Google AI Studio, Topaz Gigapixel AI, Roland Versaworks.

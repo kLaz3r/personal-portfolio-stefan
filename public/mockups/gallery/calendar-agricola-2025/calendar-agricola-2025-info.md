@@ -1,0 +1,1 @@
+210x120mm Office Calendar Design for Agricola Corporate. Tools used: CorelDRAW, Adobe Photoshop.

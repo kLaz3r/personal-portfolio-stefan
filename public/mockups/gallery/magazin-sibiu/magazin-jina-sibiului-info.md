@@ -1,0 +1,1 @@
+Jina Sibiului Shop Header Design 1000x2400mm. Tools used: CorelDRAW, Nano Banana, Topaz Gigapixel AI.

@@ -1,0 +1,1 @@
+Flyer Salam de Sibiu Agricola German version A5 210x148mm. Tools used: Adobe Photoshop.

@@ -1,0 +1,1 @@
+A2 594x420 Poster Design Agricola Salam de Sibiu. Tools used: Adobe Photoshop.

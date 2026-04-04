@@ -1,0 +1,1 @@
+Promo Poster Design Agricola Discount Poultry A3 297x420mm. Tools used: Adobe Photoshop.

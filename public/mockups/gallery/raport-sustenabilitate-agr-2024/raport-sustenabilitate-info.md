@@ -1,0 +1,1 @@
+Sustainability Report Agricola 2024 Digital Publication Design. Tools used: Adobe InDesign, Adobe Illustrator, Adobe Photoshop.

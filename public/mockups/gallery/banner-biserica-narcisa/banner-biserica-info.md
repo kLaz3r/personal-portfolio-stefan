@@ -1,0 +1,1 @@
+Info Banner for Narcisa Church Bacau. 4500x1300mm Banner with reinforcements and loopholes. Tools used: CorelDRAW, Roland Versaworks, Topaz Gigapixel AI

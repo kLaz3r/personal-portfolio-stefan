@@ -1,0 +1,1 @@
+Salam de Bacau Label Design and Mockups. Tools used: Adobe Illustrator, Adobe Photoshop.

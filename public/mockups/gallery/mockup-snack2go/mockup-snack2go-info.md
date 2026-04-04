@@ -1,0 +1,1 @@
+Snack2Go Agricola Product Label Design and Mockups. Tools used: Adobe Illustrator, Adobe Photoshop.

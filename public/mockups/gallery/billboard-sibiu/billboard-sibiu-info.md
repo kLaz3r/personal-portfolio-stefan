@@ -1,0 +1,1 @@
+Billboard Design Salam De Sibiu Agricola. 1500x2000mm Dimensions. Tools used: Adobe Illustrator, Adobe Photoshop. 

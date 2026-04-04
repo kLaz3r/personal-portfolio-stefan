@@ -1,0 +1,1 @@
+4000x1000mm Banner for Erasmus+ E-Lev E-Learning Program. Tools used: CorelDRAW, Roland Versaworks.
