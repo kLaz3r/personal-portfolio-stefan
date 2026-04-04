@@ -31,7 +31,7 @@ const HeroSection = () => {
                         ease: "anticipate",
                         duration: 0.7,
                     }}
-                    className="flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
+                    className="will-change-transform will-change-opacity flex px-6 py-6 w-full gap-6 flex-col items-start justify-start"
                 >
                     <h1 id="home-heading" className="text-5xl/14 md:text-7xl/20 font-bold font-montserrat">
                         Hi, I am{" "}
@@ -64,7 +64,7 @@ const HeroSection = () => {
                         ease: "easeInOut",
                         duration: 1.5,
                     }}
-                    className="px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
+                    className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
                 >
                     <Image
                         width={500}
@@ -498,37 +498,37 @@ const AboutSection = () => {
                     </h2>
                     <p className="font-montserrat text-base text-justify">
                         Hey, I’m{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Ștefan
                         </span>
                         , a 22-year-old from{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Bacău
                         </span>
                         , Romania. I’ve been into computers since I was 4, when
                         my dad first introduced me to them — and I’ve been
                         hooked ever since. I started out learning how to fix
                         problems, install programs, and make{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Windows
                         </span>{" "}
                         run smoother. <br />
                         <br /> Eventually, I got curious about{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Linux
                         </span>{" "}
                         and began using it as my daily OS, which opened up a
                         whole new world of learning. In high school, I got into
                         web development — starting with the basics like{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             HTML
                         </span>{" "}
                         and{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             CSS
                         </span>
                         , then moving on to{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             JavaScript
                         </span>
                         , React, Next.js, and TypeScript. <br />
@@ -538,7 +538,7 @@ const AboutSection = () => {
                         </span>
                         , where I got hands-on with tools like{" "}
                         <span className="font-montserrat font-bold">Photoshop</span>,{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Illustrator
                         </span>
                         , <span className="font-montserrat font-bold">InDesign</span>,
@@ -547,7 +547,7 @@ const AboutSection = () => {
                         I learned how to turn creative ideas into high-quality
                         printed materials on all kinds of surfaces. <br />
                         <br /> I recently finished my{" "}
-                        <span className="font-montserrat font-bold text-brand-primary">
+                        <span className="font-montserrat font-bold text-foreground">
                             Computer Science
                         </span>{" "}
                         degree, and right now I’m focused on growing my skills,

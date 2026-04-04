@@ -87,3 +87,18 @@ transition-duration: 0.01ms !important;
 scroll-behavior: auto !important;
 }
 }
+
+/* Performance: will-change hints for animated elements */
+.will-change-transform {
+will-change: transform;
+}
+
+.will-change-opacity {
+will-change: opacity;
+}
+
+/* Hardware acceleration for fixed elements */
+.gpu-accelerated {
+transform: translateZ(0);
+backface-visibility: hidden;
+}

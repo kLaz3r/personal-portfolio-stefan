@@ -107,7 +107,7 @@ setIsOpen(!isOpen);
 };
 
 return (
-<nav className="fixed w-screen top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-md border-b border-brand-primary/50">
+<nav className="gpu-accelerated fixed w-screen top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-md border-b border-brand-primary/50">
 <div className="container mx-auto w-screen">
 <div className="flex px-4 justify-between items-center h-16 md:h-20">
 {/* Logo/Brand */}
