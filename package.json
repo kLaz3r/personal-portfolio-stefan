@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "tsx scripts/generate-graphics-data.ts",
     "dev": "next dev --turbopack",
+    "prebuild": "tsx scripts/generate-graphics-data.ts",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-graphics": "tsx scripts/generate-graphics-data.ts"
   },
   "dependencies": {
     "motion": "^12.38.0",
@@ -25,7 +28,9 @@
     "@types/react-dom": "^19.2.3",
     "eslint": "^10.1.0",
     "eslint-config-next": "16.2.1",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   }
 }
