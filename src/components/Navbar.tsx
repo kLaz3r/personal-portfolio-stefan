@@ -203,7 +203,7 @@ animate={{ opacity: 1, height: "auto" }}
 exit={{ opacity: 0, height: 0 }}
 transition={{ duration: 0.3, ease: "easeInOut" }}
 >
-<div className="px-2 pt-2 pb-3 flex flex-col justify-center items-start space-y-1 sm:px-3 border-t border-foreground/10">
+<div className="px-2 pt-2 flex flex-col justify-center items-start sm:px-3 border-t border-foreground/10">
 {navItems.map((item, index) => (
 <motion.div
 key={item.name}
@@ -217,11 +217,11 @@ delay: index * 0.1,
 <Link
 ref={index === 0 ? firstFocusableRef : undefined}
 href={item.href}
-className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-6 rounded-md text-7xl font-montserrat transition-colors duration-200 flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
+className="text-foreground hover:text-brand-primary hover:bg-foreground/5 px-3 py-3 rounded-md text-4xl font-montserrat transition-colors duration-200 flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
 onClick={() => setIsOpen(false)}
 scroll={true}
 >
-<item.icon className="mr-3 h-20 w-20" aria-hidden="true" />
+<item.icon className="mr-3 h-14 w-14" aria-hidden="true" />
 {item.name}
 </Link>
 </motion.div>

@@ -92,13 +92,13 @@ export default function ImageCarousel({
   };
 
   const sizeClasses = {
-    default: 'w-[85vh] h-[85vh] max-w-[630px] max-h-[630px]',
+  default: 'w-full h-[400px] md:h-[500px] max-w-[550px] md:max-w-[600px] lg:w-[85vh] lg:h-[85vh] lg:max-w-[630px] lg:max-h-[630px] ',
     card: 'w-full h-full',
     modal: 'w-full h-[60vh] max-h-[500px]'
   };
 
   const sizes = {
-    default: "(max-width: 768px) 80vw, 600px",
+  default: "(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 630px",
     card: "(max-width: 768px) 100vw, 400px",
     modal: "(max-width: 1024px) 100vw, 600px"
   };

@@ -122,7 +122,7 @@ const GraphicsSection = () => {
                             delayChildren: 1,
                         }}
                         viewport={{ margin: "0px 0px 200px 0px" }}
-                        className="flex flex-col gap-3 w-full max-w-[700px]"
+                        className="flex flex-col gap-3 w-full min-w-[350px] md:min-w-[550px] lg:max-w-[700px]"
                     >
         <ImageCarousel images={[{ src: "/mockups/carousel/agricola poster salam de sibiu premii.png", alt: "Agricola Poster Design", width: 2000, height: 2828 }, { src: "/mockups/carousel/billboard kaufland gogosi.png", alt: "Kaufland Gogosi Billboard", width: 2000, height: 2828 }, { src: "/mockups/carousel/calendar agricola 2025 3.png", alt: "Agricola 2025 Calendar", width: 2000, height: 2828 }, { src: "/mockups/carousel/flyer salam sibiu germania 1.png", alt: "Germania Salam Flyer", width: 2000, height: 2828 }, { src: "/mockups/carousel/Mockup Snack2go Produse.png", alt: "Snack2Go Products", width: 2000, height: 2828 }, { src: "/mockups/carousel/Promo reducere pui fericit grill selgros sorin.png", alt: "Selgros Promo Banner", width: 2000, height: 2828 }, { src: "/mockups/carousel/Raport de sustenabilitate Agricola.png", alt: "Agricola Sustainability Report", width: 2000, height: 2828 }, { src: "/mockups/carousel/rollup aeroport enescu business lounge 2.png", alt: "Business Lounge Rollup", width: 2000, height: 2828 }, { src: "/mockups/carousel/Rollup AGR 1.png", alt: "Agricola Rollup", width: 2000, height: 2828 }, { src: "/mockups/carousel/rollup seby sax.png", alt: "Seby Sax Rollup", width: 2000, height: 2828 }, { src: "/mockups/carousel/spune nu obezitatii.png", alt: "Health Campaign Banner", width: 2000, height: 2828 }]} autoPlay={true} interval={5000} />
                     </motion.div>
@@ -152,10 +152,10 @@ const GraphicsSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h2 id="graphics-heading" className="font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h2 id="graphics-heading" className="font-montserrat font-bold pt-4 md:pt-0 text-5xl md:text-6xl lg:text-7xl text-foreground mb-2">
                                     Graphics
                                 </h2>
-                                <h3 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
+                                <h3 className="font-montserrat text-xl md:text-2xl lg:text-3xl text-text-secondary">
                                     Branding and Design
                                 </h3>
                             </div>
@@ -165,7 +165,7 @@ const GraphicsSection = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ margin: "0px 0px 200px 0px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="flex gap-4 md:gap-5 items-center justify-center lg:justify-start py-4"
+          className="flex gap-3 md:gap-4 lg:gap-5 items-center justify-center lg:justify-start py-4"
           role="list"
           aria-label="Design tools used"
         >
@@ -181,20 +181,20 @@ const GraphicsSection = () => {
                 damping: 20,
                 delay: 0.3 + ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'CorelDRAW'].indexOf(tool) * 0.1
               }}
-              className="w-[72px] h-[72px] bg-brand-primary/10 rounded-full flex items-center justify-center border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-brand-primary/15 transition-colors duration-200"
+              className="w-16 h-16 md:w-20 md:h-20 lg:w-[72px] lg:h-[72px] bg-brand-primary/10 rounded-full flex items-center justify-center border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-brand-primary/15 transition-colors duration-200 flex-shrink-0"
               role="listitem"
               aria-label={tool}
             >
-              <ToolIcon toolName={tool} className="w-11 h-11 text-brand-primary" />
+              <ToolIcon toolName={tool} className="w-9 h-9 md:w-10 md:h-10 lg:w-11 lg:h-11 text-brand-primary" />
             </motion.div>
           ))}
         </motion.div>
 
                             <Link
                                 href="/graphics-gallery"
-                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-3/4 rounded-full"
+                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-xl md:text-2xl px-4 py-3 text-background rounded-full"
                             >
-                                Graphics Gallery
+                                See More
                             </Link>
                         </motion.div>
                     </div>
@@ -452,10 +452,10 @@ const PhotosSection = () => {
                             className="flex gap-3 flex-col"
                         >
                             <div>
-                                <h2 id="photos-heading" className="font-montserrat font-bold text-6xl lg:text-7xl text-foreground mb-2">
+                                <h2 id="photos-heading" className="font-montserrat font-bold text-5xl lg:text-7xl text-foreground mb-2">
                                     Photography
                                 </h2>
-                                <h3 className="font-montserrat text-2xl lg:text-3xl text-text-secondary">
+                                <h3 className="font-montserrat text-xl md:text-2xl lg:text-3xl text-text-secondary">
                                     Capturing Life-shaped Light
                                 </h3>
                             </div>
@@ -482,7 +482,7 @@ const PhotosSection = () => {
 
                             <Link
                                 href="/gallery"
-                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-2xl px-4 py-3 text-background max-w-1/2 rounded-full"
+                                className="font-montserrat bg-brand-primary hover:bg-background hover:text-brand-primary text-center border-2 border-brand-primary hover:border-brand-primary active:opacity-60 transition-all active:scale-90 font-bold text-xl px-4 py-3 text-background md:max-w-1/2 md:text-2xl rounded-full"
                             >
                                 Photo Gallery
                             </Link>
