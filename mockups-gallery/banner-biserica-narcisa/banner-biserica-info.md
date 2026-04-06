@@ -14,5 +14,3 @@ Large format outdoor banner featuring Orthodox Christian iconography of Saint Du
 ## Tools Used
 
 - CorelDRAW (Design & Layout)
-- Roland Versaworks (Print Management)
-- Topaz Gigapixel AI (Image Upscaling/Enhancement)

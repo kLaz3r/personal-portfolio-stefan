@@ -19,4 +19,3 @@ The banners incorporate professional educational branding with modern design ele
 ## Tools Used
 
 - CorelDRAW (Design & Layout)
-- Roland Versaworks (Print Management)

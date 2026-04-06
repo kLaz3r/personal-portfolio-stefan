@@ -54,7 +54,12 @@ function parseMarkdown(content: string, folderName: string): Partial<GraphicsPro
   const lines = content.split('\n');
   const project: Partial<GraphicsProject> = {
     id: folderName,
-    tools: []
+    tools: [],
+    dimensions: 'Various sizes', // Default value
+    client: 'Various clients', // Default value
+    type: 'Design Project', // Default value
+    finish: 'Professional finish', // Default value
+    title: folderName // Default value
   };
 
   let currentSection = '';

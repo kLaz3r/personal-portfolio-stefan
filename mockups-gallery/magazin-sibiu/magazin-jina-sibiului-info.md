@@ -14,5 +14,3 @@ Large format shop header design for Jina Sibiului retail store. The design serve
 ## Tools Used
 
 - CorelDRAW (Design & Layout)
-- Nano Banana (Design tool)
-- Topaz Gigapixel AI (Image Upscaling/Enhancement)

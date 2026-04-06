@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { GraphicsProject } from '@/data/graphics-projects';
 import ImageCarousel from './ImageCarousel';
 import { HiX } from 'react-icons/hi';
+import ToolIcon from './ToolIcon';
 
 interface GraphicsProjectModalProps {
   project: GraphicsProject | null;
@@ -147,14 +148,16 @@ export default function GraphicsProjectModal({ project, onClose }: GraphicsProje
                   <h3 className="text-sm font-semibold text-foreground-secondary uppercase mb-2">
                     Tools Used
                   </h3>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-3">
                     {project.tools.map((tool, index) => (
-                      <span
+                      <div
                         key={index}
-                        className="px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm"
+                        className="flex items-center gap-2 px-3 py-2 bg-brand-primary/10 rounded-lg"
+                        title={tool}
                       >
-                        {tool}
-                      </span>
+                        <ToolIcon toolName={tool} className="w-5 h-5 text-brand-primary" />
+                        <span className="text-sm text-brand-primary">{tool}</span>
+                      </div>
                     ))}
                   </div>
                 </motion.div>

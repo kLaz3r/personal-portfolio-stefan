@@ -26,10 +26,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe InDesign",
       "Adobe Photoshop"
     ],
-    "title": "Agricola Chicken Meat Product Catalog",
+    "dimensions": "Various sizes",
     "client": "Agricola",
     "type": "Product Catalog",
     "finish": "Professional multi-page catalog with product photography",
+    "title": "Agricola Chicken Meat Product Catalog",
     "description": "Comprehensive product catalog design showcasing Agricola's chicken meat product line. The catalog features professional food photography of various chicken meat products, with detailed product information, pricing, and promotional content. The design maintains Agricola's corporate branding while emphasizing product quality and freshness. Multiple spreads highlight different product categories including fresh chicken cuts, processed chicken products, and specialty items.",
     "images": [
       {
@@ -61,11 +62,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "CorelDRAW",
       "Adobe Photoshop"
     ],
-    "title": "Agricola Corporate Calendar 2025",
+    "dimensions": "210 x 120 mm",
     "client": "Agricola",
     "type": "Office Desk Calendar",
-    "dimensions": "210 x 120 mm",
     "finish": "Professional corporate calendar with monthly layouts",
+    "title": "Agricola Corporate Calendar 2025",
     "description": "Corporate desk calendar design for Agricola company for the year 2025. The calendar features modern corporate design with Agricola branding, showcasing various product lines throughout the months. The design incorporates professional food photography and clean typography suitable for office display. Multiple variations were created featuring different Agricola products and promotional content across the monthly pages.",
     "images": [
       {
@@ -96,11 +97,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "Adobe Photoshop"
     ],
-    "title": "Agricola Poultry Promotion Poster",
+    "dimensions": "A3 (297 x 420 mm)",
     "client": "Agricola",
     "type": "Promotional Poster",
-    "dimensions": "A3 (297 x 420 mm)",
     "finish": "Professional promotional poster for discount campaign",
+    "title": "Agricola Poultry Promotion Poster",
     "description": "Promotional poster design for Agricola's poultry discount campaign. The poster features discounted pricing and promotional messaging for chicken products, designed to attract customers with clear call-to-action elements. The layout emphasizes savings while maintaining Agricola's brand identity. The A3 size is ideal for in-store displays, window promotions, and countertop placement to drive sales during the promotional period.",
     "images": [
       {
@@ -118,11 +119,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe Photoshop",
       "Adobe Illustrator"
     ],
-    "title": "Agricola Promotional Rollup Collection",
+    "dimensions": "850 x 2000 mm (portrait)",
     "client": "Agricola",
     "type": "Promotional Rollup Banner Series",
-    "dimensions": "850 x 2000 mm (portrait)",
     "finish": "Professional rollup with stand",
+    "title": "Agricola Promotional Rollup Collection",
     "description": "Collection of promotional rollup banner designs for Agricola's product lines. The series features multiple design variations showcasing different Agricola products and promotional campaigns. Each rollup maintains consistent brand identity while highlighting specific product offerings. The large vertical format ensures high visibility at trade shows, retail locations, and promotional events. Multiple design variations allow for flexible marketing across different product categories.",
     "images": [
       {
@@ -161,11 +162,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe Illustrator",
       "Adobe Photoshop"
     ],
-    "title": "Agricola Salam de Sibiu - Awards Billboard",
+    "dimensions": "1500 x 2000 mm",
     "client": "Agricola",
     "type": "Outdoor Billboard",
-    "dimensions": "1500 x 2000 mm",
     "finish": "Large format print suitable for outdoor display",
+    "title": "Agricola Salam de Sibiu - Awards Billboard",
     "description": "Promotional billboard design for Agricola's Salam de Sibiu product line, showcasing the brand's awards and achievements. The design emphasizes product quality and heritage through prominent display of awards (premii) and traditional branding elements. This billboard campaign highlights Agricola's commitment to quality and their recognized excellence in producing traditional Romanian salami.",
     "images": [
       {
@@ -182,11 +183,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "Adobe Photoshop"
     ],
-    "title": "Agricola Salam de Sibiu - Awards Poster",
+    "dimensions": "A2 (594 x 420 mm)",
     "client": "Agricola",
     "type": "Poster Design",
-    "dimensions": "A2 (594 x 420 mm)",
     "finish": "Professional print-ready poster",
+    "title": "Agricola Salam de Sibiu - Awards Poster",
     "description": "A2 poster design promoting Agricola's Salam de Sibiu product line with awards/qualifications showcase. The poster highlights the product's recognized quality and accolades, using professional typography and visual hierarchy to draw attention to the awards. The design maintains Agricola's corporate branding while creating an impactful visual presence suitable for point-of-sale displays, trade shows, or promotional events.",
     "images": [
       {
@@ -203,11 +204,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "Adobe Photoshop"
     ],
-    "title": "Agricola Salam de Sibiu - Promotional Flyer (German Version)",
+    "dimensions": "A5 (210 x 148 mm)",
     "client": "Agricola",
     "type": "Promotional Flyer",
-    "dimensions": "A5 (210 x 148 mm)",
     "finish": "Professional promotional flyer",
+    "title": "Agricola Salam de Sibiu - Promotional Flyer (German Version)",
     "description": "Promotional flyer design for Agricola's Salam de Sibiu product line, created in German language version for international marketing. The flyer showcases Agricola's traditional Romanian salami products with promotional content and product information tailored for German-speaking markets. The design emphasizes product quality and heritage while maintaining Agricola's corporate branding standards.",
     "images": [
       {
@@ -233,10 +234,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe Illustrator",
       "Adobe Photoshop"
     ],
-    "title": "Agricola Sustainability Report 2024",
+    "dimensions": "Various sizes",
     "client": "Agricola",
     "type": "Digital Publication Design (Sustainability Report)",
     "finish": "Professional multi-page digital publication",
+    "title": "Agricola Sustainability Report 2024",
     "description": "Comprehensive sustainability report design for Agricola's 2024 environmental and social responsibility initiatives. The digital publication features a clean, modern layout with farming and crop imagery, using a green color scheme to reflect the environmental focus. The report includes sustainability metrics, corporate responsibility data, and visual storytelling to communicate Agricola's commitment to sustainable agricultural practices. Multiple page spreads organize information into clear sections with data visualizations and professional photography.",
     "images": [
       {
@@ -253,11 +255,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "CorelDRAW"
     ],
-    "title": "Airport Business Lounge Rollup - Henri Coandă International Airport",
+    "dimensions": "850 x 2000 mm (portrait orientation)",
     "client": "Business Lounge, Henri Coandă International Airport (Aeroportul Henri Coandă)",
     "type": "Rollup Banner Display",
-    "dimensions": "850 x 2000 mm (portrait orientation)",
     "finish": "Professional rollup with stand, suitable for high-traffic airport environment",
+    "title": "Airport Business Lounge Rollup - Henri Coandă International Airport",
     "description": "Elegant rollup banner design for the Business Lounge at Henri Coandă International Airport. The rollup features a portrait format with sophisticated typography and branding elements suitable for the premium airport lounge environment. The design communicates business-class services and amenities, using professional layout to create an upscale impression. The large vertical format (2000mm tall) ensures high visibility in the lounge area while taking minimal floor space. The rollup is designed for easy setup and transport, making it ideal for temporary promotions or permanent display in the lounge.",
     "images": [
       {
@@ -282,11 +284,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "CorelDRAW",
       "Google AI Studio"
     ],
-    "title": "All Clean and Clear - Promotional Leaflet",
+    "dimensions": "A4 (210 x 297 mm) folded in 3",
     "client": "All Clean and Clear",
     "type": "Tri-fold Leaflet",
-    "dimensions": "A4 (210 x 297 mm) folded in 3",
     "finish": "Professional promotional leaflet",
+    "title": "All Clean and Clear - Promotional Leaflet",
     "description": "Tri-fold promotional leaflet design for All Clean and Clear brand. The leaflet features a clean, modern layout showcasing cleaning products and brand information in a compact, portable format. The tri-fold design allows for organized content presentation with distinct sections for product information, benefits, and promotional messaging.",
     "images": [
       {
@@ -308,15 +310,13 @@ export const graphicsProjects: GraphicsProject[] = [
   {
     "id": "banner-biserica-narcisa",
     "tools": [
-      "CorelDRAW",
-      "Roland Versaworks",
-      "Topaz Gigapixel AI"
+      "CorelDRAW"
     ],
-    "title": "Banner Biserica Narcisa - Sfântul Dumitru",
+    "dimensions": "4500 x 1300 mm",
     "client": "Biserica Narcisa, Bacău",
     "type": "Outdoor Banner",
-    "dimensions": "4500 x 1300 mm",
     "finish": "Reinforced with grommets/loopholes for mounting",
+    "title": "Banner Biserica Narcisa - Sfântul Dumitru",
     "description": "Large format outdoor banner featuring Orthodox Christian iconography of Saint Dumitru (Saint Demetrius). The design incorporates traditional religious imagery with modern printing techniques suitable for outdoor church display. The banner is designed for durability and weather resistance.",
     "images": [
       {
@@ -333,11 +333,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "CorelDRAW"
     ],
-    "title": "Discover Imobiliare - People Stopper Design",
+    "dimensions": "500 x 700 mm",
     "client": "Discover Imobiliare (Real Estate)",
     "type": "People Stopper / Pavement Sign",
-    "dimensions": "500 x 700 mm",
     "finish": "Outdoor pavement signage for street-level marketing",
+    "title": "Discover Imobiliare - People Stopper Design",
     "description": "People stopper (pavement sign) design for Discover Imobiliare real estate agency. The design serves as street-level advertising to attract potential clients walking by. The people stopper format is specifically designed for sidewalk placement, allowing businesses to capture attention from passing foot traffic. The compact dimensions (500x700mm) make it ideal for placement in front of real estate offices or property locations.",
     "images": [
       {
@@ -352,14 +352,13 @@ export const graphicsProjects: GraphicsProject[] = [
   {
     "id": "banner-erasmus",
     "tools": [
-      "CorelDRAW",
-      "Roland Versaworks"
+      "CorelDRAW"
     ],
-    "title": "Erasmus+ E-Lev E-Learning Program - Banner Collection",
+    "dimensions": "4000 x 1000 mm",
     "client": "Erasmus+ E-Lev Program",
     "type": "Large Format Outdoor Banners",
-    "dimensions": "4000 x 1000 mm",
     "finish": "Reinforced with grommets for mounting",
+    "title": "Erasmus+ E-Lev E-Learning Program - Banner Collection",
     "description": "Collection of large format banners created for the Erasmus+ E-Lev E-Learning educational program. The project includes multiple banner variations showcasing different aspects of the program: 1. **E-Lev Program Banners (3 variations)** - Main program promotional banners featuring modern educational design with the European Union flag and Erasmus+ branding 2. **Health Awareness Banner** - \"Spune NU obezității!\" (Say NO to obesity!) health campaign banner focused on promoting healthy lifestyle choices The banners incorporate professional educational branding with modern design elements suitable for various promotional contexts within the educational program.",
     "images": [
       {
@@ -402,15 +401,13 @@ export const graphicsProjects: GraphicsProject[] = [
   {
     "id": "magazin-sibiu",
     "tools": [
-      "CorelDRAW",
-      "Nano Banana",
-      "Topaz Gigapixel AI"
+      "CorelDRAW"
     ],
-    "title": "Jina Sibiului Shop - Header Design",
+    "dimensions": "1000 x 2400 mm",
     "client": "Jina Sibiului Shop",
     "type": "Shop Header / Signage",
-    "dimensions": "1000 x 2400 mm",
     "finish": "Large format print for shop front display",
+    "title": "Jina Sibiului Shop - Header Design",
     "description": "Large format shop header design for Jina Sibiului retail store. The design serves as the main storefront signage, featuring bold typography and visual elements to attract customers and establish brand identity. The vertical format is optimized for building-mounted display, creating a prominent street-level presence for the shop.",
     "images": [
       {
@@ -426,15 +423,13 @@ export const graphicsProjects: GraphicsProject[] = [
     "id": "billboard-kaufland",
     "tools": [
       "CorelDRAW",
-      "Google AI Studio",
-      "Topaz Gigapixel AI",
-      "Roland Versaworks"
+      "Google AI Studio"
     ],
-    "title": "Kaufland Billboard Collection - Fresh & Bakery",
+    "dimensions": "3000 x 1000 mm",
     "client": "Kaufland",
     "type": "Outdoor Billboard",
-    "dimensions": "3000 x 1000 mm",
     "finish": "Large format print suitable for outdoor display",
+    "title": "Kaufland Billboard Collection - Fresh & Bakery",
     "description": "Collection of billboard designs for Kaufland retail stores promoting various product categories: 1. **Fresh Vegetables Billboard** - Promotional billboard showcasing fresh produce with vibrant, high-quality food photography highlighting Kaufland's fresh vegetable offerings 2. **Bakery/Gogoşi Collection (2 variations)** - Billboard designs promoting Kaufland's bakery department, specifically featuring traditional Romanian pastries (gogoşi - Romanian donuts) with appetizing product photography The designs emphasize Kaufland's commitment to quality fresh foods and bakery products, using professional food photography to attract customers.",
     "images": [
       {
@@ -465,11 +460,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "CorelDRAW"
     ],
-    "title": "Lory Avon Promotional Rollup",
+    "dimensions": "850 x 2000 mm (portrait)",
     "client": "Lory Avon",
     "type": "Promotional Rollup Banner",
-    "dimensions": "850 x 2000 mm (portrait)",
     "finish": "Professional rollup with stand",
+    "title": "Lory Avon Promotional Rollup",
     "description": "Promotional rollup banner for Lory Avon featuring a portrait layout with the model and brand name prominently displayed. The rollup is designed for point-of-sale or event marketing, showcasing the Lory Avon brand with a clean, attractive visual presentation. The large vertical format (2000mm) ensures high visibility while maintaining a sleek, modern design suitable for beauty/cosmetic product promotion. The rollup is ideal for trade shows, retail environments, or promotional events where brand awareness and product appeal are key.",
     "images": [
       {
@@ -487,10 +482,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe Illustrator",
       "Adobe Photoshop"
     ],
-    "title": "Salam de Bacău - Product Label Design & Mockups",
+    "dimensions": "Various sizes",
     "client": "Salam de Bacău",
     "type": "Product Label Design & Mockups",
     "finish": "Professional product packaging design",
+    "title": "Salam de Bacău - Product Label Design & Mockups",
     "description": "Product label design and mockup collection for Salam de Bacău (Bacău Salami) brand. The project features comprehensive label designs for traditional Romanian salami products, showcasing brand identity, product information, and quality certifications. The mockups demonstrate how the label designs appear on actual product packaging, providing realistic preview of final product presentation.",
     "images": [
       {
@@ -507,10 +503,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "CorelDRAW"
     ],
-    "title": "Seby Sax - Music Promotional Rollup",
+    "dimensions": "Various sizes",
     "client": "Seby Sax",
     "type": "Music Promotional Rollup",
     "finish": "Professional rollup display for music performances and events",
+    "title": "Seby Sax - Music Promotional Rollup",
     "description": "Music promotional rollup design for Seby Sax, a musical performer/artist. The rollup features artist branding and performance imagery suitable for concerts, venues, and promotional appearances. The design captures the musical identity and creates a visually engaging presentation for audience engagement. Ideal for stage backdrops, venue entrances, or promotional events where artist visibility is essential.",
     "images": [
       {
@@ -528,10 +525,11 @@ export const graphicsProjects: GraphicsProject[] = [
       "Adobe Illustrator",
       "Adobe Photoshop"
     ],
-    "title": "Snack2Go Agricola - Product Label Design & Mockups",
+    "dimensions": "Various sizes",
     "client": "Agricola",
     "type": "Product Label Design & Mockups",
     "finish": "Professional product packaging design",
+    "title": "Snack2Go Agricola - Product Label Design & Mockups",
     "description": "Product label design and mockup collection for Agricola's Snack2Go product line. The project features comprehensive packaging designs for convenient snack products, showcasing brand identity, nutritional information, and product imagery. The mockups demonstrate how the label designs appear on actual product packaging, providing a realistic preview of the final product presentation.",
     "images": [
       {
@@ -548,10 +546,11 @@ export const graphicsProjects: GraphicsProject[] = [
     "tools": [
       "CorelDRAW"
     ],
-    "title": "Wedding Menu - Elegant Menu Design",
-    "type": "Wedding Menu Design",
     "dimensions": "A4 (210 x 297 mm) bi-fold to A5 (210 x 148 mm)",
+    "client": "Various clients",
+    "type": "Wedding Menu Design",
     "finish": "Premium wedding stationery",
+    "title": "Wedding Menu - Elegant Menu Design",
     "description": "Elegant bi-fold wedding menu design. A4 format folds to A5, creating a sophisticated presentation for wedding receptions. The menu features a refined layout suitable for formal dining occasions, with elegant typography and design elements that complement wedding aesthetics. The bi-fold format provides ample space for menu courses while maintaining an elegant, compact presentation for each guest setting.",
     "images": [
       {

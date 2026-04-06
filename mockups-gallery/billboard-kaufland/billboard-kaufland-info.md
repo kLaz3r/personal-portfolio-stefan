@@ -20,5 +20,3 @@ The designs emphasize Kaufland's commitment to quality fresh foods and bakery pr
 
 - CorelDRAW (Design & Layout)
 - Google AI Studio (Image enhancement/generation)
-- Topaz Gigapixel AI (Image Upscaling/Enhancement)
-- Roland Versaworks (Print Management)
