@@ -45,7 +45,7 @@ export default function GraphicsProjectModal({ project, onClose }: GraphicsProje
     <AnimatePresence>
       {project && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-50 flex items-start md:items-center justify-center bg-black/70 backdrop-blur-sm p-4 pt-12 pb-20 md:pb-4 md:pt-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export default function GraphicsProjectModal({ project, onClose }: GraphicsProje
         >
           <motion.div
             ref={modalRef}
-            className="relative bg-background rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden flex flex-col md:flex-row"
+            className="relative bg-background rounded-2xl shadow-2xl max-w-6xl w-full max-h-[85vh] md:max-h-[90vh] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row"
             initial={{ scale: 0.9, y: 50 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 50 }}
@@ -84,7 +84,7 @@ export default function GraphicsProjectModal({ project, onClose }: GraphicsProje
             </div>
 
             {/* Project Details Section */}
-            <div className="md:w-1/2 p-8 overflow-y-auto">
+            <div className="md:w-1/2 p-8 md:overflow-y-auto">
               <motion.h2
                 id="modal-title"
                 className="text-3xl font-bold text-foreground mb-4"
