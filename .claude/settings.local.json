@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(pnpm build:*)",
-      "Bash(pnpm dev:*)"
+      "Bash(pnpm dev:*)",
+      "Bash(git log:*)",
+      "Bash(npm list:*)",
+      "Bash(npm run:*)",
+      "Bash(curl -s http://localhost:3000)"
     ]
   }
 }

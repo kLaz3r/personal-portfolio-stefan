@@ -11,6 +11,7 @@ import HalftoneBg from "../components/HalftoneBg";
 import ImageCarousel from "../components/ImageCarousel";
 import ProjectCard from "../components/ProjectCard";
 import QuestionMarkIcon from "../components/QuestionMarkIcon";
+import ToolIcon from "../components/ToolIcon";
 import { photos } from "../data/photos";
 import { projects } from "../data/projects";
 
@@ -159,7 +160,35 @@ const GraphicsSection = () => {
                                 </h3>
                             </div>
 
-                            <div className="flex items-center space-x-3"></div>
+                            <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ margin: "0px 0px 200px 0px" }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex gap-4 md:gap-5 items-center justify-center lg:justify-start py-4"
+          role="list"
+          aria-label="Design tools used"
+        >
+          {['Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'CorelDRAW'].map((tool) => (
+            <motion.div
+              key={tool}
+              initial={{ opacity: 0, scale: 0, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ margin: "0px 0px 200px 0px" }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0.3 + ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe InDesign', 'CorelDRAW'].indexOf(tool) * 0.1
+              }}
+              className="w-[72px] h-[72px] bg-brand-primary/10 rounded-full flex items-center justify-center border border-brand-primary/20 hover:border-brand-primary/40 hover:bg-brand-primary/15 transition-colors duration-200"
+              role="listitem"
+              aria-label={tool}
+            >
+              <ToolIcon toolName={tool} className="w-11 h-11 text-brand-primary" />
+            </motion.div>
+          ))}
+        </motion.div>
 
                             <Link
                                 href="/graphics-gallery"
