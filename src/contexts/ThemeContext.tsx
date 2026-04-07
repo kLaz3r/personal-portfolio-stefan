@@ -24,15 +24,15 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         if (typeof window === "undefined") {
             return "light";
         }
-        return document.documentElement.classList.contains("dark")
+        return document.body.classList.contains("dark")
             ? "dark"
             : "light";
     });
 
     useEffect(() => {
-        const root = window.document.documentElement;
-        root.classList.remove(theme === "dark" ? "light" : "dark");
-        root.classList.add(theme);
+        const body = window.document.body;
+        body.classList.remove(theme === "dark" ? "light" : "dark");
+        body.classList.add(theme);
         localStorage.setItem("theme", theme);
     }, [theme]);
 
