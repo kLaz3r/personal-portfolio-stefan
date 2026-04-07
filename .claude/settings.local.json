@@ -6,7 +6,14 @@
       "Bash(git log:*)",
       "Bash(npm list:*)",
       "Bash(npm run:*)",
-      "Bash(curl -s http://localhost:3000)"
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(find /home/stefan/dev/personal-portfolio-stefan/public -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" -o -name \"*.webp\" \\\\\\) -exec du -h {} +)",
+      "Bash(node:*)",
+      "Bash(find /home/stefan/dev/personal-portfolio-stefan/public/graphics-gallery -name \"*.png\" -exec du -h {} +)",
+      "Bash(find /home/stefan/dev/personal-portfolio-stefan/public -type f \\\\\\( -name \"*.png\" -o -name \"*.jpg\" -o -name \"*.jpeg\" \\\\\\) -exec du -b {} +)",
+      "Bash(find /home/stefan/dev/personal-portfolio-stefan/public/images -type f -exec du -h {} +)",
+      "Bash(ls -lh /home/stefan/dev/personal-portfolio-stefan/public/images/*.jpg)",
+      "Bash(find:*)"
     ]
   }
 }

@@ -21,7 +21,7 @@ const HeroSection = () => {
             id="home"
             className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
-            <div className="hidden absolute md:block right-0 bg-[url(/halfton-90.svg)] blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
+            <div className="hidden absolute md:block right-0 bg-[url(/illustration.svg)] saturate-0 brightness-20 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
                     viewport={{ once: true }}
@@ -68,9 +68,9 @@ const HeroSection = () => {
                     className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
                 >
                     <Image
-                        width={500}
-                        height={700}
-                        src="/abominatie.svg"
+                        width={700}
+                        height={900}
+                        src="/illustration.svg"
                         alt="Creative illustration representing innovative web development and design solutions by Stefan Nasturas"
                         priority={true}
                         quality={75}
