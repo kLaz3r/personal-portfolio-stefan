@@ -21,7 +21,7 @@ const HeroSection = () => {
             id="home"
             className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
         >
-            <div className="hidden absolute md:block right-0 bg-[url(/illustration.svg)] saturate-0 brightness-20 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
+            <div className="hidden absolute md:block right-0 bg-[url(/illustration.svg)] saturate-0 brightness-20 dark:opacity-100 opacity-7 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
             <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
                 <motion.div
                     viewport={{ once: true }}
@@ -50,7 +50,7 @@ const HeroSection = () => {
                         moments of life.
                     </h2>
                     <Link
-                        href="#webdev"
+                        href="#graphics"
                         className="font-montserrat hover:bg-background hover:text-brand-primary border-2 hover:border-brand-primary active:scale-90 active:opacity-60 transition-all font-bold text-2xl px-6 py-4 bg-brand-primary text-background rounded-full"
                     >
                         View My Work
@@ -65,7 +65,7 @@ const HeroSection = () => {
                         ease: "easeInOut",
                         duration: 1.5,
                     }}
-                    className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none bg-[url(/halftone.svg)]"
+                    className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none"
                 >
                     <Image
                         width={700}
