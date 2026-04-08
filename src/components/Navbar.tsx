@@ -14,10 +14,12 @@ import {
   HiSun,
   HiUser,
   HiX,
+  HiTranslate,
 } from "react-icons/hi";
 import { useTheme } from "../contexts/ThemeContext";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useTranslation } from "../hooks/useTranslation";
 
-// Simple Hamburger Menu Button
 const HamburgerButton = ({
   isOpen,
   onClick,
@@ -34,7 +36,9 @@ const HamburgerButton = ({
       animate={{ rotate: isOpen ? 180 : 0 }}
       transition={{ duration: 0.3 }}
     >
-      <span className="sr-only">{isOpen ? "Close main menu" : "Open main menu"}</span>
+      <span className="sr-only">
+        {isOpen ? "Close main menu" : "Open main menu"}
+      </span>
       {isOpen ? (
         <HiX className="block h-12 w-12" aria-hidden="true" />
       ) : (
@@ -47,6 +51,8 @@ const HamburgerButton = ({
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+  const { t } = useTranslation();
   const [isMounted, setIsMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -56,9 +62,8 @@ const Navbar = () => {
     setIsMounted(true);
   }, []);
 
-  // Track active section based on scroll position
   useEffect(() => {
-    const sections = navItems.map((item) => item.href.replace("/#", ""));
+    const sections = ["home", "graphics", "webdev", "photos", "about"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -71,7 +76,7 @@ const Navbar = () => {
       {
         rootMargin: "-50% 0px -50% 0px",
         threshold: 0,
-      }
+      },
     );
 
     sections.forEach((sectionId) => {
@@ -84,7 +89,6 @@ const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Focus trap for mobile menu
   useEffect(() => {
     if (!isOpen) return;
 
@@ -97,12 +101,14 @@ const Navbar = () => {
       if (e.key !== "Tab") return;
 
       const focusableElements = mobileMenuRef.current?.querySelectorAll(
-        'a[href], button:not([disabled])'
+        "a[href], button:not([disabled])",
       );
       if (!focusableElements || focusableElements.length === 0) return;
 
       const firstElement = focusableElements[0] as HTMLElement;
-      const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+      const lastElement = focusableElements[
+        focusableElements.length - 1
+      ] as HTMLElement;
 
       if (e.shiftKey && document.activeElement === firstElement) {
         e.preventDefault();
@@ -115,7 +121,6 @@ const Navbar = () => {
 
     document.addEventListener("keydown", handleKeyDown);
 
-    // Focus first element when menu opens
     setTimeout(() => {
       firstFocusableRef.current?.focus();
     }, 100);
@@ -124,11 +129,11 @@ const Navbar = () => {
   }, [isOpen]);
 
   const navItems = [
-    { name: "Home", href: "/#home", icon: HiHome },
-    { name: "Graphics", href: "/#graphics", icon: HiColorSwatch },
-    { name: "Web Dev", href: "/#webdev", icon: HiBriefcase },
-    { name: "Photography", href: "/#photos", icon: HiCamera },
-    { name: "About", href: "/#about", icon: HiUser },
+    { key: "home", href: "/#home", icon: HiHome },
+    { key: "graphics", href: "/#graphics", icon: HiColorSwatch },
+    { key: "webdev", href: "/#webdev", icon: HiBriefcase },
+    { key: "photography", href: "/#photos", icon: HiCamera },
+    { key: "about", href: "/#about", icon: HiUser },
   ];
 
   const toggleMenu = () => {
@@ -144,7 +149,6 @@ const Navbar = () => {
     <nav className="gpu-accelerated fixed w-screen top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-md border-b border-brand-primary/50">
       <div className="container mx-auto w-screen">
         <div className="flex px-4 justify-between items-center h-16 md:h-20">
-          {/* Logo/Brand */}
           <div className="pl-2 flex-shrink-0">
             <Link
               href="/"
@@ -168,12 +172,11 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation and Theme Toggle */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-baseline space-x-8">
               {navItems.map((item) => (
                 <Link
-                  key={item.name}
+                  key={item.key}
                   href={item.href}
                   className={`px-1 py-2 rounded-md text-xl font-montserrat transition-all duration-200 hover:underline ${
                     isActive(item.href)
@@ -181,52 +184,73 @@ const Navbar = () => {
                       : "text-foreground hover:text-brand-primary"
                   }`}
                 >
-                  {item.name}
+                  {t(`navigation.${item.key}`)}
                 </Link>
               ))}
             </div>
 
-            {/* Theme Toggle Button */}
-            {isMounted && (
-              <button
-                onClick={toggleTheme}
-                className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200"
-                aria-label={`Switch to ${
-                  theme === "light" ? "dark" : "light"
-                } mode`}
-              >
-                {theme === "light" ? (
-                  <HiMoon className="h-8 w-8" />
-                ) : (
-                  <HiSun className="h-8 w-8" />
-                )}
-              </button>
-            )}
+            <div className="flex items-center space-x-2">
+              {isMounted && (
+                <>
+                  <button
+                    onClick={toggleLanguage}
+                    className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200 font-montserrat font-bold min-w-[3.5rem]"
+                    aria-label={t("navigation.languageToggle")}
+                  >
+                    {language === "en" ? "EN" : "RO"}
+                  </button>
+                  <button
+                    onClick={toggleTheme}
+                    className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200"
+                    aria-label={
+                      theme === "light"
+                        ? t("navigation.themeToggleDark")
+                        : t("navigation.themeToggleLight")
+                    }
+                  >
+                    {theme === "light" ? (
+                      <HiMoon className="h-8 w-8" />
+                    ) : (
+                      <HiSun className="h-8 w-8" />
+                    )}
+                  </button>
+                </>
+              )}
+            </div>
           </div>
 
-          {/* Mobile menu button and theme toggle */}
           <div className="md:hidden flex items-center space-x-2">
             {isMounted && (
-              <button
-                onClick={toggleTheme}
-                className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200"
-                aria-label={`Switch to ${
-                  theme === "light" ? "dark" : "light"
-                } mode`}
-              >
-                {theme === "light" ? (
-                  <HiMoon className="h-8 w-8" />
-                ) : (
-                  <HiSun className="h-8 w-8" />
-                )}
-              </button>
+              <>
+                <button
+                  onClick={toggleLanguage}
+                  className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200 font-montserrat font-bold"
+                  aria-label={t("navigation.languageToggle")}
+                >
+                  {language === "en" ? "EN" : "RO"}
+                </button>
+                <button
+                  onClick={toggleTheme}
+                  className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200"
+                  aria-label={
+                    theme === "light"
+                      ? t("navigation.themeToggleDark")
+                      : t("navigation.themeToggleLight")
+                  }
+                >
+                  {theme === "light" ? (
+                    <HiMoon className="h-8 w-8" />
+                  ) : (
+                    <HiSun className="h-8 w-8" />
+                  )}
+                </button>
+              </>
             )}
             <HamburgerButton isOpen={isOpen} onClick={toggleMenu} />
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -234,7 +258,7 @@ const Navbar = () => {
             id="mobile-menu"
             role="dialog"
             aria-modal="true"
-            aria-label="Mobile navigation menu"
+            aria-label={t("navigation.mobileMenu")}
             className="md:hidden"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -244,7 +268,7 @@ const Navbar = () => {
             <div className="px-2 pt-2 flex flex-col justify-center items-start sm:px-3 border-t border-foreground/10">
               {navItems.map((item, index) => (
                 <motion.div
-                  key={item.name}
+                  key={item.key}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
@@ -264,7 +288,7 @@ const Navbar = () => {
                     scroll={true}
                   >
                     <item.icon className="mr-3 h-14 w-14" aria-hidden="true" />
-                    {item.name}
+                    {t(`navigation.${item.key}`)}
                   </Link>
                 </motion.div>
               ))}

@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'motion/react';
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
+import { useTranslation } from "../hooks/useTranslation";
 
 interface CarouselImage {
   src: string;
@@ -14,15 +15,16 @@ interface ImageCarouselProps {
   images: CarouselImage[];
   autoPlay?: boolean;
   interval?: number;
-  variant?: 'default' | 'card' | 'modal';
+  variant?: "default" | "card" | "modal";
 }
 
 export default function ImageCarousel({
   images,
   autoPlay = true,
   interval = 5000,
-  variant = 'default',
+  variant = "default",
 }: ImageCarouselProps) {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -92,22 +94,23 @@ export default function ImageCarousel({
   };
 
   const sizeClasses = {
-  default: 'w-full h-[400px] md:h-[500px] max-w-[550px] md:max-w-[600px] lg:w-[85vh] lg:h-[85vh] lg:max-w-[630px] lg:max-h-[630px] ',
-    card: 'w-full h-full',
-    modal: 'w-full h-[60vh] max-h-[500px]'
+    default:
+      "w-full h-[400px] md:h-[500px] max-w-[550px] md:max-w-[600px] lg:w-[85vh] lg:h-[85vh] lg:max-w-[630px] lg:max-h-[630px] ",
+    card: "w-full h-full",
+    modal: "w-full h-[60vh] max-h-[500px]",
   };
 
   const sizes = {
-  default: "(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 630px",
+    default: "(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 630px",
     card: "(max-width: 768px) 100vw, 400px",
-    modal: "(max-width: 1024px) 100vw, 600px"
+    modal: "(max-width: 1024px) 100vw, 600px",
   };
 
   return (
     <div
       role="region"
       aria-roledescription="carousel"
-      aria-label="Image gallery carousel"
+      aria-label={t("carousel.label")}
       tabIndex={0}
       onKeyDown={handleKeyDown}
       className={`relative overflow-hidden rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-brand-primary ${sizeClasses[variant]}`}
@@ -126,7 +129,9 @@ export default function ImageCarousel({
             key={currentIndex}
             role="group"
             aria-roledescription="slide"
-            aria-label={`Slide ${currentIndex + 1} of ${images.length}: ${images[currentIndex].alt}`}
+            aria-label={`${t("carousel.slide")} ${currentIndex + 1} ${t(
+              "carousel.of",
+            )} ${images.length}: ${images[currentIndex].alt}`}
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
@@ -147,19 +152,21 @@ export default function ImageCarousel({
               quality={75}
               className="object-cover"
               sizes={sizes[variant]}
-              placeholder={images[currentIndex].blurDataURL ? "blur" : undefined}
+              placeholder={
+                images[currentIndex].blurDataURL ? "blur" : undefined
+              }
               blurDataURL={images[currentIndex].blurDataURL}
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {variant !== 'card' && images.length > 1 && (
+      {variant !== "card" && images.length > 1 && (
         <>
           <button
             onClick={previousImage}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            aria-label="Previous image"
+            aria-label={t("carousel.previous")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +187,7 @@ export default function ImageCarousel({
           <button
             onClick={nextImage}
             className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors z-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            aria-label="Next image"
+            aria-label={t("carousel.next")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +217,9 @@ export default function ImageCarousel({
                 onClick={() => goToImage(index)}
                 role="tab"
                 aria-selected={index === currentIndex}
-                aria-label={`Go to slide ${index + 1}`}
+                aria-label={t("carousel.goToSlide", {
+                  number: String(index + 1),
+                })}
                 className={`w-3 h-3 rounded-full transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
                   index === currentIndex
                     ? "bg-white scale-110"
