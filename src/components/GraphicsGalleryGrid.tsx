@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from 'motion/react';
-import { GraphicsProject } from '@/data/graphics-projects';
+import { TranslatedGraphicsProject } from '@/lib/get-translated-project';
 import GraphicsProjectCard from './GraphicsProjectCard';
 
 interface GraphicsGalleryGridProps {
-  projects: GraphicsProject[];
-  onProjectClick: (project: GraphicsProject) => void;
+  projects: TranslatedGraphicsProject[];
+  onProjectClick: (project: TranslatedGraphicsProject) => void;
 }
 
 export default function GraphicsGalleryGrid({ projects, onProjectClick }: GraphicsGalleryGridProps) {

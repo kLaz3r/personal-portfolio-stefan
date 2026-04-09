@@ -86,6 +86,12 @@ export const ro = {
     label: "Se încarcă",
     text: "Se încarcă...",
   },
+  graphicsGallery: {
+    title: "Galerie Grafică",
+    subtitle: "O colecție a proiectelor mele de design grafic",
+    viewProject: "Vezi detalii proiect",
+    noProjects: "Nu au fost găsite proiecte",
+  },
   metadata: {
     title:
       "Stefan Nasturas - Portofoliu Dezvoltator Web & Designer | React, Next.js, UI/UX",
@@ -123,7 +129,7 @@ export const ro = {
       description:
         "Design de calendar de birou pentru compania Agricola pentru anul 2025. Calendarul prezintă un design corporativ modern cu branding Agricola, prezentând diverse linii de produse pe parcursul lunilor. Designul încorporează fotografie profesională de produse alimentare și tipografie curată potrivită pentru afișare în birou. Au fost create mai multe variante prezentând diferite produse Agricola și conținut promoțional pe paginile lunare.",
     },
-    promotieagricola: {
+    "promotie-agricola": {
       title: "Poster Promoțional Pui Agricola",
       type: "Poster Promoțional",
       finish: "Poster promoțional profesional pentru campanie de reduceri",
@@ -166,12 +172,12 @@ export const ro = {
         "Design de raport de sustenabilitate complet pentru inițiativele Agricola de responsabilitate socială și mediu din 2024. Publicația digitală prezintă un layout modern și curat cu imagerie din agricultură și culturi, folosind o schemă de culori verde pentru a reflecta focusul pe mediu. Raportul include metrici de sustenabilitate, date de responsabilitate corporativă și povestire vizuală pentru a comunica angajamentul Agricola față de practici agricole sustenabile. Diferite pagini organizează informația în secțiuni clare cu vizualizări de date și fotografie profesională.",
     },
     "rollup-business-lounge-aeroport-enescu": {
-      title: "Rollup Lounge Business Aeroport - Aeroportul Internațional Henri Coandă",
+      title: "Rollup Lounge Business Aeroport - Aeroportul Internațional George Enescu Bacău",
       type: "Afișaj Banner Rollup",
       finish:
         "Rollup profesional cu suport, potrivit pentru mediu de aeroport cu trafic intens",
       description:
-        "Design elegant de banner rollup pentru Lounge-ul Business de la Aeroportul Internațional Henri Coandă. Rollup-ul prezintă un format portret cu tipografie și elemente de branding sofisticate potrivite pentru mediul premium al lounge-ului de aeroport. Designul comunică servicii și facilități business-class, folosind un layout profesional pentru a crea o impresie superioară. Formatul vertical mare (2000mm înălțime) asigură o vizibilitate ridicată în zona lounge ocupând în același timp un spațiu minim pe podea. Rollup-ul este conceput pentru configurare și transport ușor, fiind ideal pentru promoții temporare sau afișaj permanent în lounge.",
+        "Design elegant de banner rollup pentru Lounge-ul Business de la Aeroportul Internațional George Enescu Bacău. Rollup-ul prezintă un format portret cu tipografie și elemente de branding sofisticate potrivite pentru mediul premium al lounge-ului de aeroport. Designul comunică servicii și facilități business-class, folosind un layout profesional pentru a crea o impresie superioară. Formatul vertical mare (2000mm înălțime) asigură o vizibilitate ridicată în zona lounge ocupând în același timp un spațiu minim pe podea. Rollup-ul este conceput pentru configurare și transport ușor, fiind ideal pentru promoții temporare sau afișaj permanent în lounge.",
     },
     "leaflet-all-clean-and-clear": {
       title: "All Clean and Clear - Pliant Promoțional",
