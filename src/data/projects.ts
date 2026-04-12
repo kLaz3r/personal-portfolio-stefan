@@ -12,7 +12,7 @@ export const projects = [
         description: "Where Thoughts Take Flight.",
         imageUrl: "/ss/nuvtra-ss.png",
         tags: ["Next.js", "TypeScript", "Drizzle", "PostgreSQL"],
-        liveUrl: "https://nuvtra.stefannasturas.com",
+        liveUrl: "https://nuvtra.vercel.app",
         repoUrl: "https://github.com/kLaz3r/nuvtra",
     },
     {
@@ -20,7 +20,7 @@ export const projects = [
         description: "Old games right in the browser",
         imageUrl: "/ss/retroweb-ss.png",
         tags: ["Next.js", "Emulator.js", "TailwindCSS"],
-        liveUrl: "https://retroweb.stefannasturas.com",
+        liveUrl: "https://retroweb-next.vercel.app",
         repoUrl: "https://github.com/kLaz3r/retroweb",
     },
 ];
