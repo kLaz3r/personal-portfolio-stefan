@@ -86,6 +86,12 @@ export const en = {
     label: "Loading",
     text: "Loading...",
   },
+  graphicsGallery: {
+    title: "Graphics Gallery",
+    subtitle: "A collection of my graphic design work",
+    viewProject: "View project details",
+    noProjects: "No projects found",
+  },
   metadata: {
     title:
       "Stefan Nasturas - Web Developer & Designer Portfolio | React, Next.js, UI/UX",
@@ -123,7 +129,7 @@ export const en = {
       description:
         "Corporate desk calendar design for Agricola company for the year 2025. The calendar features modern corporate design with Agricola branding, showcasing various product lines throughout the months. The design incorporates professional food photography and clean typography suitable for office display. Multiple variations were created featuring different Agricola products and promotional content across the monthly pages.",
     },
-    promotieagricola: {
+    "promotie-agricola": {
       title: "Agricola Poultry Promotion Poster",
       type: "Promotional Poster",
       finish: "Professional promotional poster for discount campaign",
@@ -166,12 +172,12 @@ export const en = {
         "Comprehensive sustainability report design for Agricola's 2024 environmental and social responsibility initiatives. The digital publication features a clean, modern layout with farming and crop imagery, using a green color scheme to reflect the environmental focus. The report includes sustainability metrics, corporate responsibility data, and visual storytelling to communicate Agricola's commitment to sustainable agricultural practices. Multiple page spreads organize information into clear sections with data visualizations and professional photography.",
     },
     "rollup-business-lounge-aeroport-enescu": {
-      title: "Airport Business Lounge Rollup - Henri Coandă International Airport",
+      title: "Airport Business Lounge Rollup - George Enescu International Airport Bacău",
       type: "Rollup Banner Display",
       finish:
         "Professional rollup with stand, suitable for high-traffic airport environment",
       description:
-        "Elegant rollup banner design for the Business Lounge at Henri Coandă International Airport. The rollup features a portrait format with sophisticated typography and branding elements suitable for the premium airport lounge environment. The design communicates business-class services and amenities, using professional layout to create an upscale impression. The large vertical format (2000mm tall) ensures high visibility in the lounge area while taking minimal floor space. The rollup is designed for easy setup and transport, making it ideal for temporary promotions or permanent display in the lounge.",
+        "Elegant rollup banner design for the Business Lounge at George Enescu International Airport Bacău. The rollup features a portrait format with sophisticated typography and branding elements suitable for the premium airport lounge environment. The design communicates business-class services and amenities, using professional layout to create an upscale impression. The large vertical format (2000mm tall) ensures high visibility in the lounge area while taking minimal floor space. The rollup is designed for easy setup and transport, making it ideal for temporary promotions or permanent display in the lounge.",
     },
     "leaflet-all-clean-and-clear": {
       title: "All Clean and Clear - Promotional Leaflet",

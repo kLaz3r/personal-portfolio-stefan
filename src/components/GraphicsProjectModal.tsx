@@ -2,14 +2,14 @@
 
 import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { GraphicsProject } from "@/data/graphics-projects";
+import { TranslatedGraphicsProject } from "@/lib/get-translated-project";
 import ImageCarousel from "./ImageCarousel";
 import { HiX } from "react-icons/hi";
 import ToolIcon from "./ToolIcon";
 import { useTranslation } from "../hooks/useTranslation";
 
 interface GraphicsProjectModalProps {
-  project: GraphicsProject | null;
+  project: TranslatedGraphicsProject | null;
   onClose: () => void;
 }
 
@@ -50,7 +50,7 @@ export default function GraphicsProjectModal({
     <AnimatePresence>
       {project && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-start md:items-center justify-center bg-black/70 backdrop-blur-sm p-4 pt-12 pb-20 md:pb-4 md:pt-4"
+          className="fixed inset-0 z-50 flex items-start md:items-center justify-center bg-black/70 backdrop-blur-sm p-4 pt-4 pb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -94,7 +94,7 @@ export default function GraphicsProjectModal({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
               >
-                {project.title}
+                {project.translatedTitle}
               </motion.h2>
 
               <motion.div
@@ -119,7 +119,7 @@ export default function GraphicsProjectModal({
                       {t("graphicsModal.type")}
                     </p>
                     <p className="font-semibold text-foreground">
-                      {project.type}
+                      {project.translatedType}
                     </p>
                   </div>
                 )}
@@ -139,7 +139,7 @@ export default function GraphicsProjectModal({
                       {t("graphicsModal.finish")}
                     </p>
                     <p className="font-semibold text-foreground">
-                      {project.finish}
+                      {project.translatedFinish}
                     </p>
                   </div>
                 )}
@@ -155,7 +155,7 @@ export default function GraphicsProjectModal({
                   {t("graphicsModal.description")}
                 </h3>
                 <p className="text-foreground leading-relaxed">
-                  {project.description}
+                  {project.translatedDescription}
                 </p>
               </motion.div>
 

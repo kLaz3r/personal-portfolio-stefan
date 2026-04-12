@@ -95,6 +95,12 @@ export type Translations = {
     label: string;
     text: string;
   };
+  graphicsGallery: {
+    title: string;
+    subtitle: string;
+    viewProject: string;
+    noProjects: string;
+  };
   metadata: {
     title: string;
     description: string;
