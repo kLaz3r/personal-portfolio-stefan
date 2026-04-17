@@ -32,9 +32,11 @@ npm run lint
 - `src/app/` - Next.js App Router structure (pages at page.tsx, global CSS at globals.css)
   - `src/app/page.tsx` - Main landing page with all sections
   - `src/app/gallery/page.tsx` - Full photo gallery with lightbox
+- `src/app/business/page.tsx` - Quote wizard for business card QR code (see Business Page section)
 - `src/components/` - Reusable React components (all have relative imports to `../data` and `../contexts`)
 - `src/data/` - Static data files (projects.ts and automatically-generated photos.ts)
 - `src/contexts/` - React context providers (ThemeContext for dark/light mode)
+- `src/components/ui/` - shadcn/ui components (button, card, checkbox, textarea, progress, badge, label, radio-group)
 - `public/` - Static assets including images, SVGs, and mockup screenshots
 - `public/images/` - Source images for the photo gallery (for Python automation)
 - `public/mockups/` - Project showcase images and graphics carousel images
@@ -85,6 +87,8 @@ repoUrl: string?
 - **Photo Gallery**: NextJsImageLightbox (wrapper for lightbox)
 - **Icons**: Custom SVG icons in ApertureIcon, CodeIcon, QuestionMarkIcon, SwatchIcon
 - **Background**: HalftoneBg generates complex SVG patterns (do not modify lightly)
+- **Quote Form UI**: shadcn/ui components themed to match the brand color system
+- `lucide-react` - Icon library used with shadcn components
 
 ### Animation Patterns
 
@@ -133,6 +137,7 @@ python generate-image-array.py
 - **motion** - Primary animation library (do not add framer-motion, use motion instead)
 - **react-photo-album** + **yet-another-react-lightbox** - Photo gallery masonry layout and lightbox
 - **react-icons** - Icon library (currently using various icons across components)
+- **lucide-react** - Icon library used with shadcn/ui components
 
 ## Code Conventions
 
@@ -144,3 +149,43 @@ python generate-image-array.py
 - Image imports use Next.js built-in optimization (same domain only)
 - **Image optimization settings**: `quality={75}`, `loading="lazy"` (except priority images), `placeholder="blur"` with base64 data URLs
 - **Responsive images**: Use `sizes` prop for proper responsive image loading
+
+## Business Page (/business)
+
+A multi-step quote wizard accessible via QR code on business cards. Users answer a series of questions and get connected via WhatsApp.
+
+### Flow
+
+```
+Landing Page → Service Selection → Branch Questions → Summary → WhatsApp
+```
+
+**Stages:**
+1. **Landing** - Brand introduction with "Get a Quote" CTA
+2. **Service Selection** - Choose Graphic Design, Web Development, or Both
+3. **Questions** - Branch-specific questions (6 questions per branch)
+   - Graphic Design: Project type, status, style, timeline, budget, notes
+   - Web Development: Project type, design status, features, timeline, budget, notes
+4. **Summary** - Review answers with Edit/Send options
+5. **WhatsApp** - Opens wa.me link with pre-formatted message
+
+### File Structure
+
+- `src/app/business/page.tsx` - Main page with state machine
+- `src/app/business/types.ts` - TypeScript types and option data
+- `src/app/business/lib/whatsapp.ts` - Message generation and wa.me link builder
+- `src/app/business/components/LandingStage.tsx` - Landing screen
+- `src/app/business/components/ServiceSelectStage.tsx` - Service selection cards
+- `src/app/business/components/QuestionCard.tsx` - Reusable question wrapper
+- `src/app/business/components/DesignQuestions.tsx` - Graphic design question components
+- `src/app/business/components/WebDevQuestions.tsx` - Web dev question components
+- `src/app/business/components/SummaryStage.tsx` - Answer summary screen
+
+### Key Features
+
+- Sequential "Both" flow shows "Part 1 of 2 — Design" / "Part 2 of 2 — Web" indicators
+- Progress bar displayed on all question stages
+- Free-text "Other" option reveals inline textarea
+- Multi-select features for web projects (checkboxes)
+- Formatted WhatsApp message with emojis and sections
+- State persistence during navigation (back/edit supported)
