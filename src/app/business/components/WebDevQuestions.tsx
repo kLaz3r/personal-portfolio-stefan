@@ -1,12 +1,13 @@
 "use client";
 
 import { QuestionCard, OptionGrid } from "./QuestionCard";
-import { webDevOptions, WebDevAnswers } from "../types";
+import { webDevLabelsEn, webDevLabelsRo, WebDevAnswers } from "../types";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "motion/react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface WebDevQuestionProps {
   answers: WebDevAnswers;
@@ -14,6 +15,54 @@ interface WebDevQuestionProps {
   onBack: () => void;
   onNext: () => void;
   currentStep: number;
+  onLanguageChange?: () => void;
+}
+
+function useWebDevOptions() {
+  const { t, language } = useTranslation();
+  const labels = language === "ro" ? webDevLabelsRo : webDevLabelsEn;
+
+  return {
+    projectType: [
+      { value: "portfolio", label: labels.portfolio, icon: "👤" },
+      { value: "business", label: labels.business, icon: "🏢" },
+      { value: "landing", label: labels.landing, icon: "🎯" },
+      { value: "ecommerce", label: labels.ecommerce, icon: "🛒" },
+      { value: "blog", label: labels.blog, icon: "📝" },
+      { value: "webapp", label: labels.webapp, icon: "⚙️" },
+      { value: "other", label: labels.other, icon: "✨" },
+    ],
+    designStatus: [
+      { value: "full-package", label: labels.fullPackage, icon: "🎨" },
+      { value: "dev-only", label: labels.devOnly, icon: "📐" },
+      { value: "guidance", label: labels.guidance, icon: "💡" },
+      { value: "redesign", label: labels.redesign, icon: "🔄" },
+    ],
+    features: [
+      { value: "contact-form", label: labels.contactForm, icon: "📧" },
+      { value: "cms", label: labels.cms, icon: "📝" },
+      { value: "blog-section", label: labels.blogFeature, icon: "📰" },
+      { value: "payments", label: labels.payments, icon: "💳" },
+      { value: "booking", label: labels.booking, icon: "📅" },
+      { value: "multilingual", label: labels.multilingual, icon: "🌍" },
+      { value: "seo", label: labels.seo, icon: "🔍" },
+      { value: "animations", label: labels.animations, icon: "✨" },
+      { value: "none", label: labels.none, icon: "❌" },
+    ],
+    timeline: [
+      { value: "urgent", label: labels.urgent, icon: "⚡" },
+      { value: "1-month", label: labels.oneMonth, icon: "📅" },
+      { value: "2-3-months", label: labels.twoThreeMonths, icon: "📆" },
+      { value: "flexible", label: labels.flexible, icon: "🌿" },
+    ],
+    budget: [
+      { value: "under-500", label: labels.under500, icon: "💰" },
+      { value: "500-1500", label: labels.range5001500, icon: "💰💰" },
+      { value: "1500-4000", label: labels.range15004000, icon: "💰💰💰" },
+      { value: "4000+", label: labels.over4000, icon: "💎" },
+      { value: "unsure", label: labels.unsure, icon: "🤷" },
+    ],
+  };
 }
 
 export function WebQ1Type({
@@ -22,21 +71,31 @@ export function WebQ1Type({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+  const options = useWebDevOptions();
+
   return (
     <QuestionCard
-      title="What are we building?"
-      subtitle="Select the type of website or application you need"
+      title={t("business.webDev.q1.title")}
+      subtitle={t("business.webDev.q1.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={!answers.projectType}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <OptionGrid
-        options={webDevOptions.projectType}
+        options={options.projectType}
         selected={answers.projectType}
-        onSelect={(value) => onUpdate({ projectType: value, projectTypeOther: value === "other" ? "" : undefined })}
+        onSelect={(value) =>
+          onUpdate({
+            projectType: value,
+            projectTypeOther: value === "other" ? "" : undefined,
+          })
+        }
       />
       {answers.projectType === "other" && (
         <motion.div
@@ -44,12 +103,14 @@ export function WebQ1Type({
           animate={{ opacity: 1, height: "auto" }}
           className="mt-4"
         >
-          <Label htmlFor="project-type-other">What do you have in mind?</Label>
+          <Label htmlFor="project-type-other">
+            {t("business.webDev.q1.otherLabel")}
+          </Label>
           <Textarea
             id="project-type-other"
             value={answers.projectTypeOther || ""}
             onChange={(e) => onUpdate({ projectTypeOther: e.target.value })}
-            placeholder="Describe your project..."
+            placeholder={t("business.webDev.q1.placeholder")}
             className="mt-2"
           />
         </motion.div>
@@ -64,19 +125,24 @@ export function WebQ2DesignStatus({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+  const options = useWebDevOptions();
+
   return (
     <QuestionCard
-      title="What's your design situation?"
-      subtitle="This is important for scoping the project"
+      title={t("business.webDev.q2.title")}
+      subtitle={t("business.webDev.q2.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={!answers.designStatus}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <OptionGrid
-        options={webDevOptions.designStatus}
+        options={options.designStatus}
         selected={answers.designStatus}
         onSelect={(value) => onUpdate({ designStatus: value })}
       />
@@ -90,7 +156,11 @@ export function WebQ3Features({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+  const options = useWebDevOptions();
+
   const toggleFeature = (feature: string) => {
     const currentFeatures = answers.features || [];
     const newFeatures = currentFeatures.includes(feature)
@@ -101,16 +171,17 @@ export function WebQ3Features({
 
   return (
     <QuestionCard
-      title="Any must-have features?"
-      subtitle="Select all that apply"
+      title={t("business.webDev.q3.title")}
+      subtitle={t("business.webDev.q3.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={false}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <div className="grid grid-cols-1 gap-3">
-        {webDevOptions.features.map((feature, index) => (
+        {options.features.map((feature, index) => (
           <motion.div
             key={feature.value}
             initial={{ opacity: 0, y: 10 }}
@@ -132,7 +203,9 @@ export function WebQ3Features({
                   className="data-[state=checked]:bg-brand-primary data-[state=checked]:border-brand-primary"
                 />
                 {feature.icon && <span className="text-2xl">{feature.icon}</span>}
-                <span className="font-medium text-foreground">{feature.label}</span>
+                <span className="font-medium text-foreground">
+                  {feature.label}
+                </span>
               </CardContent>
             </Card>
           </motion.div>
@@ -148,19 +221,24 @@ export function WebQ4Timeline({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+  const options = useWebDevOptions();
+
   return (
     <QuestionCard
-      title="What's your timeline?"
-      subtitle="When do you need this completed?"
+      title={t("business.webDev.q4.title")}
+      subtitle={t("business.webDev.q4.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={!answers.timeline}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <OptionGrid
-        options={webDevOptions.timeline}
+        options={options.timeline}
         selected={answers.timeline}
         onSelect={(value) => onUpdate({ timeline: value })}
       />
@@ -174,19 +252,24 @@ export function WebQ5Budget({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+  const options = useWebDevOptions();
+
   return (
     <QuestionCard
-      title="What's your budget range?"
-      subtitle="This helps me suggest the best approach for your project"
+      title={t("business.webDev.q5.title")}
+      subtitle={t("business.webDev.q5.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={!answers.budget}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <OptionGrid
-        options={webDevOptions.budget}
+        options={options.budget}
         selected={answers.budget}
         onSelect={(value) => onUpdate({ budget: value })}
       />
@@ -200,24 +283,28 @@ export function WebQ6Notes({
   onBack,
   onNext,
   currentStep,
+  onLanguageChange,
 }: WebDevQuestionProps) {
+  const { t } = useTranslation();
+
   return (
     <QuestionCard
-      title="Anything else?"
-      subtitle="Optional — add website references, your current site URL, or any other details"
+      title={t("business.webDev.q6.title")}
+      subtitle={t("business.webDev.q6.subtitle")}
       onBack={onBack}
       onNext={onNext}
       nextDisabled={false}
       currentStep={currentStep}
       totalSteps={6}
+      onLanguageChange={onLanguageChange}
     >
       <div className="space-y-2">
-        <Label htmlFor="notes">Additional details</Label>
+        <Label htmlFor="notes">{t("business.webDev.q6.descriptionLabel")}</Label>
         <Textarea
           id="notes"
           value={answers.notes || ""}
           onChange={(e) => onUpdate({ notes: e.target.value })}
-          placeholder="Website references you like, current site URL, or anything else you'd like to share..."
+          placeholder={t("business.webDev.q6.placeholder")}
           rows={5}
         />
       </div>

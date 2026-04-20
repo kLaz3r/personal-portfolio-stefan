@@ -277,6 +277,113 @@ export const ro = {
     "Music Promotional Rollup": "Rollup Promoțional Muzical",
     "Wedding Menu Design": "Design Meniu Nuntă",
   },
+  business: {
+    landing: {
+      greeting: "👋",
+      title: "Să construim ceva {great} împreună",
+      description:
+        "Cotații rapide pentru proiecte de dezvoltare web și grafică. Răspunde la câteva întrebări și contactează-mă pe WhatsApp.",
+      ctaButton: "Primește o Ofertă",
+      responseTime: "Durata medie de răspuns: 24 de ore",
+    },
+    serviceSelect: {
+      question: "Ce cauți?",
+      subtitle: "Selectează serviciul de care ai nevoie",
+      design: "Graphic Design",
+      web: "Web Development",
+      both: "Ambele",
+    },
+    common: {
+      back: "Înapoi",
+      continue: "Continuă",
+      stepOf: "Pasul {current} din {total}",
+      partOf: "Partea {part} din {total} — {service}",
+    },
+    graphicDesign: {
+      q1: {
+        title: "Ce facem?",
+        subtitle: "Selectează tipul de proiect de care ai nevoie",
+        otherLabel: "Ce ai în minte?",
+        placeholder: "Descrie proiectul tău...",
+      },
+      q2: {
+        title: "De unde începi?",
+        subtitle: "Asta mă ajută să înțeleg domeniul de aplicare",
+      },
+      q3: {
+        title: "Ce direcție de stil preferi?",
+        subtitle: "Asta mă ajută să pregătesc un mood board pentru proiectul tău",
+      },
+      q4: {
+        title: "Care este termenul tău limită?",
+        subtitle: "Când ai nevoie ca acesta să fie finalizat?",
+      },
+      q5: {
+        title: "Care este bugetul tău?",
+        subtitle: "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
+      },
+      q6: {
+        title: "Ceva altceva?",
+        subtitle: "Opțional — adaugă orice referințe, linkuri sau detalii pe care dorești să le cunosc",
+        descriptionLabel: "Detalii suplimentare",
+        placeholder: "Orice referințe, linkuri sau detalii pe care dorești să le cunosc...",
+      },
+    },
+    webDev: {
+      q1: {
+        title: "Ce construim?",
+        subtitle: "Selectează tipul de website sau aplicație de care ai nevoie",
+        otherLabel: "Ce ai în minte?",
+        placeholder: "Descrie proiectul tău...",
+      },
+      q2: {
+        title: "Care este situația designului?",
+        subtitle: "Acest lucru este important pentru definirea domeniului de aplicare",
+      },
+      q3: {
+        title: "Ce funcționalități dorești?",
+        subtitle: "Selectează toate cele care se aplică",
+      },
+      q4: {
+        title: "Care este termenul tău limită?",
+        subtitle: "Când ai nevoie ca acesta să fie finalizat?",
+      },
+      q5: {
+        title: "Care este bugetul tău?",
+        subtitle: "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
+      },
+      q6: {
+        title: "Ceva altceva?",
+        subtitle:
+          "Opțional — adaugă referințe de website-uri, URL-ul site-ului tău actual sau orice alte detalii",
+        descriptionLabel: "Detalii suplimentare",
+        placeholder:
+          "Referințe de website-uri care îți plac, URL-ul site-ului actual sau orice altceva dorești să împărtășești...",
+      },
+    },
+    summary: {
+      title: "Rezumatul Solicitării Tale",
+      subtitle: "Revizuiește răspunsurile tale înainte de a trimite",
+      serviceDesign: "Grafică",
+      serviceWeb: "Dezvoltare Web",
+      editButton: "Editează răspunsurile",
+      sendButton: "Trimite pe WhatsApp",
+      partIndicator: "Partea {part} din {total}",
+      labels: {
+        projectType: "Tip Proiect",
+        status: "Status",
+        style: "Stil",
+        timeline: "Termen",
+        budget: "Buget",
+        design: "Design",
+        features: "Funcționalități",
+        notes: "Extra Info",
+      },
+    },
+    whatsapp: {
+      greeting: "Salut Stefan! Am primit cartea ta de vizită și sunt interesat să colaborăm.",
+    },
+  },
   graphicsFinishes: {
     "Professional multi-page catalog with product photography":
       "Catalog profesional de mai multe pagini cu fotografie de produs",

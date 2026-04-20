@@ -23,6 +23,9 @@ import {
 } from "./components/WebDevQuestions";
 import { SummaryStage } from "./components/SummaryStage";
 import {
+  LanguageSelector,
+} from "./components/LanguageSelector";
+import {
   Stage,
   ServiceType,
   QuoteFormState,
@@ -60,6 +63,7 @@ export default function BusinessPage() {
   const [stage, setStage] = useState<Stage>("landing");
   const [formState, setFormState] = useState<QuoteFormState>(initialFormState);
   const [isBothPart2, setIsBothPart2] = useState(false);
+  const [showLangSelector, setShowLangSelector] = useState(false);
 
   const progress = getStageProgress(stage);
 
@@ -144,21 +148,18 @@ export default function BusinessPage() {
     []
   );
 
-  const handleWebBack = useCallback(
-    () => {
-      const currentStep = parseInt(stage.replace("web-q", ""));
-      const prevStep = currentStep - 1;
-      if (prevStep >= 1) {
-        setStage(`web-q${prevStep}` as Stage);
-      } else if (formState.service === "both" && isBothPart2) {
-        setIsBothPart2(false);
-        setStage("design-q6");
-      } else {
-        setStage("service-select");
-      }
-    },
-    [stage, formState.service, isBothPart2]
-  );
+  const handleWebBack = useCallback(() => {
+    const currentStep = parseInt(stage.replace("web-q", ""));
+    const prevStep = currentStep - 1;
+    if (prevStep >= 1) {
+      setStage(`web-q${prevStep}` as Stage);
+    } else if (formState.service === "both" && isBothPart2) {
+      setIsBothPart2(false);
+      setStage("design-q6");
+    } else {
+      setStage("service-select");
+    }
+  }, [stage, formState.service, isBothPart2]);
 
   const handleBackFromSummary = useCallback(() => {
     if (formState.service === "design") {
@@ -189,6 +190,14 @@ export default function BusinessPage() {
     openWhatsApp(formState);
   }, [formState]);
 
+  const handleOpenLanguageSelector = useCallback(() => {
+    setShowLangSelector(true);
+  }, []);
+
+  const handleCloseLanguageSelector = useCallback(() => {
+    setShowLangSelector(false);
+  }, []);
+
   const renderStage = () => {
     switch (stage) {
       case "landing":
@@ -205,6 +214,7 @@ export default function BusinessPage() {
           <ServiceSelectStage
             onSelect={handleServiceSelect}
             onBack={() => setStage("landing")}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -217,6 +227,7 @@ export default function BusinessPage() {
             onNext={() => handleDesignNext(1)}
             currentStep={1}
             isPart2={isBothPart2}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -228,6 +239,7 @@ export default function BusinessPage() {
             onBack={() => handleDesignBack(2)}
             onNext={() => handleDesignNext(2)}
             currentStep={2}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -239,6 +251,7 @@ export default function BusinessPage() {
             onBack={() => handleDesignBack(3)}
             onNext={() => handleDesignNext(3)}
             currentStep={3}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -250,6 +263,7 @@ export default function BusinessPage() {
             onBack={() => handleDesignBack(4)}
             onNext={() => handleDesignNext(4)}
             currentStep={4}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -261,6 +275,7 @@ export default function BusinessPage() {
             onBack={() => handleDesignBack(5)}
             onNext={() => handleDesignNext(5)}
             currentStep={5}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -272,6 +287,7 @@ export default function BusinessPage() {
             onBack={() => handleDesignBack(6)}
             onNext={() => handleDesignNext(6)}
             currentStep={6}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -283,6 +299,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(1)}
             currentStep={1}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -294,6 +311,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(2)}
             currentStep={2}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -305,6 +323,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(3)}
             currentStep={3}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -316,6 +335,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(4)}
             currentStep={4}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -327,6 +347,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(5)}
             currentStep={5}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -338,6 +359,7 @@ export default function BusinessPage() {
             onBack={handleWebBack}
             onNext={() => handleWebNext(6)}
             currentStep={6}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -348,6 +370,7 @@ export default function BusinessPage() {
             onBack={handleBackFromSummary}
             onEdit={handleEdit}
             onSend={handleSend}
+            onLanguageChange={handleOpenLanguageSelector}
           />
         );
 
@@ -358,6 +381,12 @@ export default function BusinessPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Language selector modal */}
+      <LanguageSelector
+        isOpen={showLangSelector}
+        onClose={handleCloseLanguageSelector}
+      />
+
       {/* Progress bar */}
       {stage !== "landing" && (
         <motion.div
@@ -383,11 +412,7 @@ export default function BusinessPage() {
       )}
 
       {/* Main content */}
-      <main
-        className={
-          stage === "landing" ? "" : "pt-16"
-        }
-      >
+      <main className={stage === "landing" ? "" : "pt-16"}>
         <AnimatePresence mode="wait">{renderStage()}</AnimatePresence>
       </main>
     </div>

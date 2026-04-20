@@ -277,6 +277,113 @@ export const en = {
     "Music Promotional Rollup": "Music Promotional Rollup",
     "Wedding Menu Design": "Wedding Menu Design",
   },
+  business: {
+    landing: {
+      greeting: "👋",
+      title: "Let's build something {{great}} together",
+      description:
+        "Quick quotes for web development & graphic design projects. Answer a few questions and get connected via WhatsApp.",
+      ctaButton: "Get a Quote",
+      responseTime: "Usually responds within 24 hours",
+    },
+    serviceSelect: {
+      question: "What are you looking for?",
+      subtitle: "Select the service you need help with",
+      design: "Graphic Design",
+      web: "Web Development",
+      both: "Both",
+    },
+    common: {
+      back: "Back",
+      continue: "Continue",
+      stepOf: "Step {{current}} of {{total}}",
+      partOf: "Part {{part}} of {{total}} — {{service}}",
+    },
+    graphicDesign: {
+      q1: {
+        title: "What are we making?",
+        subtitle: "Select the type of project you need",
+        otherLabel: "What do you have in mind?",
+        placeholder: "Describe your project...",
+      },
+      q2: {
+        title: "Where are you starting from?",
+        subtitle: "This helps me understand the scope of work",
+      },
+      q3: {
+        title: "What's your style direction?",
+        subtitle: "This helps me prepare a mood board for your project",
+      },
+      q4: {
+        title: "What's your timeline?",
+        subtitle: "When do you need this completed?",
+      },
+      q5: {
+        title: "What's your budget range?",
+        subtitle: "This helps me suggest the best approach for your project",
+      },
+      q6: {
+        title: "Anything else?",
+        subtitle: "Optional — add any references, links, or details you'd like me to know",
+        descriptionLabel: "Additional details",
+        placeholder: "Any references, links, or details you'd like me to know about...",
+      },
+    },
+    webDev: {
+      q1: {
+        title: "What are we building?",
+        subtitle: "Select the type of website or application you need",
+        otherLabel: "What do you have in mind?",
+        placeholder: "Describe your project...",
+      },
+      q2: {
+        title: "What's your design situation?",
+        subtitle: "This is important for scoping the project",
+      },
+      q3: {
+        title: "Any must-have features?",
+        subtitle: "Select all that apply",
+      },
+      q4: {
+        title: "What's your timeline?",
+        subtitle: "When do you need this completed?",
+      },
+      q5: {
+        title: "What's your budget range?",
+        subtitle: "This helps me suggest the best approach for your project",
+      },
+      q6: {
+        title: "Anything else?",
+        subtitle:
+          "Optional — add website references, your current site URL, or any other details",
+        descriptionLabel: "Additional details",
+        placeholder:
+          "Website references you like, current site URL, or anything else you'd like to share...",
+      },
+    },
+    summary: {
+      title: "Your Request Summary",
+      subtitle: "Review your answers before sending",
+      serviceDesign: "Graphic Design",
+      serviceWeb: "Web Development",
+      editButton: "Edit answers",
+      sendButton: "Send via WhatsApp",
+      partIndicator: "Part {{part}} of {{total}}",
+      labels: {
+        projectType: "Project Type",
+        status: "Status",
+        style: "Style",
+        timeline: "Timeline",
+        budget: "Budget",
+        design: "Design",
+        features: "Features",
+        notes: "Notes",
+      },
+    },
+    whatsapp: {
+      greeting: "Hi Stefan! I got your business card and I'm interested in working together.",
+    },
+  },
   graphicsFinishes: {
     "Professional multi-page catalog with product photography":
       "Professional multi-page catalog with product photography",

@@ -128,6 +128,110 @@ export type Translations = {
   }>;
   graphicsTypes: Record<string, string>;
   graphicsFinishes: Record<string, string>;
+  business: {
+    landing: {
+      greeting: string;
+      title: string;
+      description: string;
+      ctaButton: string;
+      responseTime: string;
+    };
+    serviceSelect: {
+      question: string;
+      subtitle: string;
+      design: string;
+      web: string;
+      both: string;
+    };
+    common: {
+      back: string;
+      continue: string;
+      stepOf: string;
+      partOf: string;
+    };
+    graphicDesign: {
+      q1: {
+        title: string;
+        subtitle: string;
+        otherLabel: string;
+        placeholder: string;
+      };
+      q2: {
+        title: string;
+        subtitle: string;
+      };
+      q3: {
+        title: string;
+        subtitle: string;
+      };
+      q4: {
+        title: string;
+        subtitle: string;
+      };
+      q5: {
+        title: string;
+        subtitle: string;
+      };
+      q6: {
+        title: string;
+        subtitle: string;
+        descriptionLabel: string;
+        placeholder: string;
+      };
+    };
+    webDev: {
+      q1: {
+        title: string;
+        subtitle: string;
+        otherLabel: string;
+        placeholder: string;
+      };
+      q2: {
+        title: string;
+        subtitle: string;
+      };
+      q3: {
+        title: string;
+        subtitle: string;
+      };
+      q4: {
+        title: string;
+        subtitle: string;
+      };
+      q5: {
+        title: string;
+        subtitle: string;
+      };
+      q6: {
+        title: string;
+        subtitle: string;
+        descriptionLabel: string;
+        placeholder: string;
+      };
+    };
+    summary: {
+      title: string;
+      subtitle: string;
+      serviceDesign: string;
+      serviceWeb: string;
+      editButton: string;
+      sendButton: string;
+      partIndicator: string;
+      labels: {
+        projectType: string;
+        status: string;
+        style: string;
+        timeline: string;
+        budget: string;
+        design: string;
+        features: string;
+        notes: string;
+      };
+    };
+    whatsapp: {
+      greeting: string;
+    };
+  };
 };
 
 export function getTranslation(lang: Language): Translations {

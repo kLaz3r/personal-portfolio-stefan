@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ReactNode } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { Globe } from "lucide-react";
 
 interface QuestionCardProps {
   title: string;
@@ -16,6 +18,7 @@ interface QuestionCardProps {
   showNext?: boolean;
   currentStep: number;
   totalSteps: number;
+  onLanguageChange?: () => void;
 }
 
 export function QuestionCard({
@@ -28,7 +31,15 @@ export function QuestionCard({
   showNext = true,
   currentStep,
   totalSteps,
+  onLanguageChange,
 }: QuestionCardProps) {
+  const { t, language } = useTranslation();
+
+  const stepText = t("business.common.stepOf", {
+    current: currentStep.toString(),
+    total: totalSteps.toString(),
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -38,14 +49,31 @@ export function QuestionCard({
       className="flex min-h-[calc(100vh-10rem)] flex-col items-center justify-center px-6 py-8"
     >
       <div className="w-full max-w-2xl">
+        {/* Language toggle */}
+        {onLanguageChange && (
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            onClick={onLanguageChange}
+            className="absolute top-4 right-4 flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-sm font-medium text-muted-foreground hover:bg-background-tertiary hover:text-foreground transition-colors"
+          >
+            <Globe className="size-4" />
+            <span>{language === "en" ? "EN" : "RO"}</span>
+          </motion.button>
+        )}
+
         <div className="mb-6 flex items-center justify-between">
-          <Button variant="ghost" size="sm" onClick={onBack} className="gap-1 text-muted-foreground">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onBack}
+            className="gap-1 text-muted-foreground"
+          >
             <ArrowLeft className="size-4" />
-            Back
+            {t("business.common.back")}
           </Button>
-          <span className="text-sm text-muted-foreground">
-            Step {currentStep} of {totalSteps}
-          </span>
+          <span className="text-sm text-muted-foreground">{stepText}</span>
         </div>
 
         <motion.div
@@ -56,12 +84,12 @@ export function QuestionCard({
           <h2 className="mb-2 font-montserrat text-2xl font-bold text-foreground md:text-3xl">
             {title}
           </h2>
-          {subtitle && <p className="mb-6 text-muted-foreground">{subtitle}</p>}
+          {subtitle && (
+            <p className="mb-6 text-muted-foreground">{subtitle}</p>
+          )}
         </motion.div>
 
-        <div className="space-y-4">
-          {children}
-        </div>
+        <div className="space-y-4">{children}</div>
 
         {showNext && onNext && (
           <motion.div
@@ -75,7 +103,7 @@ export function QuestionCard({
               disabled={nextDisabled}
               className="bg-brand-primary hover:bg-brand-primary/90 text-white"
             >
-              Continue
+              {t("business.common.continue")}
               <ArrowRight className="ml-2 size-4" />
             </Button>
           </motion.div>
@@ -98,7 +126,12 @@ interface OptionGridProps {
   columns?: 1 | 2 | 3;
 }
 
-export function OptionGrid({ options, selected, onSelect, columns = 1 }: OptionGridProps) {
+export function OptionGrid({
+  options,
+  selected,
+  onSelect,
+  columns = 1,
+}: OptionGridProps) {
   const gridCols = {
     1: "grid-cols-1",
     2: "grid-cols-1 md:grid-cols-2",
@@ -124,7 +157,9 @@ export function OptionGrid({ options, selected, onSelect, columns = 1 }: OptionG
           >
             <CardContent className="flex items-center gap-3 p-4">
               {option.icon && <span className="text-2xl">{option.icon}</span>}
-              <span className="font-medium text-foreground">{option.label}</span>
+              <span className="font-medium text-foreground">
+                {option.label}
+              </span>
             </CardContent>
           </Card>
         </motion.div>
