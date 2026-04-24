@@ -16,7 +16,7 @@ export const ro = {
     greeting: "Salut, sunt",
     name: "Stefan,",
     role1: "Un",
-    role2: "Maestru Digital",
+    role2: "Meșter Digital",
     description:
       "Rezolv probleme complexe, creez grafică frumoasă și capturez cele mai bune momente ale vieții.",
     complex: "complexe",
