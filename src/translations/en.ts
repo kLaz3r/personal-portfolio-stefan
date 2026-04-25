@@ -4,6 +4,7 @@ export const en = {
     graphics: "Graphics",
     webdev: "Web Dev",
     photography: "Photography",
+    blog: "Blog",
     about: "About",
     themeToggleDark: "Switch to dark mode",
     themeToggleLight: "Switch to light mode",
@@ -91,6 +92,19 @@ export const en = {
     subtitle: "A collection of my graphic design work",
     viewProject: "View project details",
     noProjects: "No projects found",
+  },
+  blog: {
+    title: "Blog",
+    subtitle: "Thoughts on web development, design, and technology",
+    readMore: "Read article",
+    backToBlog: "Back to blog",
+    backToHome: "Back to home",
+    publishedOn: "Published on",
+    tags: "Tags",
+    noPosts: "No blog posts found",
+    minuteRead: "min read",
+    previousPost: "Previous post",
+    nextPost: "Next post",
   },
   metadata: {
     title:

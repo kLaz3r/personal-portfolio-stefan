@@ -15,7 +15,9 @@ import {
   HiUser,
   HiX,
   HiTranslate,
+  HiBookOpen,
 } from "react-icons/hi";
+import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTranslation } from "../hooks/useTranslation";
@@ -50,8 +52,10 @@ const HamburgerButton = ({
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
   const { theme, toggleTheme } = useTheme();
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage, setLanguage } = useLanguage();
   const { t } = useTranslation();
   const [isMounted, setIsMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
@@ -133,6 +137,7 @@ const Navbar = () => {
     { key: "graphics", href: "/#graphics", icon: HiColorSwatch },
     { key: "webdev", href: "/#webdev", icon: HiBriefcase },
     { key: "photography", href: "/#photos", icon: HiCamera },
+  { key: "blog", href: `/blog/${language}`, icon: HiBookOpen },
     { key: "about", href: "/#about", icon: HiUser },
   ];
 
@@ -140,7 +145,25 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleToggleLanguage = () => {
+    const newLang = language === "en" ? "ro" : "en";
+
+    // Check if we're on a blog page
+    const blogMatch = pathname.match(/^\/blog\/(en|ro)(\/.+)?$/);
+    if (blogMatch) {
+      const [, , postPath = ""] = blogMatch;
+      // Redirect to the same blog page in the new language
+      router.push(`/blog/${newLang}${postPath || ""}`);
+    }
+
+    // Always update the language context
+    setLanguage(newLang);
+  };
+
   const isActive = (href: string) => {
+    if (href.startsWith("/blog")) {
+      return pathname.startsWith("/blog");
+    }
     const sectionId = href.replace("/#", "");
     return activeSection === sectionId;
   };
@@ -193,7 +216,7 @@ const Navbar = () => {
               {isMounted && (
                 <>
                   <button
-                    onClick={toggleLanguage}
+                    onClick={handleToggleLanguage}
                     className="text-foreground hover:text-brand-primary p-3 rounded-md transition-colors duration-200 font-montserrat font-bold min-w-[3.5rem]"
                     aria-label={t("navigation.languageToggle")}
                   >
@@ -223,7 +246,7 @@ const Navbar = () => {
             {isMounted && (
               <>
                 <button
-                  onClick={toggleLanguage}
+                  onClick={handleToggleLanguage}
                   className="text-foreground hover:text-brand-primary p-2 rounded-md transition-colors duration-200 font-montserrat font-bold"
                   aria-label={t("navigation.languageToggle")}
                 >

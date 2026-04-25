@@ -4,6 +4,7 @@ export const ro = {
     graphics: "Grafică",
     webdev: "Web Dev",
     photography: "Fotografie",
+    blog: "Blog",
     about: "Despre",
     themeToggleDark: "Comută la modul întunecat",
     themeToggleLight: "Comută la modul luminos",
@@ -91,6 +92,19 @@ export const ro = {
     subtitle: "O colecție a proiectelor mele de design grafic",
     viewProject: "Vezi detalii proiect",
     noProjects: "Nu au fost găsite proiecte",
+  },
+  blog: {
+    title: "Blog",
+    subtitle: "Gânduri despre dezvoltare web, design și tehnologie",
+    readMore: "Citește articolul",
+    backToBlog: "Înapoi la blog",
+    backToHome: "Înapoi la pagina principală",
+    publishedOn: "Publicat pe",
+    tags: "Etichete",
+    noPosts: "Nu au fost găsite articole",
+    minuteRead: "min de citit",
+    previousPost: "Articolul anterior",
+    nextPost: "Articolul următor",
   },
   metadata: {
     title:

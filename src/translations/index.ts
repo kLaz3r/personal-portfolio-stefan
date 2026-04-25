@@ -14,6 +14,7 @@ export type Translations = {
     graphics: string;
     webdev: string;
     photography: string;
+    blog: string;
     about: string;
     themeToggleDark: string;
     themeToggleLight: string;
@@ -128,6 +129,19 @@ export type Translations = {
   }>;
   graphicsTypes: Record<string, string>;
   graphicsFinishes: Record<string, string>;
+  blog: {
+    title: string;
+    subtitle: string;
+    readMore: string;
+    backToBlog: string;
+    backToHome: string;
+    publishedOn: string;
+    tags: string;
+    noPosts: string;
+    minuteRead: string;
+    previousPost: string;
+    nextPost: string;
+  };
   business: {
     landing: {
       greeting: string;
