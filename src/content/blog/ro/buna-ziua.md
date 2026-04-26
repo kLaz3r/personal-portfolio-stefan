@@ -6,8 +6,6 @@ lang: "ro"
 tags: ["introducere", "dezvoltare web", "next.js"]
 ---
 
-# Bun Venit pe Blogul Meu
-
 Salutare! Sunt **Stefan Nasturas**, un dezvoltator web și designer din România. Bun venit în colțul meu de internet unde îmi împărtășesc gândurile despre dezvoltarea web, design grafic, fotografie și tehnologie.
 
 ## Ce Vei Găsi Aici

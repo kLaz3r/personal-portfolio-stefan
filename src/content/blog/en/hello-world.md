@@ -6,8 +6,6 @@ lang: "en"
 tags: ["introduction", "web development", "next.js"]
 ---
 
-# Welcome to My Blog
-
 Hello there! I'm **Stefan Nasturas**, a web developer and designer from Romania. Welcome to my corner of the internet where I share my thoughts on web development, graphic design, photography, and technology.
 
 ## What You'll Find Here
