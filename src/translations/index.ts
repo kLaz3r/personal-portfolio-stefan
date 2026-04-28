@@ -54,6 +54,12 @@ export type Translations = {
   about: {
     title: string;
   };
+  blogTeaser: {
+    title: string;
+    subtitle: string;
+    description: string;
+    ctaButton: string;
+  };
   projects: {
     liveSite: string;
     github: string;

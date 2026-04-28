@@ -45,6 +45,12 @@ export const en = {
   about: {
     title: "About Me",
   },
+  blogTeaser: {
+    title: "Thoughts & Notes",
+    subtitle: "A space for ideas in progress",
+    description: "Behind every project lies a story. Tales of late nights, unexpected solutions, and lessons learned along the way.",
+    ctaButton: "Explore the Archive",
+  },
   projects: {
     liveSite: "Live Site",
     github: "Github",

@@ -572,6 +572,118 @@ const PhotosSection = () => {
   );
 };
 
+const BlogTeaserSection = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section
+      aria-labelledby="blog-heading"
+      id="blog"
+      className="text-foreground overflow-clip relative min-h-screen pt-20 pb-12 border-b-2 border-background-tertiary"
+    >
+      <div className="absolute flex -z-10 items-center justify-center inset-0 w-full h-full pointer-events-none overflow-hidden">
+        <div
+          className="absolute pointer-events-none opacity-[0.03] dark:opacity-[0.05] text-foreground"
+          style={{
+            fontFamily: "var(--font-montserrat)",
+            fontSize: "clamp(8rem, 25vw, 20rem)",
+            fontWeight: 900,
+            whiteSpace: "nowrap",
+            transform: "rotate(-5deg)",
+            userSelect: "none",
+          }}
+        >
+          &lt;/&gt;
+        </div>
+      </div>
+
+      <div className="container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            ease: "anticipate",
+            duration: 0.8,
+          }}
+          viewport={{ margin: "0px 0px 100px 0px" }}
+          className="flex flex-col items-center text-center max-w-3xl"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-[2px] bg-brand-primary/60" />
+            <span className="text-brand-primary font-montserrat text-sm font-bold tracking-[0.2em] uppercase">
+              Blog
+            </span>
+            <div className="w-12 h-[2px] bg-brand-primary/60" />
+          </div>
+
+          <h2
+            id="blog-heading"
+            className="font-montserrat text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4"
+          >
+            {t("blogTeaser.title")}
+          </h2>
+
+          <p className="text-brand-primary font-montserrat text-xl md:text-2xl mb-8">
+            {t("blogTeaser.subtitle")}
+          </p>
+
+          <p className="font-montserrat text-lg text-text-secondary max-w-xl mb-12 leading-relaxed">
+            {t("blogTeaser.description")}
+          </p>
+
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Link
+              href="/blog"
+              className="group relative inline-flex items-center gap-3 font-montserrat bg-transparent hover:bg-brand-primary text-brand-primary hover:text-background border-2 border-brand-primary active:opacity-60 transition-all duration-300 active:scale-90 font-bold text-xl px-8 py-4 rounded-full"
+            >
+              <span>{t("blogTeaser.ctaButton")}</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          viewport={{ margin: "0px 0px 100px 0px" }}
+          className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16"
+        >
+          {["React", "TypeScript", "Next.js", "Design"].map((tag, index) => (
+            <motion.span
+              key={tag}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + index * 0.1 }}
+              viewport={{ once: true }}
+              className="font-montserrat text-sm text-text-secondary/60 hover:text-brand-primary/80 transition-colors cursor-default"
+            >
+              {tag}
+            </motion.span>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const AboutSection = () => {
   const { t } = useTranslation();
 
@@ -724,6 +836,7 @@ export default function Home() {
       <GraphicsSection />
       <WebDevSection />
       <PhotosSection />
+      <BlogTeaserSection />
       <AboutSection />
     </div>
   );

@@ -45,6 +45,12 @@ export const ro = {
   about: {
     title: "Despre Mine",
   },
+  blogTeaser: {
+    title: "Gânduri & Notițe",
+    subtitle: "Un spațiu pentru idei în curs",
+    description: "În spatele fiecărui proiect se află o poveste. Povești despre nopțile târzii, soluții neașteptate și lecții învățate pe parcurs.",
+    ctaButton: "Explorează Arhiva",
+  },
   projects: {
     liveSite: "Site Live",
     github: "Github",
