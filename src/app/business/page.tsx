@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Progress } from "@/components/ui/progress";
 import { LandingStage } from "./components/LandingStage";
 import { ServiceSelectStage } from "./components/ServiceSelectStage";
 import {
@@ -32,7 +31,6 @@ import {
   GraphicDesignAnswers,
   WebDevAnswers,
 } from "./types";
-import { getStageProgress } from "./types";
 import { openWhatsApp } from "./lib/whatsapp";
 
 const initialDesignAnswers: GraphicDesignAnswers = {
@@ -64,8 +62,6 @@ export default function BusinessPage() {
   const [formState, setFormState] = useState<QuoteFormState>(initialFormState);
   const [isBothPart2, setIsBothPart2] = useState(false);
   const [showLangSelector, setShowLangSelector] = useState(false);
-
-  const progress = getStageProgress(stage);
 
   const updateFormState = useCallback(
     (updates: Partial<QuoteFormState>) => {
@@ -387,32 +383,8 @@ export default function BusinessPage() {
         onClose={handleCloseLanguageSelector}
       />
 
-      {/* Progress bar */}
-      {stage !== "landing" && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border"
-        >
-          <div className="container mx-auto px-4 py-3">
-            <div className="flex items-center justify-between mb-2">
-              <span
-                onClick={handleStartOver}
-                className="font-montserrat font-bold text-lg text-brand-primary cursor-pointer"
-              >
-                Stefan Nasturas
-              </span>
-              <span className="text-sm text-muted-foreground">
-                {progress > 0 && progress < 100 && `${progress}%`}
-              </span>
-            </div>
-            <Progress value={progress} className="h-1" />
-          </div>
-        </motion.div>
-      )}
-
       {/* Main content */}
-      <main className={stage === "landing" ? "" : "pt-16"}>
+      <main className="mt-16">
         <AnimatePresence mode="wait">{renderStage()}</AnimatePresence>
       </main>
     </div>

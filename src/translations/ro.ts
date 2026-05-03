@@ -48,7 +48,8 @@ export const ro = {
   blogTeaser: {
     title: "Gânduri & Notițe",
     subtitle: "Un spațiu pentru idei în curs",
-    description: "În spatele fiecărui proiect se află o poveste. Povești despre nopțile târzii, soluții neașteptate și lecții învățate pe parcurs.",
+    description:
+      "În spatele fiecărui proiect se află o poveste. Povești despre nopțile târzii, soluții neașteptate și lecții învățate pe parcurs.",
     ctaButton: "Explorează Arhiva",
   },
   projects: {
@@ -137,8 +138,7 @@ export const ro = {
     "catalog-agr-carne-pui": {
       title: "Catalog de Carne de Pui Agricola",
       type: "Catalog de Produse",
-      finish:
-        "Catalog profesional de mai multe pagini cu fotografie de produs",
+      finish: "Catalog profesional de mai multe pagini cu fotografie de produs",
       description:
         "Design de catalog de produse complet care prezintă gama de produse din carne de pui Agricola. Catalogul include fotografie profesională de produse alimentare, cu informații detaliate despre produse, prețuri și conținut promoțional. Designul menține branding-ul corporativ Agricola subliniind în același timp calitatea și prospețimea produselor. Paginile multiple evidențiază diferite categorii de produse inclusiv porțiuni de pui proaspăt, produse din pui procesate și articole speciale.",
     },
@@ -192,7 +192,8 @@ export const ro = {
         "Design de raport de sustenabilitate complet pentru inițiativele Agricola de responsabilitate socială și mediu din 2024. Publicația digitală prezintă un layout modern și curat cu imagerie din agricultură și culturi, folosind o schemă de culori verde pentru a reflecta focusul pe mediu. Raportul include metrici de sustenabilitate, date de responsabilitate corporativă și povestire vizuală pentru a comunica angajamentul Agricola față de practici agricole sustenabile. Diferite pagini organizează informația în secțiuni clare cu vizualizări de date și fotografie profesională.",
     },
     "rollup-business-lounge-aeroport-enescu": {
-      title: "Rollup Lounge Business Aeroport - Aeroportul Internațional George Enescu Bacău",
+      title:
+        "Rollup Lounge Business Aeroport - Aeroportul Internațional George Enescu Bacău",
       type: "Afișaj Banner Rollup",
       finish:
         "Rollup profesional cu suport, potrivit pentru mediu de aeroport cu trafic intens",
@@ -216,7 +217,8 @@ export const ro = {
     "stradala-discover-imob": {
       title: "Discover Imobiliare - Design People Stopper",
       type: "Panou Stradal / Indicator Trotuar",
-      finish: "Semnalizare stradală exterior pentru marketing la nivel de stradă",
+      finish:
+        "Semnalizare stradală exterior pentru marketing la nivel de stradă",
       description:
         "Design de people stopper (panou stradal) pentru agenția imobiliară Discover Imobiliare. Designul servește ca reclamă la nivel de stradă pentru a atrage potențiali clienți care trec pe jos. Formatul people stopper este specific conceput pentru plasare pe trotuar, permițând afacerilor să capteze atenția traficului pietonal. Dimensiunile compacte (500x700mm) îl fac ideal pentru plasare în fața birourilor imobiliare sau locațiilor de proprietăți.",
     },
@@ -225,7 +227,7 @@ export const ro = {
       type: "Bannere Exterior de Mari Dimensiuni",
       finish: "Consolidat cu ocheți pentru montare",
       description:
-        "Colecție de bannere de mari dimensiuni create pentru programul educațional Erasmus+ E-Lev E-Learning. Proiectul include multiple variante de bannere prezentând diferite aspecte ale programului: 1. **Bannere Program E-Lev (3 variante)** - Bannere promoționale principale ale programului prezentând design educațional modern cu steagul Uniunii Europene și branding Erasmus+ 2. **Banner Campanie Sănătate** - Banner campanie de sănătate \"Spune NU obezității!\" axat pe promovarea alegerilor de stil de viață sănătoase Bannerele încorporează branding educațional profesional cu elemente de design moderne potrivite pentru diverse contexte promoționale în programul educațional.",
+        'Colecție de bannere de mari dimensiuni create pentru programul educațional Erasmus+ E-Lev E-Learning. Proiectul include multiple variante de bannere prezentând diferite aspecte ale programului: 1. **Bannere Program E-Lev (3 variante)** - Bannere promoționale principale ale programului prezentând design educațional modern cu steagul Uniunii Europene și branding Erasmus+ 2. **Banner Campanie Sănătate** - Banner campanie de sănătate "Spune NU obezității!" axat pe promovarea alegerilor de stil de viață sănătoase Bannerele încorporează branding educațional profesional cu elemente de design moderne potrivite pentru diverse contexte promoționale în programul educațional.',
     },
     "magazin-sibiu": {
       title: "Magazin Jina Sibiului - Design Antet",
@@ -258,7 +260,8 @@ export const ro = {
     "rollup-seby-sax": {
       title: "Seby Sax - Rollup Promoțional Muzical",
       type: "Rollup Promoțional Muzical",
-      finish: "Afișaj rollup profesional pentru spectacole și evenimente muzicale",
+      finish:
+        "Afișaj rollup profesional pentru spectacole și evenimente muzicale",
       description:
         "Design de rollup promoțional muzical pentru Seby Sax, interpret/artist muzical. Rollup-ul prezintă branding de artist și imagerie de spectacol potrivite pentru concerte, locații și apariții promoționale. Designul capturează identitatea muzicală și creează o prezentare vizuală atractivă pentru implicarea audienței. Ideal pentru fundaluri de scenă, intrări în locații sau evenimente promoționale unde vizibilitatea artistului este esențială.",
     },
@@ -300,7 +303,7 @@ export const ro = {
   business: {
     landing: {
       greeting: "👋",
-      title: "Să construim ceva {great} împreună",
+      title: "Hai să colaborăm!",
       description:
         "Cotații rapide pentru proiecte de dezvoltare web și grafică. Răspunde la câteva întrebări și contactează-mă pe WhatsApp.",
       ctaButton: "Primește o Ofertă",
@@ -332,7 +335,8 @@ export const ro = {
       },
       q3: {
         title: "Ce direcție de stil preferi?",
-        subtitle: "Asta mă ajută să pregătesc un mood board pentru proiectul tău",
+        subtitle:
+          "Asta mă ajută să pregătesc un mood board pentru proiectul tău",
       },
       q4: {
         title: "Care este termenul tău limită?",
@@ -340,13 +344,16 @@ export const ro = {
       },
       q5: {
         title: "Care este bugetul tău?",
-        subtitle: "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
+        subtitle:
+          "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
       },
       q6: {
         title: "Ceva altceva?",
-        subtitle: "Opțional — adaugă orice referințe, linkuri sau detalii pe care dorești să le cunosc",
+        subtitle:
+          "Opțional — adaugă orice referințe, linkuri sau detalii pe care dorești să le cunosc",
         descriptionLabel: "Detalii suplimentare",
-        placeholder: "Orice referințe, linkuri sau detalii pe care dorești să le cunosc...",
+        placeholder:
+          "Orice referințe, linkuri sau detalii pe care dorești să le cunosc...",
       },
     },
     webDev: {
@@ -358,7 +365,8 @@ export const ro = {
       },
       q2: {
         title: "Care este situația designului?",
-        subtitle: "Acest lucru este important pentru definirea domeniului de aplicare",
+        subtitle:
+          "Acest lucru este important pentru definirea domeniului de aplicare",
       },
       q3: {
         title: "Ce funcționalități dorești?",
@@ -370,7 +378,8 @@ export const ro = {
       },
       q5: {
         title: "Care este bugetul tău?",
-        subtitle: "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
+        subtitle:
+          "Asta mă ajută să sugerez cea mai bună abordare pentru proiectul tău",
       },
       q6: {
         title: "Ceva altceva?",
@@ -401,7 +410,8 @@ export const ro = {
       },
     },
     whatsapp: {
-      greeting: "Salut Stefan! Am primit cartea ta de vizită și sunt interesat să colaborăm.",
+      greeting:
+        "Salut Stefan! Am primit cartea ta de vizită și sunt interesat să colaborăm.",
     },
   },
   graphicsFinishes: {
@@ -425,10 +435,12 @@ export const ro = {
       "Consolidat cu ocheți pentru montare",
     "Outdoor pavement signage for street-level marketing":
       "Semnalizare stradală exterior pentru marketing la nivel de stradă",
-    "Reinforced with grommets for mounting": "Consolidat cu ocheți pentru montare",
+    "Reinforced with grommets for mounting":
+      "Consolidat cu ocheți pentru montare",
     "Large format print for shop front display":
       "Print de mari dimensiuni pentru afișaj fațadă magazin",
-    "Professional product packaging design": "Design profesional de ambalaje produs",
+    "Professional product packaging design":
+      "Design profesional de ambalaje produs",
     "Professional rollup display for music performances and events":
       "Afișaj rollup profesional pentru spectacole și evenimente muzicale",
     "Premium wedding stationery": "Papetărie premium pentru nuntă",

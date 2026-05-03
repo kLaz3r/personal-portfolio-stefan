@@ -48,7 +48,8 @@ export const en = {
   blogTeaser: {
     title: "Thoughts & Notes",
     subtitle: "A space for ideas in progress",
-    description: "Behind every project lies a story. Tales of late nights, unexpected solutions, and lessons learned along the way.",
+    description:
+      "Behind every project lies a story. Tales of late nights, unexpected solutions, and lessons learned along the way.",
     ctaButton: "Explore the Archive",
   },
   projects: {
@@ -137,8 +138,7 @@ export const en = {
     "catalog-agr-carne-pui": {
       title: "Agricola Chicken Meat Product Catalog",
       type: "Product Catalog",
-      finish:
-        "Professional multi-page catalog with product photography",
+      finish: "Professional multi-page catalog with product photography",
       description:
         "Comprehensive product catalog design showcasing Agricola's chicken meat product line. The catalog features professional food photography of various chicken meat products, with detailed product information, pricing, and promotional content. The design maintains Agricola's corporate branding while emphasizing product quality and freshness. Multiple spreads highlight different product categories including fresh chicken cuts, processed chicken products, and specialty items.",
     },
@@ -192,7 +192,8 @@ export const en = {
         "Comprehensive sustainability report design for Agricola's 2024 environmental and social responsibility initiatives. The digital publication features a clean, modern layout with farming and crop imagery, using a green color scheme to reflect the environmental focus. The report includes sustainability metrics, corporate responsibility data, and visual storytelling to communicate Agricola's commitment to sustainable agricultural practices. Multiple page spreads organize information into clear sections with data visualizations and professional photography.",
     },
     "rollup-business-lounge-aeroport-enescu": {
-      title: "Airport Business Lounge Rollup - George Enescu International Airport Bacău",
+      title:
+        "Airport Business Lounge Rollup - George Enescu International Airport Bacău",
       type: "Rollup Banner Display",
       finish:
         "Professional rollup with stand, suitable for high-traffic airport environment",
@@ -225,7 +226,7 @@ export const en = {
       type: "Large Format Outdoor Banners",
       finish: "Reinforced with grommets for mounting",
       description:
-        "Collection of large format banners created for the Erasmus+ E-Lev E-Learning educational program. The project includes multiple banner variations showcasing different aspects of the program: 1. **E-Lev Program Banners (3 variations)** - Main program promotional banners featuring modern educational design with the European Union flag and Erasmus+ branding 2. **Health Awareness Banner** - \"Spune NU obezității!\" (Say NO to obesity!) health campaign banner focused on promoting healthy lifestyle choices The banners incorporate professional educational branding with modern design elements suitable for various promotional contexts within the educational program.",
+        'Collection of large format banners created for the Erasmus+ E-Lev E-Learning educational program. The project includes multiple banner variations showcasing different aspects of the program: 1. **E-Lev Program Banners (3 variations)** - Main program promotional banners featuring modern educational design with the European Union flag and Erasmus+ branding 2. **Health Awareness Banner** - "Spune NU obezității!" (Say NO to obesity!) health campaign banner focused on promoting healthy lifestyle choices The banners incorporate professional educational branding with modern design elements suitable for various promotional contexts within the educational program.',
     },
     "magazin-sibiu": {
       title: "Jina Sibiului Shop - Header Design",
@@ -300,7 +301,7 @@ export const en = {
   business: {
     landing: {
       greeting: "👋",
-      title: "Let's build something {{great}} together",
+      title: "Let's build something {great} together",
       description:
         "Quick quotes for web development & graphic design projects. Answer a few questions and get connected via WhatsApp.",
       ctaButton: "Get a Quote",
@@ -316,8 +317,8 @@ export const en = {
     common: {
       back: "Back",
       continue: "Continue",
-      stepOf: "Step {{current}} of {{total}}",
-      partOf: "Part {{part}} of {{total}} — {{service}}",
+      stepOf: "Step {current} of {total}",
+      partOf: "Part {part} of {total} — {service}",
     },
     graphicDesign: {
       q1: {
@@ -344,9 +345,11 @@ export const en = {
       },
       q6: {
         title: "Anything else?",
-        subtitle: "Optional — add any references, links, or details you'd like me to know",
+        subtitle:
+          "Optional — add any references, links, or details you'd like me to know",
         descriptionLabel: "Additional details",
-        placeholder: "Any references, links, or details you'd like me to know about...",
+        placeholder:
+          "Any references, links, or details you'd like me to know about...",
       },
     },
     webDev: {
@@ -388,7 +391,7 @@ export const en = {
       serviceWeb: "Web Development",
       editButton: "Edit answers",
       sendButton: "Send via WhatsApp",
-      partIndicator: "Part {{part}} of {{total}}",
+      partIndicator: "Part {part} of {total}",
       labels: {
         projectType: "Project Type",
         status: "Status",
@@ -401,7 +404,8 @@ export const en = {
       },
     },
     whatsapp: {
-      greeting: "Hi Stefan! I got your business card and I'm interested in working together.",
+      greeting:
+        "Hi Stefan! I got your business card and I'm interested in working together.",
     },
   },
   graphicsFinishes: {
@@ -425,10 +429,12 @@ export const en = {
       "Reinforced with grommets/loopholes for mounting",
     "Outdoor pavement signage for street-level marketing":
       "Outdoor pavement signage for street-level marketing",
-    "Reinforced with grommets for mounting": "Reinforced with grommets for mounting",
+    "Reinforced with grommets for mounting":
+      "Reinforced with grommets for mounting",
     "Large format print for shop front display":
       "Large format print for shop front display",
-    "Professional product packaging design": "Professional product packaging design",
+    "Professional product packaging design":
+      "Professional product packaging design",
     "Professional rollup display for music performances and events":
       "Professional rollup display for music performances and events",
     "Premium wedding stationery": "Premium wedding stationery",

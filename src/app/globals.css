@@ -139,6 +139,22 @@
 --text-secondary: #141414;
 --background-secondary: #fcfcfc;
 --background-tertiary: #eeeeee;
+--muted: #f5f5f5;
+--muted-foreground: #6b7280;
+--card: #ffffff;
+--card-foreground: #141414;
+--popover: #ffffff;
+--popover-foreground: #141414;
+--primary: #fdb00a;
+--primary-foreground: #141414;
+--secondary: #f5f5f5;
+--secondary-foreground: #141414;
+--accent: #fdb00a;
+--accent-foreground: #141414;
+--destructive: #ef4444;
+--border: #e5e7eb;
+--input: #e5e7eb;
+--ring: #fdb00a;
 }
 
 /* Dark theme */
