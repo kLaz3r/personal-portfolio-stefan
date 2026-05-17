@@ -1,4 +1,4 @@
-import type { Viewport } from "next";
+import type { Viewport, Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import Footer from "../components/Footer";
@@ -19,6 +19,40 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
 
+export const metadata: Metadata = {
+  title: {
+    default: "Stefan Nasturas | Web Developer & Designer",
+    template: "%s | Stefan Nasturas",
+  },
+  description:
+    "Portfolio of Stefan Nasturas - Full-stack web developer and graphic designer specializing in React, Next.js, TypeScript, and creative design solutions.",
+  keywords: [
+    "web developer",
+    "graphic designer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "portfolio",
+    "Stefan Nasturas",
+  ],
+  authors: [{ name: "Stefan Nasturas" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://stefan-nasturas.dev",
+    siteName: "Stefan Nasturas",
+    title: "Stefan Nasturas | Web Developer & Designer",
+    description:
+      "Portfolio of Stefan Nasturas - Full-stack web developer and graphic designer.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stefan Nasturas | Web Developer & Designer",
+    description:
+      "Portfolio of Stefan Nasturas - Full-stack web developer and graphic designer.",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -36,7 +70,7 @@ export default function RootLayout({
                   return persistedColorPreference;
                 }
                 const mql = window.matchMedia('(prefers-color-scheme: dark)');
-                if (typeof mql.matches === 'boolean') {
+                                                                                                  if (typeof mql.matches === 'boolean') {
                   return mql.matches ? 'dark' : 'light';
                 }
                 return 'light';

@@ -67,13 +67,17 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sections = ["home", "graphics", "webdev", "photos", "about"];
+    const sections = ["home", "graphics", "webdev", "photos", "blog", "about"];
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            // Update URL hash without triggering scroll
+            if (history.pushState) {
+              history.pushState(null, "", `/#${entry.target.id}`);
+            }
           }
         });
       },
@@ -83,15 +87,39 @@ const Navbar = () => {
       },
     );
 
-    sections.forEach((sectionId) => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    const observeSections = () => {
+      sections.forEach((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          observer.observe(element);
+        }
+      });
+    };
 
-    return () => observer.disconnect();
-  }, []);
+    // Initial observation
+    observeSections();
+
+    // Re-observe after navigation (in case sections were added to DOM)
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && sections.includes(hash)) {
+        setActiveSection(hash);
+      }
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    // Check initial hash on mount
+    const hash = window.location.hash.replace("#", "");
+    if (hash && sections.includes(hash)) {
+      setActiveSection(hash);
+    }
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -137,7 +165,7 @@ const Navbar = () => {
     { key: "graphics", href: "/#graphics", icon: HiColorSwatch },
     { key: "webdev", href: "/#webdev", icon: HiBriefcase },
     { key: "photography", href: "/#photos", icon: HiCamera },
-  { key: "blog", href: `/blog/${language}`, icon: HiBookOpen },
+    { key: "blog", href: "/#blog", icon: HiBookOpen },
     { key: "about", href: "/#about", icon: HiUser },
   ];
 
@@ -161,9 +189,6 @@ const Navbar = () => {
   };
 
   const isActive = (href: string) => {
-    if (href.startsWith("/blog")) {
-      return pathname.startsWith("/blog");
-    }
     const sectionId = href.replace("/#", "");
     return activeSection === sectionId;
   };

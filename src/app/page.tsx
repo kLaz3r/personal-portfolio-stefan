@@ -26,7 +26,7 @@ const HeroSection = () => {
       id="home"
       className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
     >
-      <div className="hidden absolute md:block right-0 bg-[url(/illustration.svg)] saturate-0 brightness-20 dark:opacity-100 opacity-7 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
+      <div className="hidden absolute md:block right-0 saturate-0 brightness-20 dark:opacity-100 opacity-7 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
       <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
         <motion.div
           viewport={{ once: true }}
@@ -58,41 +58,45 @@ const HeroSection = () => {
               best: t("hero.best") as string,
             })}
           </h2>
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="cursor-pointer"
-        onClick={() => {
-          document.getElementById("graphics")?.scrollIntoView({ behavior: "smooth" });
-        }}
-        aria-label="Scroll to view my work"
-        role="button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            document.getElementById("graphics")?.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-      >
-        <svg
-          width="48"
-          height="48"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="text-brand-primary"
-        >
-          <path d="M7 13l5 5 5-5" />
-          <path d="M7 6l5 5 5-5" />
-        </svg>
-      </motion.div>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="cursor-pointer"
+            onClick={() => {
+              document
+                .getElementById("graphics")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            aria-label="Scroll to view my work"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                document
+                  .getElementById("graphics")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-brand-primary"
+            >
+              <path d="M7 13l5 5 5-5" />
+              <path d="M7 6l5 5 5-5" />
+            </svg>
+          </motion.div>
         </motion.div>
         <motion.div
           viewport={{ once: true }}
@@ -112,7 +116,7 @@ const HeroSection = () => {
             alt="Creative illustration representing innovative web development and design solutions"
             priority={true}
             quality={75}
-            className="select-none"
+            className="select-none opacity-90 dark:opacity-100 drop-shadow-xl drop-shadow-brand-primary/15"
           />
         </motion.div>
       </div>
@@ -122,7 +126,12 @@ const HeroSection = () => {
 
 const GraphicsSection = () => {
   const { t } = useTranslation();
-  const tools = ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "CorelDRAW"];
+  const tools = [
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Adobe InDesign",
+    "CorelDRAW",
+  ];
 
   return (
     <section
@@ -168,17 +177,72 @@ const GraphicsSection = () => {
           >
             <ImageCarousel
               images={[
-                { src: "/mockups/carousel/agricola poster salam de sibiu premii.png", alt: "Agricola Poster Design", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/billboard kaufland gogosi.png", alt: "Kaufland Gogosi Billboard", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/calendar agricola 2025 3.png", alt: "Agricola 2025 Calendar", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/flyer salam sibiu germania 1.png", alt: "Germania Salam Flyer", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/Mockup Snack2go Produse.png", alt: "Snack2Go Products", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/Promo reducere pui fericit grill selgros sorin.png", alt: "Selgros Promo Banner", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/Raport de sustenabilitate Agricola.png", alt: "Agricola Sustainability Report", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/rollup aeroport enescu business lounge 2.png", alt: "Business Lounge Rollup", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/Rollup AGR 1.png", alt: "Agricola Rollup", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/rollup seby sax.png", alt: "Seby Sax Rollup", width: 2000, height: 2828 },
-                { src: "/mockups/carousel/spune nu obezitatii.png", alt: "Health Campaign Banner", width: 2000, height: 2828 },
+                {
+                  src: "/mockups/carousel/agricola poster salam de sibiu premii.png",
+                  alt: "Agricola Poster Design",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/billboard kaufland gogosi.png",
+                  alt: "Kaufland Gogosi Billboard",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/calendar agricola 2025 3.png",
+                  alt: "Agricola 2025 Calendar",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/flyer salam sibiu germania 1.png",
+                  alt: "Germania Salam Flyer",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/Mockup Snack2go Produse.png",
+                  alt: "Snack2Go Products",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/Promo reducere pui fericit grill selgros sorin.png",
+                  alt: "Selgros Promo Banner",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/Raport de sustenabilitate Agricola.png",
+                  alt: "Agricola Sustainability Report",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/rollup aeroport enescu business lounge 2.png",
+                  alt: "Business Lounge Rollup",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/Rollup AGR 1.png",
+                  alt: "Agricola Rollup",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/rollup seby sax.png",
+                  alt: "Seby Sax Rollup",
+                  width: 2000,
+                  height: 2828,
+                },
+                {
+                  src: "/mockups/carousel/spune nu obezitatii.png",
+                  alt: "Health Campaign Banner",
+                  width: 2000,
+                  height: 2828,
+                },
               ]}
               autoPlay={true}
               interval={5000}
@@ -323,10 +387,7 @@ const WebDevSection = () => {
           className="flex flex-col items-start justify-center gap-6 md:gap-12 md:flex-row relative z-10"
         >
           {projects.map((project, index) => (
-            <ProjectCard
-              key={`${project.title}-${index}`}
-              {...project}
-            />
+            <ProjectCard key={`${project.title}-${index}`} {...project} />
           ))}
         </motion.div>
       </div>
@@ -599,14 +660,14 @@ const BlogTeaserSection = () => {
 
       <div className="container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.6, y: -200 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{
             type: "spring",
             ease: "anticipate",
-            duration: 0.8,
+            duration: 1,
           }}
-          viewport={{ margin: "0px 0px 100px 0px" }}
+          viewport={{ margin: "0px 0px 200px 0px" }}
           className="flex flex-col items-center text-center max-w-3xl"
         >
           <div className="flex items-center gap-3 mb-6">
@@ -632,10 +693,7 @@ const BlogTeaserSection = () => {
             {t("blogTeaser.description")}
           </p>
 
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
               href="/blog"
               className="group relative inline-flex items-center gap-3 font-montserrat bg-transparent hover:bg-brand-primary text-brand-primary hover:text-background border-2 border-brand-primary active:opacity-60 transition-all duration-300 active:scale-90 font-bold text-xl px-8 py-4 rounded-full"
@@ -660,23 +718,24 @@ const BlogTeaserSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-          viewport={{ margin: "0px 0px 100px 0px" }}
+          initial={{ opacity: 0, scale: 0.6, y: -200 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            ease: "anticipate",
+            duration: 1,
+            delay: 0.2,
+          }}
+          viewport={{ margin: "0px 0px 200px 0px" }}
           className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16"
         >
-          {["React", "TypeScript", "Next.js", "Design"].map((tag, index) => (
-            <motion.span
+          {["React", "TypeScript", "Next.js", "Design"].map((tag) => (
+            <span
               key={tag}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 + index * 0.1 }}
-              viewport={{ once: true }}
               className="font-montserrat text-sm text-text-secondary/60 hover:text-brand-primary/80 transition-colors cursor-default"
             >
               {tag}
-            </motion.span>
+            </span>
           ))}
         </motion.div>
       </div>
@@ -775,8 +834,8 @@ const AboutSection = () => {
             <span className="font-montserrat font-bold text-foreground">
               Computer Science
             </span>{" "}
-            degree, and right now I&apos;m focused on growing my skills, building
-            cool stuff, and staying curious about everything tech and
+            degree, and right now I&apos;m focused on growing my skills,
+            building cool stuff, and staying curious about everything tech and
             design-related.
           </p>
         </motion.div>
