@@ -1,4 +1,76 @@
-export type ServiceType = "design" | "web" | "both";
+export type ServiceType = "design" | "web" | "photography" | "video";
+
+export const SERVICE_TO_PREFIX: Record<ServiceType, string> = {
+  design: "design",
+  web: "web",
+  photography: "photo",
+  video: "video",
+};
+
+export const PREFIX_TO_SERVICE: Record<string, ServiceType> = {
+  design: "design",
+  web: "web",
+  photo: "photography",
+  video: "video",
+};
+
+export function getStagePrefix(service: ServiceType): string {
+  return SERVICE_TO_PREFIX[service];
+}
+
+export function getServiceFromStage(stage: Stage): ServiceType | null {
+  const match = stage.match(/^(.+)-q\d+$/);
+  if (!match) return null;
+  return PREFIX_TO_SERVICE[match[1]] || null;
+}
+
+export function getQuestionNumber(stage: Stage): number {
+  const match = stage.match(/-q(\d+)$/);
+  if (!match) return 0;
+  return parseInt(match[1]);
+}
+
+export function getNextStage(
+  selectedServices: ServiceType[],
+  currentStage: Stage,
+): Stage {
+  if (currentStage === "service-select") {
+    if (selectedServices.length > 0) {
+      return `${SERVICE_TO_PREFIX[selectedServices[0]]}-q1` as Stage;
+    }
+    return "summary";
+  }
+  const service = getServiceFromStage(currentStage);
+  if (!service) return "summary";
+  const qNum = getQuestionNumber(currentStage);
+  if (qNum < 6) {
+    return `${SERVICE_TO_PREFIX[service]}-q${qNum + 1}` as Stage;
+  }
+  const currentIdx = selectedServices.indexOf(service);
+  if (currentIdx >= 0 && currentIdx < selectedServices.length - 1) {
+    const nextService = selectedServices[currentIdx + 1];
+    return `${SERVICE_TO_PREFIX[nextService]}-q1` as Stage;
+  }
+  return "summary";
+}
+
+export function getPrevStage(
+  selectedServices: ServiceType[],
+  currentStage: Stage,
+): Stage {
+  const service = getServiceFromStage(currentStage);
+  if (!service) return "service-select";
+  const qNum = getQuestionNumber(currentStage);
+  if (qNum > 1) {
+    return `${SERVICE_TO_PREFIX[service]}-q${qNum - 1}` as Stage;
+  }
+  const currentIdx = selectedServices.indexOf(service);
+  if (currentIdx > 0) {
+    const prevService = selectedServices[currentIdx - 1];
+    return `${SERVICE_TO_PREFIX[prevService]}-q6` as Stage;
+  }
+  return "service-select";
+}
 
 export interface GraphicDesignAnswers {
   projectType: string;
@@ -20,10 +92,34 @@ export interface WebDevAnswers {
   notes?: string;
 }
 
+export interface PhotographyAnswers {
+  projectType: string;
+  projectTypeOther?: string;
+  location: string;
+  locationOther?: string;
+  purpose: string;
+  purposeOther?: string;
+  timeline: string;
+  budget: string;
+  notes?: string;
+}
+
+export interface VideoEditingAnswers {
+  projectType: string;
+  projectTypeOther?: string;
+  footageStatus: string;
+  editingStyle: string;
+  timeline: string;
+  budget: string;
+  notes?: string;
+}
+
 export interface QuoteFormState {
-  service: ServiceType | null;
+  selectedServices: ServiceType[];
   graphicDesign: GraphicDesignAnswers;
   webDev: WebDevAnswers;
+  photography: PhotographyAnswers;
+  videoEditing: VideoEditingAnswers;
 }
 
 export type Stage =
@@ -41,9 +137,22 @@ export type Stage =
   | "web-q4"
   | "web-q5"
   | "web-q6"
+  | "photo-q1"
+  | "photo-q2"
+  | "photo-q3"
+  | "photo-q4"
+  | "photo-q5"
+  | "photo-q6"
+  | "video-q1"
+  | "video-q2"
+  | "video-q3"
+  | "video-q4"
+  | "video-q5"
+  | "video-q6"
   | "summary";
 
-// English labels for design options
+// ── Design labels ──
+
 export const designLabelsEn = {
   logoBrand: "Logo & Brand Identity",
   socialMedia: "Social Media Content / Templates",
@@ -72,7 +181,6 @@ export const designLabelsEn = {
   unsureBudget: "Not sure yet, open to suggestions",
 };
 
-// Romanian labels for design options
 export const designLabelsRo = {
   logoBrand: "Logo și Identitate de Brand",
   socialMedia: "Conținut Social Media / Template-uri",
@@ -101,7 +209,8 @@ export const designLabelsRo = {
   unsureBudget: "Nu sunt sigur încă, deschis la sugestii",
 };
 
-// English labels for web dev options
+// ── Web dev labels ──
+
 export const webDevLabelsEn = {
   portfolio: "Portfolio / Personal Website",
   business: "Business / Company Website",
@@ -134,7 +243,6 @@ export const webDevLabelsEn = {
   unsure: "Not sure yet, open to suggestions",
 };
 
-// Romanian labels for web dev options
 export const webDevLabelsRo = {
   portfolio: "Portofoliu / Website Personal",
   business: "Website Business / Companie",
@@ -167,7 +275,144 @@ export const webDevLabelsRo = {
   unsure: "Nu sunt sigur încă, deschis la sugestii",
 };
 
-// Legacy options (for backwards compatibility)
+// ── Photography labels ──
+
+export const photographyLabelsEn = {
+  businessCorporate: "Business / Corporate",
+  productPhotography: "Product Photography",
+  eventPhotography: "Event Photography",
+  portraitSession: "Portrait Session",
+  realEstate: "Real Estate",
+  foodPhotography: "Food Photography",
+  other: "Other",
+  yourLocation: "At your location",
+  outdoor: "Outdoor",
+  studio: "Studio",
+  needRecommendations: "Need recommendations",
+  otherLocation: "Other",
+  website: "Website",
+  socialMedia: "Social Media",
+  marketingCampaign: "Marketing Campaign",
+  printMaterials: "Print Materials",
+  personalUse: "Personal Use",
+  otherPurpose: "Other",
+  urgent: "Urgent — within 2 weeks",
+  oneMonth: "About 1 month",
+  twoThreeMonths: "2–3 months",
+  flexible: "No rush, I'm flexible",
+  under300: "Under 300 RON",
+  range300800: "300 – 800 RON",
+  range8002000: "800 – 2,000 RON",
+  over2000: "2,000+ RON",
+  unsure: "Not sure yet, open to suggestions",
+};
+
+export const photographyLabelsRo = {
+  businessCorporate: "Business / Corporate",
+  productPhotography: "Fotografie de Produs",
+  eventPhotography: "Fotografie de Eveniment",
+  portraitSession: "Ședință Foto Portret",
+  realEstate: "Imobiliare",
+  foodPhotography: "Fotografie Culinară",
+  other: "Altceva",
+  yourLocation: "La locația ta",
+  outdoor: "În aer liber",
+  studio: "Studio",
+  needRecommendations: "Am nevoie de recomandări",
+  otherLocation: "Altceva",
+  website: "Website",
+  socialMedia: "Social Media",
+  marketingCampaign: "Campanie de Marketing",
+  printMaterials: "Materiale Tipărite",
+  personalUse: "Uz Personal",
+  otherPurpose: "Altceva",
+  urgent: "Urgent — în 2 săptămâni",
+  oneMonth: "Cam 1 lună",
+  twoThreeMonths: "2–3 luni",
+  flexible: "Nu mă grăbesc, sunt flexibil",
+  under300: "Sub 300 RON",
+  range300800: "300 – 800 RON",
+  range8002000: "800 – 2.000 RON",
+  over2000: "2.000+ RON",
+  unsure: "Nu sunt sigur încă, deschis la sugestii",
+};
+
+// ── Video editing labels ──
+
+export const videoEditingLabelsEn = {
+  socialReels: "Social Media Reels",
+  youtubeVideo: "YouTube Video",
+  promoVideo: "Promotional Video",
+  eventHighlights: "Event Highlights",
+  podcast: "Podcast",
+  shortFilm: "Short Film",
+  other: "Other",
+  haveAll: "I already have all footage",
+  haveSome: "I have some footage",
+  needFilming: "I need filming too",
+  notSure: "Not sure",
+  cleanProfessional: "Clean & Professional",
+  cinematic: "Cinematic",
+  fastPacedSocial: "Fast-paced Social Media",
+  minimal: "Minimal",
+  flexible: "I'll leave it to you",
+  urgent: "Urgent — within 2 weeks",
+  oneMonth: "About 1 month",
+  twoThreeMonths: "2–3 months",
+  flexibleTimeline: "No rush, I'm flexible",
+  under300: "Under 300 RON",
+  range300800: "300 – 800 RON",
+  range8002000: "800 – 2,000 RON",
+  over2000: "2,000+ RON",
+  unsure: "Not sure yet, open to suggestions",
+};
+
+export const videoEditingLabelsRo = {
+  socialReels: "Reel-uri Social Media",
+  youtubeVideo: "Video YouTube",
+  promoVideo: "Video Promoțional",
+  eventHighlights: "Rezumat Eveniment",
+  podcast: "Podcast",
+  shortFilm: "Scurtmetraj",
+  other: "Altceva",
+  haveAll: "Am deja toate materialele",
+  haveSome: "Am câteva materiale",
+  needFilming: "Am nevoie și de filmare",
+  notSure: "Nu sunt sigur",
+  cleanProfessional: "Curat și Profesional",
+  cinematic: "Cinematic",
+  fastPacedSocial: "Rapid — Social Media",
+  minimal: "Minimal",
+  flexible: "Las la latitudinea ta",
+  urgent: "Urgent — în 2 săptămâni",
+  oneMonth: "Cam 1 lună",
+  twoThreeMonths: "2–3 luni",
+  flexibleTimeline: "Nu mă grăbesc, sunt flexibil",
+  under300: "Sub 300 RON",
+  range300800: "300 – 800 RON",
+  range8002000: "800 – 2.000 RON",
+  over2000: "2.000+ RON",
+  unsure: "Nu sunt sigur încă, deschis la sugestii",
+};
+
+// ── Shared timeline labels (used by all services) ──
+
+export const timelineLabelsEn = {
+  urgent: "Urgent — within 2 weeks",
+  oneMonth: "About 1 month",
+  twoThreeMonths: "2–3 months",
+  flexible: "No rush, I'm flexible",
+};
+
+export const timelineLabelsRo = {
+  urgent: "Urgent — în 2 săptămâni",
+  oneMonth: "Cam 1 lună",
+  twoThreeMonths: "2–3 luni",
+  flexible: "Nu mă grăbesc, sunt flexibil",
+};
+
+// ── Option definitions ──
+
 export const graphicDesignOptions = {
   projectType: [
     { value: "logo-brand", label: designLabelsEn.logoBrand, icon: "🎨" },
@@ -192,10 +437,10 @@ export const graphicDesignOptions = {
     { value: "flexible", label: designLabelsEn.flexible, icon: "🎭" },
   ],
   timeline: [
-    { value: "urgent", label: designLabelsEn.urgent, icon: "⚡" },
-    { value: "1-month", label: designLabelsEn.oneMonth, icon: "📅" },
-    { value: "2-3-months", label: designLabelsEn.twoThreeMonths, icon: "📆" },
-    { value: "flexible", label: designLabelsEn.flexibleTimeline, icon: "🌿" },
+    { value: "urgent", label: timelineLabelsEn.urgent, icon: "⚡" },
+    { value: "1-month", label: timelineLabelsEn.oneMonth, icon: "📅" },
+    { value: "2-3-months", label: timelineLabelsEn.twoThreeMonths, icon: "📆" },
+    { value: "flexible", label: timelineLabelsEn.flexible, icon: "🌿" },
   ],
   budget: [
     { value: "under-150", label: designLabelsEn.under150, icon: "💰" },
@@ -234,10 +479,10 @@ export const webDevOptions = {
     { value: "none", label: webDevLabelsEn.none, icon: "❌" },
   ],
   timeline: [
-    { value: "urgent", label: webDevLabelsEn.urgent, icon: "⚡" },
-    { value: "1-month", label: webDevLabelsEn.oneMonth, icon: "📅" },
-    { value: "2-3-months", label: webDevLabelsEn.twoThreeMonths, icon: "📆" },
-    { value: "flexible", label: webDevLabelsEn.flexible, icon: "🌿" },
+    { value: "urgent", label: timelineLabelsEn.urgent, icon: "⚡" },
+    { value: "1-month", label: timelineLabelsEn.oneMonth, icon: "📅" },
+    { value: "2-3-months", label: timelineLabelsEn.twoThreeMonths, icon: "📆" },
+    { value: "flexible", label: timelineLabelsEn.flexible, icon: "🌿" },
   ],
   budget: [
     { value: "under-500", label: webDevLabelsEn.under500, icon: "💰" },
@@ -248,46 +493,115 @@ export const webDevOptions = {
   ],
 };
 
-export const serviceOptions = [
-  { value: "design", label: "Graphic Design", icon: "🎨" },
-  { value: "web", label: "Web Development", icon: "💻" },
-  { value: "both", label: "Both", icon: "✨" },
-];
-
-export const getStageProgress = (stage: Stage): number => {
-  const stageMap: Record<Stage, number> = {
-    landing: 0,
-    "service-select": 10,
-    "design-q1": 20,
-    "design-q2": 30,
-    "design-q3": 40,
-    "design-q4": 50,
-    "design-q5": 60,
-    "design-q6": 70,
-    "web-q1": 20,
-    "web-q2": 30,
-    "web-q3": 40,
-    "web-q4": 50,
-    "web-q5": 60,
-    "web-q6": 70,
-    summary: 100,
-  };
-  return stageMap[stage] || 0;
+export const photographyOptions = {
+  projectType: [
+    { value: "business-corporate", label: photographyLabelsEn.businessCorporate, icon: "🏢" },
+    { value: "product", label: photographyLabelsEn.productPhotography, icon: "📦" },
+    { value: "event", label: photographyLabelsEn.eventPhotography, icon: "🎉" },
+    { value: "portrait", label: photographyLabelsEn.portraitSession, icon: "📸" },
+    { value: "real-estate", label: photographyLabelsEn.realEstate, icon: "🏠" },
+    { value: "food", label: photographyLabelsEn.foodPhotography, icon: "🍽️" },
+    { value: "other", label: photographyLabelsEn.other, icon: "✨" },
+  ],
+  location: [
+    { value: "your-location", label: photographyLabelsEn.yourLocation, icon: "📍" },
+    { value: "outdoor", label: photographyLabelsEn.outdoor, icon: "🌳" },
+    { value: "studio", label: photographyLabelsEn.studio, icon: "🏬" },
+    { value: "recommendations", label: photographyLabelsEn.needRecommendations, icon: "💡" },
+    { value: "other", label: photographyLabelsEn.otherLocation, icon: "✨" },
+  ],
+  purpose: [
+    { value: "website", label: photographyLabelsEn.website, icon: "🌐" },
+    { value: "social-media", label: photographyLabelsEn.socialMedia, icon: "📱" },
+    { value: "marketing", label: photographyLabelsEn.marketingCampaign, icon: "📢" },
+    { value: "print", label: photographyLabelsEn.printMaterials, icon: "🖨️" },
+    { value: "personal", label: photographyLabelsEn.personalUse, icon: "👤" },
+    { value: "other", label: photographyLabelsEn.otherPurpose, icon: "✨" },
+  ],
+  timeline: [
+    { value: "urgent", label: timelineLabelsEn.urgent, icon: "⚡" },
+    { value: "1-month", label: timelineLabelsEn.oneMonth, icon: "📅" },
+    { value: "2-3-months", label: timelineLabelsEn.twoThreeMonths, icon: "📆" },
+    { value: "flexible", label: timelineLabelsEn.flexible, icon: "🌿" },
+  ],
+  budget: [
+    { value: "under-300", label: photographyLabelsEn.under300, icon: "💰" },
+    { value: "300-800", label: photographyLabelsEn.range300800, icon: "💰💰" },
+    { value: "800-2000", label: photographyLabelsEn.range8002000, icon: "💰💰💰" },
+    { value: "2000+", label: photographyLabelsEn.over2000, icon: "💎" },
+    { value: "unsure", label: photographyLabelsEn.unsure, icon: "🤷" },
+  ],
 };
 
-export const getStageNumber = (
-  stage: Stage
-): { current: number; total: number } => {
+export const videoEditingOptions = {
+  projectType: [
+    { value: "social-reels", label: videoEditingLabelsEn.socialReels, icon: "📱" },
+    { value: "youtube", label: videoEditingLabelsEn.youtubeVideo, icon: "▶️" },
+    { value: "promo", label: videoEditingLabelsEn.promoVideo, icon: "🎬" },
+    { value: "event", label: videoEditingLabelsEn.eventHighlights, icon: "🎉" },
+    { value: "podcast", label: videoEditingLabelsEn.podcast, icon: "🎙️" },
+    { value: "short-film", label: videoEditingLabelsEn.shortFilm, icon: "🎥" },
+    { value: "other", label: videoEditingLabelsEn.other, icon: "✨" },
+  ],
+  footageStatus: [
+    { value: "have-all", label: videoEditingLabelsEn.haveAll, icon: "✅" },
+    { value: "have-some", label: videoEditingLabelsEn.haveSome, icon: "📁" },
+    { value: "need-filming", label: videoEditingLabelsEn.needFilming, icon: "🎥" },
+    { value: "not-sure", label: videoEditingLabelsEn.notSure, icon: "🤔" },
+  ],
+  editingStyle: [
+    { value: "clean", label: videoEditingLabelsEn.cleanProfessional, icon: "✨" },
+    { value: "cinematic", label: videoEditingLabelsEn.cinematic, icon: "🎬" },
+    { value: "fast-paced", label: videoEditingLabelsEn.fastPacedSocial, icon: "⚡" },
+    { value: "minimal", label: videoEditingLabelsEn.minimal, icon: "◻️" },
+    { value: "flexible", label: videoEditingLabelsEn.flexible, icon: "🎭" },
+  ],
+  timeline: [
+    { value: "urgent", label: timelineLabelsEn.urgent, icon: "⚡" },
+    { value: "1-month", label: timelineLabelsEn.oneMonth, icon: "📅" },
+    { value: "2-3-months", label: timelineLabelsEn.twoThreeMonths, icon: "📆" },
+    { value: "flexible", label: timelineLabelsEn.flexible, icon: "🌿" },
+  ],
+  budget: [
+    { value: "under-300", label: videoEditingLabelsEn.under300, icon: "💰" },
+    { value: "300-800", label: videoEditingLabelsEn.range300800, icon: "💰💰" },
+    { value: "800-2000", label: videoEditingLabelsEn.range8002000, icon: "💰💰💰" },
+    { value: "2000+", label: videoEditingLabelsEn.over2000, icon: "💎" },
+    { value: "unsure", label: videoEditingLabelsEn.unsure, icon: "🤷" },
+  ],
+};
+
+// ── Service selection options ──
+
+export const serviceOptions: { value: ServiceType | "multiple"; label: string; icon: string }[] = [
+  { value: "design", label: "Graphic Design", icon: "🎨" },
+  { value: "web", label: "Web Development", icon: "💻" },
+  { value: "photography", label: "Photography Services", icon: "📸" },
+  { value: "video", label: "Video Editing & Montage", icon: "🎬" },
+  { value: "multiple", label: "Multiple Services", icon: "✨" },
+];
+
+export const allSingleServices: ServiceType[] = ["design", "web", "photography", "video"];
+
+export function getStageProgress(stage: Stage): number {
+  if (stage === "landing") return 0;
+  if (stage === "service-select") return 5;
+  if (stage === "summary") return 100;
+  const match = stage.match(/^.+-q(\d+)$/);
+  if (match) {
+    const qNum = parseInt(match[1]);
+    return 10 + qNum * 13;
+  }
+  return 0;
+}
+
+export function getStageNumber(stage: Stage): { current: number; total: number } {
   if (stage === "landing") return { current: 0, total: 0 };
   if (stage === "service-select") return { current: 1, total: 1 };
   if (stage === "summary") return { current: 0, total: 0 };
-  if (stage.startsWith("design-")) {
-    const qNum = parseInt(stage.split("-q")[1]);
-    return { current: qNum, total: 6 };
-  }
-  if (stage.startsWith("web-")) {
-    const qNum = parseInt(stage.split("-q")[1]);
-    return { current: qNum, total: 6 };
+  const match = stage.match(/^.+-q(\d+)$/);
+  if (match) {
+    return { current: parseInt(match[1]), total: 6 };
   }
   return { current: 0, total: 0 };
-};
+}

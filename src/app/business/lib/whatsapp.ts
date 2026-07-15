@@ -1,9 +1,19 @@
-import { QuoteFormState, GraphicDesignAnswers, WebDevAnswers } from "../types";
+import {
+  QuoteFormState,
+  GraphicDesignAnswers,
+  WebDevAnswers,
+  PhotographyAnswers,
+  VideoEditingAnswers,
+  ServiceType,
+} from "../types";
 
 const WHATSAPP_NUMBER = "40770892084";
 
 interface WhatsAppLabels {
-  service: string;
+  serviceDesign: string;
+  serviceWeb: string;
+  servicePhotography: string;
+  serviceVideo: string;
   projectType: string;
   status: string;
   style: string;
@@ -11,17 +21,20 @@ interface WhatsAppLabels {
   budget: string;
   design: string;
   features: string;
+  location: string;
+  purpose: string;
+  footage: string;
   notes: string;
   greeting: string;
-  partIndicator: string;
-  serviceDesign: string;
-  serviceWeb: string;
 }
 
 function getLabels(language: string): WhatsAppLabels {
   if (language === "ro") {
     return {
-      service: "🛠 Serviciu:",
+      serviceDesign: "🎨 Grafică",
+      serviceWeb: "💻 Web Development",
+      servicePhotography: "📸 Fotografie",
+      serviceVideo: "🎬 Video Editing & Montaj",
       projectType: "📌 Tip Proiect:",
       status: "📊 Status:",
       style: "✏️ Stil:",
@@ -29,16 +42,18 @@ function getLabels(language: string): WhatsAppLabels {
       budget: "💰 Buget:",
       design: "🎨 Design:",
       features: "⚙️ Funcționalități:",
+      location: "📍 Locație:",
+      purpose: "🎯 Scop:",
+      footage: "🎥 Materiale:",
       notes: "📝 Note:",
-      greeting:
-        "Salut Stefan! Am primit cardul tău de vizită și sunt interesat să colaborăm.",
-      partIndicator: "Partea {part} din {total}",
-      serviceDesign: "🎨 Graphic Design",
-      serviceWeb: "💻 Web Development",
+      greeting: "Salut Stefan! Am primit cardul tău de vizită și sunt interesat să colaborăm.",
     };
   }
   return {
-    service: "🛠 Service:",
+    serviceDesign: "🎨 Graphic Design",
+    serviceWeb: "💻 Web Development",
+    servicePhotography: "📸 Photography",
+    serviceVideo: "🎬 Video Editing & Montage",
     projectType: "📌 Project Type:",
     status: "📊 Status:",
     style: "✏️ Style:",
@@ -46,23 +61,17 @@ function getLabels(language: string): WhatsAppLabels {
     budget: "💰 Budget:",
     design: "🎨 Design:",
     features: "⚙️ Features:",
+    location: "📍 Location:",
+    purpose: "🎯 Purpose:",
+    footage: "🎥 Footage:",
     notes: "📝 Notes:",
-    greeting:
-      "👋 Hi Stefan! I got your business card and I'm interested in working together.",
-    partIndicator: "Part {part} of {total}",
-    serviceDesign: "🎨 Graphic Design",
-    serviceWeb: "💻 Web Development",
+    greeting: "👋 Hi Stefan! I got your business card and I'm interested in working together.",
   };
 }
 
-function getDesignLabel(
-  value: string,
-  otherText: string | undefined,
-  language: string,
-): string {
+function getDesignWALabel(value: string, otherText: string | undefined, language: string): string {
   if (!value) return language === "ro" ? "Nu este selectat" : "Not selected";
-  if (value === "other")
-    return otherText || (language === "ro" ? "Altceva" : "Other");
+  if (value === "other") return otherText || (language === "ro" ? "Altceva" : "Other");
 
   const labelsRo: Record<string, string> = {
     "logo-brand": "Logo și Identitate de Brand",
@@ -118,16 +127,10 @@ function getDesignLabel(
   return labels[value] || value;
 }
 
-function getWebDevLabel(
-  value: string,
-  otherText: string | undefined,
-  language: string,
-): string {
+function getWebDevWALabel(value: string, otherText: string | undefined, language: string): string {
   if (!value) return language === "ro" ? "Nu este selectat" : "Not selected";
-  if (value === "other")
-    return otherText || (language === "ro" ? "Altceva" : "Other");
-  if (value === "none")
-    return language === "ro" ? "Nimic specific" : "None specifically";
+  if (value === "other") return otherText || (language === "ro" ? "Altceva" : "Other");
+  if (value === "none") return language === "ro" ? "Nimic specific" : "None specifically";
 
   const labelsRo: Record<string, string> = {
     portfolio: "Portofoliu / Website Personal",
@@ -193,62 +196,217 @@ function getWebDevLabel(
   return labels[value] || value;
 }
 
-function formatGraphicDesignMessage(
-  answers: GraphicDesignAnswers,
-  labels: WhatsAppLabels,
-  lang: string,
-): string {
-  const projectTypeValue =
-    answers.projectType === "other" && answers.projectTypeOther
-      ? answers.projectTypeOther
-      : getDesignLabel(answers.projectType, answers.projectTypeOther, lang);
+function getPhotoWALabel(value: string, otherText: string | undefined, language: string): string {
+  if (!value) return language === "ro" ? "Nu este selectat" : "Not selected";
+  if (value === "other") return otherText || (language === "ro" ? "Altceva" : "Other");
 
-  const lines = [
-    labels.serviceDesign,
-    `${labels.projectType} ${projectTypeValue}`,
-    `${labels.status} ${getDesignLabel(answers.projectStatus, undefined, lang)}`,
-    `${labels.style} ${getDesignLabel(answers.styleDirection, undefined, lang)}`,
-    `${labels.timeline} ${getDesignLabel(answers.timeline, undefined, lang)}`,
-    `${labels.budget} ${getDesignLabel(answers.budget, undefined, lang)}`,
-  ];
+  const labelsRo: Record<string, string> = {
+    "business-corporate": "Business / Corporate",
+    product: "Fotografie de Produs",
+    event: "Fotografie de Eveniment",
+    portrait: "Ședință Foto Portret",
+    "real-estate": "Imobiliare",
+    food: "Fotografie Culinară",
+    "your-location": "La locația ta",
+    outdoor: "În aer liber",
+    studio: "Studio",
+    recommendations: "Am nevoie de recomandări",
+    website: "Website",
+    "social-media": "Social Media",
+    marketing: "Campanie de Marketing",
+    print: "Materiale Tipărite",
+    personal: "Uz Personal",
+    urgent: "Urgent — în 2 săptămâni",
+    "1-month": "Cam 1 lună",
+    "2-3-months": "2–3 luni",
+    flexible: "Nu mă grăbesc, sunt flexibil",
+    "under-300": "Sub 300 RON",
+    "300-800": "300 – 800 RON",
+    "800-2000": "800 – 2.000 RON",
+    "2000+": "2.000+ RON",
+    unsure: "Nu sunt sigur încă",
+  };
 
-  if (answers.notes) {
-    lines.push(`\n${labels.notes} ${answers.notes}`);
-  }
+  const labelsEn: Record<string, string> = {
+    "business-corporate": "Business / Corporate",
+    product: "Product Photography",
+    event: "Event Photography",
+    portrait: "Portrait Session",
+    "real-estate": "Real Estate",
+    food: "Food Photography",
+    "your-location": "At your location",
+    outdoor: "Outdoor",
+    studio: "Studio",
+    recommendations: "Need recommendations",
+    website: "Website",
+    "social-media": "Social Media",
+    marketing: "Marketing Campaign",
+    print: "Print Materials",
+    personal: "Personal Use",
+    urgent: "Urgent — within 2 weeks",
+    "1-month": "About 1 month",
+    "2-3-months": "2–3 months",
+    flexible: "No rush, I'm flexible",
+    "under-300": "Under 300 RON",
+    "300-800": "300 – 800 RON",
+    "800-2000": "800 – 2,000 RON",
+    "2000+": "2,000+ RON",
+    unsure: "Not sure yet",
+  };
 
-  return lines.join("\n");
+  const labels = language === "ro" ? labelsRo : labelsEn;
+  return labels[value] || value;
 }
 
-function formatWebDevMessage(
-  answers: WebDevAnswers,
+function getVideoWALabel(value: string, otherText: string | undefined, language: string): string {
+  if (!value) return language === "ro" ? "Nu este selectat" : "Not selected";
+  if (value === "other") return otherText || (language === "ro" ? "Altceva" : "Other");
+
+  const labelsRo: Record<string, string> = {
+    "social-reels": "Reel-uri Social Media",
+    youtube: "Video YouTube",
+    promo: "Video Promoțional",
+    event: "Rezumat Eveniment",
+    podcast: "Podcast",
+    "short-film": "Scurtmetraj",
+    "have-all": "Am deja toate materialele",
+    "have-some": "Am câteva materiale",
+    "need-filming": "Am nevoie și de filmare",
+    "not-sure": "Nu sunt sigur",
+    clean: "Curat și Profesional",
+    cinematic: "Cinematic",
+    "fast-paced": "Rapid — Social Media",
+    minimal: "Minimal",
+    flexible: "Las la latitudinea ta",
+    urgent: "Urgent — în 2 săptămâni",
+    "1-month": "Cam 1 lună",
+    "2-3-months": "2–3 luni",
+    "under-300": "Sub 300 RON",
+    "300-800": "300 – 800 RON",
+    "800-2000": "800 – 2.000 RON",
+    "2000+": "2.000+ RON",
+    unsure: "Nu sunt sigur încă",
+  };
+
+  const labelsEn: Record<string, string> = {
+    "social-reels": "Social Media Reels",
+    youtube: "YouTube Video",
+    promo: "Promotional Video",
+    event: "Event Highlights",
+    podcast: "Podcast",
+    "short-film": "Short Film",
+    "have-all": "I already have all footage",
+    "have-some": "I have some footage",
+    "need-filming": "I need filming too",
+    "not-sure": "Not sure",
+    clean: "Clean & Professional",
+    cinematic: "Cinematic",
+    "fast-paced": "Fast-paced Social Media",
+    minimal: "Minimal",
+    flexible: "I'll leave it to you",
+    urgent: "Urgent — within 2 weeks",
+    "1-month": "About 1 month",
+    "2-3-months": "2–3 months",
+    "under-300": "Under 300 RON",
+    "300-800": "300 – 800 RON",
+    "800-2000": "800 – 2,000 RON",
+    "2000+": "2,000+ RON",
+    unsure: "Not sure yet",
+  };
+
+  const labels = language === "ro" ? labelsRo : labelsEn;
+  return labels[value] || value;
+}
+
+function formatServiceMessage(
+  service: ServiceType,
+  formState: QuoteFormState,
   labels: WhatsAppLabels,
   lang: string,
 ): string {
-  const projectTypeValue =
-    answers.projectType === "other" && answers.projectTypeOther
-      ? answers.projectTypeOther
-      : getWebDevLabel(answers.projectType, answers.projectTypeOther, lang);
+  if (service === "design") {
+    const answers = formState.graphicDesign;
+    const projectTypeValue =
+      answers.projectType === "other" && answers.projectTypeOther
+        ? answers.projectTypeOther
+        : getDesignWALabel(answers.projectType, answers.projectTypeOther, lang);
 
-  const featuresLabels =
-    answers.features
-      ?.map((f) => getWebDevLabel(f, undefined, lang))
-      .filter((f) => f !== "Not selected")
-      .join(", ") || (lang === "ro" ? "Nimic specific" : "None specifically");
-
-  const lines = [
-    labels.serviceWeb,
-    `${labels.projectType} ${projectTypeValue}`,
-    `${labels.design} ${getWebDevLabel(answers.designStatus, undefined, lang)}`,
-    `${labels.features} ${featuresLabels}`,
-    `${labels.timeline} ${getWebDevLabel(answers.timeline, undefined, lang)}`,
-    `${labels.budget} ${getWebDevLabel(answers.budget, undefined, lang)}`,
-  ];
-
-  if (answers.notes) {
-    lines.push(`\n${labels.notes} ${answers.notes}`);
+    const lines = [
+      labels.serviceDesign,
+      `${labels.projectType} ${projectTypeValue}`,
+      `${labels.status} ${getDesignWALabel(answers.projectStatus, undefined, lang)}`,
+      `${labels.style} ${getDesignWALabel(answers.styleDirection, undefined, lang)}`,
+      `${labels.timeline} ${getDesignWALabel(answers.timeline, undefined, lang)}`,
+      `${labels.budget} ${getDesignWALabel(answers.budget, undefined, lang)}`,
+    ];
+    if (answers.notes) lines.push(`\n${labels.notes} ${answers.notes}`);
+    return lines.join("\n");
   }
 
-  return lines.join("\n");
+  if (service === "web") {
+    const answers = formState.webDev;
+    const projectTypeValue =
+      answers.projectType === "other" && answers.projectTypeOther
+        ? answers.projectTypeOther
+        : getWebDevWALabel(answers.projectType, answers.projectTypeOther, lang);
+
+    const featuresLabels =
+      answers.features
+        ?.map((f) => getWebDevWALabel(f, undefined, lang))
+        .filter((f) => f !== "Not selected")
+        .join(", ") || (lang === "ro" ? "Nimic specific" : "None specifically");
+
+    const lines = [
+      labels.serviceWeb,
+      `${labels.projectType} ${projectTypeValue}`,
+      `${labels.design} ${getWebDevWALabel(answers.designStatus, undefined, lang)}`,
+      `${labels.features} ${featuresLabels}`,
+      `${labels.timeline} ${getWebDevWALabel(answers.timeline, undefined, lang)}`,
+      `${labels.budget} ${getWebDevWALabel(answers.budget, undefined, lang)}`,
+    ];
+    if (answers.notes) lines.push(`\n${labels.notes} ${answers.notes}`);
+    return lines.join("\n");
+  }
+
+  if (service === "photography") {
+    const answers = formState.photography;
+    const projectTypeValue =
+      answers.projectType === "other" && answers.projectTypeOther
+        ? answers.projectTypeOther
+        : getPhotoWALabel(answers.projectType, answers.projectTypeOther, lang);
+
+    const lines = [
+      labels.servicePhotography,
+      `${labels.projectType} ${projectTypeValue}`,
+      `${labels.location} ${getPhotoWALabel(answers.location, answers.locationOther, lang)}`,
+      `${labels.purpose} ${getPhotoWALabel(answers.purpose, answers.purposeOther, lang)}`,
+      `${labels.timeline} ${getPhotoWALabel(answers.timeline, undefined, lang)}`,
+      `${labels.budget} ${getPhotoWALabel(answers.budget, undefined, lang)}`,
+    ];
+    if (answers.notes) lines.push(`\n${labels.notes} ${answers.notes}`);
+    return lines.join("\n");
+  }
+
+  if (service === "video") {
+    const answers = formState.videoEditing;
+    const projectTypeValue =
+      answers.projectType === "other" && answers.projectTypeOther
+        ? answers.projectTypeOther
+        : getVideoWALabel(answers.projectType, answers.projectTypeOther, lang);
+
+    const lines = [
+      labels.serviceVideo,
+      `${labels.projectType} ${projectTypeValue}`,
+      `${labels.footage} ${getVideoWALabel(answers.footageStatus, undefined, lang)}`,
+      `${labels.style} ${getVideoWALabel(answers.editingStyle, undefined, lang)}`,
+      `${labels.timeline} ${getVideoWALabel(answers.timeline, undefined, lang)}`,
+      `${labels.budget} ${getVideoWALabel(answers.budget, undefined, lang)}`,
+    ];
+    if (answers.notes) lines.push(`\n${labels.notes} ${answers.notes}`);
+    return lines.join("\n");
+  }
+
+  return "";
 }
 
 export function generateWhatsAppMessage(
@@ -256,31 +414,18 @@ export function generateWhatsAppMessage(
   language: string = "en",
 ): string {
   const labels = getLabels(language);
-  const sections: string[] = [];
-
-  if (formState.service === "design" || formState.service === "both") {
-    sections.push(
-      formatGraphicDesignMessage(formState.graphicDesign, labels, language),
-    );
-  }
-
-  if (formState.service === "web" || formState.service === "both") {
-    sections.push(formatWebDevMessage(formState.webDev, labels, language));
-  }
+  const sections = formState.selectedServices.map((service) =>
+    formatServiceMessage(service, formState, labels, language)
+  );
 
   const message = [labels.greeting, ""];
 
-  // Add spacing between sections if both services
-  if (formState.service === "both") {
-    sections.forEach((section, index) => {
-      if (index > 0) {
-        message.push("---");
-      }
-      message.push(section);
-    });
-  } else {
-    message.push(sections[0]);
-  }
+  sections.forEach((section, index) => {
+    if (index > 0) {
+      message.push("---");
+    }
+    message.push(section);
+  });
 
   return message.join("\n");
 }
@@ -298,7 +443,6 @@ export function openWhatsApp(
   formState: QuoteFormState,
   language: string = "en",
 ): void {
-  // Try to get language from localStorage or use default
   let lang = language;
   if (typeof window !== "undefined") {
     const storedLang = window.localStorage.getItem("language");

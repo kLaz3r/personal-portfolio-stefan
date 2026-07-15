@@ -20,16 +20,36 @@ import {
   WebQ5Budget,
   WebQ6Notes,
 } from "./components/WebDevQuestions";
-import { SummaryStage } from "./components/SummaryStage";
 import {
-  LanguageSelector,
-} from "./components/LanguageSelector";
+  PhotoQ1Type,
+  PhotoQ2Location,
+  PhotoQ3Purpose,
+  PhotoQ4Timeline,
+  PhotoQ5Budget,
+  PhotoQ6Notes,
+} from "./components/PhotographyQuestions";
+import {
+  VideoQ1Type,
+  VideoQ2Footage,
+  VideoQ3Style,
+  VideoQ4Timeline,
+  VideoQ5Budget,
+  VideoQ6Notes,
+} from "./components/VideoEditingQuestions";
+import { SummaryStage } from "./components/SummaryStage";
+import { LanguageSelector } from "./components/LanguageSelector";
 import {
   Stage,
   ServiceType,
   QuoteFormState,
   GraphicDesignAnswers,
   WebDevAnswers,
+  PhotographyAnswers,
+  VideoEditingAnswers,
+  getNextStage,
+  getPrevStage,
+  getQuestionNumber,
+  SERVICE_TO_PREFIX,
 } from "./types";
 import { openWhatsApp } from "./lib/whatsapp";
 
@@ -51,16 +71,35 @@ const initialWebDevAnswers: WebDevAnswers = {
   notes: "",
 };
 
+const initialPhotographyAnswers: PhotographyAnswers = {
+  projectType: "",
+  location: "",
+  purpose: "",
+  timeline: "",
+  budget: "",
+  notes: "",
+};
+
+const initialVideoEditingAnswers: VideoEditingAnswers = {
+  projectType: "",
+  footageStatus: "",
+  editingStyle: "",
+  timeline: "",
+  budget: "",
+  notes: "",
+};
+
 const initialFormState: QuoteFormState = {
-  service: null,
+  selectedServices: [],
   graphicDesign: { ...initialDesignAnswers },
   webDev: { ...initialWebDevAnswers },
+  photography: { ...initialPhotographyAnswers },
+  videoEditing: { ...initialVideoEditingAnswers },
 };
 
 export default function BusinessPage() {
   const [stage, setStage] = useState<Stage>("landing");
   const [formState, setFormState] = useState<QuoteFormState>(initialFormState);
-  const [isBothPart2, setIsBothPart2] = useState(false);
   const [showLangSelector, setShowLangSelector] = useState(false);
 
   const updateFormState = useCallback(
@@ -90,95 +129,62 @@ export default function BusinessPage() {
     []
   );
 
+  const updatePhotographyAnswers = useCallback(
+    (answers: Partial<PhotographyAnswers>) => {
+      setFormState((prev) => ({
+        ...prev,
+        photography: { ...prev.photography, ...answers },
+      }));
+    },
+    []
+  );
+
+  const updateVideoEditingAnswers = useCallback(
+    (answers: Partial<VideoEditingAnswers>) => {
+      setFormState((prev) => ({
+        ...prev,
+        videoEditing: { ...prev.videoEditing, ...answers },
+      }));
+    },
+    []
+  );
+
   const handleServiceSelect = useCallback(
-    (service: ServiceType) => {
-      updateFormState({ service });
-      if (service === "design") {
-        setStage("design-q1");
-      } else if (service === "web") {
-        setStage("web-q1");
-      } else {
-        setIsBothPart2(false);
-        setStage("design-q1");
-      }
+    (services: ServiceType[]) => {
+      updateFormState({ selectedServices: services });
+      setStage(`${SERVICE_TO_PREFIX[services[0]]}-q1` as Stage);
     },
     [updateFormState]
   );
 
-  const handleDesignNext = useCallback(
-    (currentStep: number) => {
-      const nextStep = currentStep + 1;
-      if (nextStep <= 6) {
-        setStage(`design-q${nextStep}` as Stage);
-      } else if (formState.service === "both" && !isBothPart2) {
-        setIsBothPart2(true);
-        setStage("web-q1");
-      } else {
-        setStage("summary");
-      }
-    },
-    [formState.service, isBothPart2]
-  );
+  const handleNext = useCallback(() => {
+    setStage((prev) => getNextStage(formState.selectedServices, prev));
+  }, [formState.selectedServices]);
 
-  const handleDesignBack = useCallback(
-    (currentStep: number) => {
-      const prevStep = currentStep - 1;
-      if (prevStep >= 1) {
-        setStage(`design-q${prevStep}` as Stage);
-      } else {
-        setStage("service-select");
-      }
-    },
-    []
-  );
-
-  const handleWebNext = useCallback(
-    (currentStep: number) => {
-      const nextStep = currentStep + 1;
-      if (nextStep <= 6) {
-        setStage(`web-q${nextStep}` as Stage);
-      } else {
-        setStage("summary");
-      }
-    },
-    []
-  );
-
-  const handleWebBack = useCallback(() => {
-    const currentStep = parseInt(stage.replace("web-q", ""));
-    const prevStep = currentStep - 1;
-    if (prevStep >= 1) {
-      setStage(`web-q${prevStep}` as Stage);
-    } else if (formState.service === "both" && isBothPart2) {
-      setIsBothPart2(false);
-      setStage("design-q6");
-    } else {
-      setStage("service-select");
-    }
-  }, [stage, formState.service, isBothPart2]);
+  const handleBack = useCallback(() => {
+    setStage((prev) => getPrevStage(formState.selectedServices, prev));
+  }, [formState.selectedServices]);
 
   const handleBackFromSummary = useCallback(() => {
-    if (formState.service === "design") {
-      setStage("design-q6");
-    } else {
-      setStage("web-q6");
+    if (formState.selectedServices.length === 0) {
+      setStage("service-select");
+      return;
     }
-  }, [formState.service]);
+    const lastService =
+      formState.selectedServices[formState.selectedServices.length - 1];
+    setStage(`${SERVICE_TO_PREFIX[lastService]}-q6` as Stage);
+  }, [formState.selectedServices]);
 
   const handleEdit = useCallback(() => {
-    if (formState.service === "design") {
-      setStage("design-q1");
-    } else if (formState.service === "web") {
-      setStage("web-q1");
-    } else {
-      setIsBothPart2(false);
-      setStage("design-q1");
+    if (formState.selectedServices.length > 0) {
+      setStage(
+        `${SERVICE_TO_PREFIX[formState.selectedServices[0]]}-q1` as Stage
+      );
     }
-  }, [formState.service]);
+  }, [formState.selectedServices]);
 
   const handleStartOver = useCallback(() => {
     setFormState(initialFormState);
-    setIsBothPart2(false);
     setStage("landing");
   }, []);
 
@@ -194,196 +200,321 @@ export default function BusinessPage() {
     setShowLangSelector(false);
   }, []);
 
-  const renderStage = () => {
-    switch (stage) {
-      case "landing":
-        return (
-          <LandingStage
-            onStart={() => {
-              setStage("service-select");
-            }}
-          />
-        );
+  const renderQuestionStage = () => {
+    const match = stage.match(
+      /^(design|web|photo|video)-q([1-6])$/
+    );
+    if (!match) return null;
 
-      case "service-select":
-        return (
-          <ServiceSelectStage
-            onSelect={handleServiceSelect}
-            onBack={() => setStage("landing")}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
+    const servicePrefix = match[1];
+    const qNum = parseInt(match[2]);
+    const step = getQuestionNumber(stage);
 
-      case "design-q1":
-        return (
-          <DesignQ1Type
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => setStage("service-select")}
-            onNext={() => handleDesignNext(1)}
-            currentStep={1}
-            isPart2={isBothPart2}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
+    const props = {
+      currentStep: step,
+      onNext: handleNext,
+      onLanguageChange: handleOpenLanguageSelector,
+    };
 
-      case "design-q2":
-        return (
-          <DesignQ2Status
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => handleDesignBack(2)}
-            onNext={() => handleDesignNext(2)}
-            currentStep={2}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
+    const backHandler = () => {
+      const prevStage = getPrevStage(formState.selectedServices, stage);
+      setStage(prevStage);
+    };
 
-      case "design-q3":
-        return (
-          <DesignQ3Style
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => handleDesignBack(3)}
-            onNext={() => handleDesignNext(3)}
-            currentStep={3}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "design-q4":
-        return (
-          <DesignQ4Timeline
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => handleDesignBack(4)}
-            onNext={() => handleDesignNext(4)}
-            currentStep={4}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "design-q5":
-        return (
-          <DesignQ5Budget
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => handleDesignBack(5)}
-            onNext={() => handleDesignNext(5)}
-            currentStep={5}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "design-q6":
-        return (
-          <DesignQ6Notes
-            answers={formState.graphicDesign}
-            onUpdate={updateDesignAnswers}
-            onBack={() => handleDesignBack(6)}
-            onNext={() => handleDesignNext(6)}
-            currentStep={6}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q1":
-        return (
-          <WebQ1Type
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(1)}
-            currentStep={1}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q2":
-        return (
-          <WebQ2DesignStatus
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(2)}
-            currentStep={2}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q3":
-        return (
-          <WebQ3Features
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(3)}
-            currentStep={3}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q4":
-        return (
-          <WebQ4Timeline
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(4)}
-            currentStep={4}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q5":
-        return (
-          <WebQ5Budget
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(5)}
-            currentStep={5}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "web-q6":
-        return (
-          <WebQ6Notes
-            answers={formState.webDev}
-            onUpdate={updateWebDevAnswers}
-            onBack={handleWebBack}
-            onNext={() => handleWebNext(6)}
-            currentStep={6}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      case "summary":
-        return (
-          <SummaryStage
-            formState={formState}
-            onBack={handleBackFromSummary}
-            onEdit={handleEdit}
-            onSend={handleSend}
-            onLanguageChange={handleOpenLanguageSelector}
-          />
-        );
-
-      default:
-        return <LandingStage onStart={() => setStage("service-select")} />;
+    // Design questions
+    if (servicePrefix === "design") {
+      const answers = formState.graphicDesign;
+      const onUpdate = updateDesignAnswers;
+      switch (qNum) {
+        case 1:
+          return (
+            <DesignQ1Type
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 2:
+          return (
+            <DesignQ2Status
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 3:
+          return (
+            <DesignQ3Style
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 4:
+          return (
+            <DesignQ4Timeline
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 5:
+          return (
+            <DesignQ5Budget
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 6:
+          return (
+            <DesignQ6Notes
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+      }
     }
+
+    // Web dev questions
+    if (servicePrefix === "web") {
+      const answers = formState.webDev;
+      const onUpdate = updateWebDevAnswers;
+      switch (qNum) {
+        case 1:
+          return (
+            <WebQ1Type
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 2:
+          return (
+            <WebQ2DesignStatus
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 3:
+          return (
+            <WebQ3Features
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 4:
+          return (
+            <WebQ4Timeline
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 5:
+          return (
+            <WebQ5Budget
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 6:
+          return (
+            <WebQ6Notes
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+      }
+    }
+
+    // Photography questions
+    if (servicePrefix === "photo") {
+      const answers = formState.photography;
+      const onUpdate = updatePhotographyAnswers;
+      switch (qNum) {
+        case 1:
+          return (
+            <PhotoQ1Type
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 2:
+          return (
+            <PhotoQ2Location
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 3:
+          return (
+            <PhotoQ3Purpose
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 4:
+          return (
+            <PhotoQ4Timeline
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 5:
+          return (
+            <PhotoQ5Budget
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 6:
+          return (
+            <PhotoQ6Notes
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+      }
+    }
+
+    // Video editing questions
+    if (servicePrefix === "video") {
+      const answers = formState.videoEditing;
+      const onUpdate = updateVideoEditingAnswers;
+      switch (qNum) {
+        case 1:
+          return (
+            <VideoQ1Type
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 2:
+          return (
+            <VideoQ2Footage
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 3:
+          return (
+            <VideoQ3Style
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 4:
+          return (
+            <VideoQ4Timeline
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 5:
+          return (
+            <VideoQ5Budget
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+        case 6:
+          return (
+            <VideoQ6Notes
+              answers={answers}
+              onUpdate={onUpdate}
+              onBack={backHandler}
+              {...props}
+            />
+          );
+      }
+    }
+
+    return null;
+  };
+
+  const renderStage = () => {
+    if (stage === "landing") {
+      return (
+        <LandingStage
+          onStart={() => {
+            setStage("service-select");
+          }}
+        />
+      );
+    }
+
+    if (stage === "service-select") {
+      return (
+        <ServiceSelectStage
+          onSelect={handleServiceSelect}
+          onBack={() => setStage("landing")}
+          onLanguageChange={handleOpenLanguageSelector}
+        />
+      );
+    }
+
+    if (stage === "summary") {
+      return (
+        <SummaryStage
+          formState={formState}
+          onBack={handleBackFromSummary}
+          onEdit={handleEdit}
+          onSend={handleSend}
+          onLanguageChange={handleOpenLanguageSelector}
+        />
+      );
+    }
+
+    return renderQuestionStage();
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Language selector modal */}
       <LanguageSelector
         isOpen={showLangSelector}
         onClose={handleCloseLanguageSelector}
       />
 
-      {/* Main content */}
       <main className="mt-16">
         <AnimatePresence mode="wait">{renderStage()}</AnimatePresence>
       </main>
