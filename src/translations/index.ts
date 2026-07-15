@@ -60,6 +60,12 @@ export type Translations = {
     description: string;
     ctaButton: string;
   };
+  businessCTA: {
+    title: string;
+    subtitle: string;
+    description: string;
+    ctaButton: string;
+  };
   projects: {
     liveSite: string;
     github: string;

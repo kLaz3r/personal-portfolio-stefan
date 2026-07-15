@@ -52,6 +52,13 @@ export const en = {
       "Behind every project lies a story. Tales of late nights, unexpected solutions, and lessons learned along the way.",
     ctaButton: "Explore the Archive",
   },
+  businessCTA: {
+    title: "Let's Work Together",
+    subtitle: "Have a project in mind?",
+    description:
+      "Whether it's graphic design, web development, photography, or video editing — I'd love to hear about your idea and help bring it to life.",
+    ctaButton: "Get a Free Quote",
+  },
   projects: {
     liveSite: "Live Site",
     github: "Github",

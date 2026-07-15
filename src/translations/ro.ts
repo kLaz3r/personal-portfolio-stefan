@@ -52,6 +52,13 @@ export const ro = {
       "În spatele fiecărui proiect se află o poveste. Povești despre nopțile târzii, soluții neașteptate și lecții învățate pe parcurs.",
     ctaButton: "Explorează Arhiva",
   },
+  businessCTA: {
+    title: "Hai să Colaborăm",
+    subtitle: "Ai un proiect în minte?",
+    description:
+      "Fie că e vorba de design grafic, web development, fotografie sau editare video — mi-ar plăcea să aud ideea ta și să te ajut să o duci la bun sfârșit.",
+    ctaButton: "Cere o Ofertă Gratuită",
+  },
   projects: {
     liveSite: "Site Live",
     github: "Github",

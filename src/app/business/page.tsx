@@ -509,13 +509,23 @@ export default function BusinessPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      <img
+        src="/Logo-light.svg"
+        alt=""
+        className="absolute top-1/2 right-0 opacity-10 grayscale pointer-events-none select-none"
+        style={{
+          transform: "translate(30%, -50%) scale(1)",
+          transformOrigin: "center",
+        }}
+      />
+
       <LanguageSelector
         isOpen={showLangSelector}
         onClose={handleCloseLanguageSelector}
       />
 
-      <main className="mt-16">
+      <main className="mt-16 relative z-10">
         <AnimatePresence mode="wait">{renderStage()}</AnimatePresence>
       </main>
     </div>

@@ -67,7 +67,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sections = ["home", "graphics", "webdev", "photos", "blog", "about"];
+    const sections = ["home", "graphics", "webdev", "photos", "business-cta", "about"];
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -165,7 +165,6 @@ const Navbar = () => {
     { key: "graphics", href: "/#graphics", icon: HiColorSwatch },
     { key: "webdev", href: "/#webdev", icon: HiBriefcase },
     { key: "photography", href: "/#photos", icon: HiCamera },
-    { key: "blog", href: "/#blog", icon: HiBookOpen },
     { key: "about", href: "/#about", icon: HiUser },
   ];
 

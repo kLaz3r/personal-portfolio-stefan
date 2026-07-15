@@ -633,29 +633,26 @@ const PhotosSection = () => {
   );
 };
 
-const BlogTeaserSection = () => {
+const BusinessCTASection = () => {
   const { t } = useTranslation();
 
   return (
     <section
-      aria-labelledby="blog-heading"
-      id="blog"
+      aria-labelledby="business-cta-heading"
+      id="business-cta"
       className="text-foreground overflow-clip relative min-h-screen pt-20 pb-12 border-b-2 border-background-tertiary"
     >
       <div className="absolute flex -z-10 items-center justify-center inset-0 w-full h-full pointer-events-none overflow-hidden">
-        <div
-          className="absolute pointer-events-none opacity-[0.03] dark:opacity-[0.05] text-foreground"
+        <img
+          src="/Logo-light.svg"
+          alt=""
+          className="absolute top-1/2 right-0 opacity-10 grayscale pointer-events-none select-none"
           style={{
-            fontFamily: "var(--font-montserrat)",
-            fontSize: "clamp(8rem, 25vw, 20rem)",
-            fontWeight: 900,
-            whiteSpace: "nowrap",
-            transform: "rotate(-5deg)",
-            userSelect: "none",
+            transform: "translate(30%, -50%) scale(1)",
+            transformOrigin: "center",
           }}
-        >
-          &lt;/&gt;
-        </div>
+        />
+
       </div>
 
       <div className="container mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] px-6">
@@ -673,32 +670,28 @@ const BlogTeaserSection = () => {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-[2px] bg-brand-primary/60" />
             <span className="text-brand-primary font-montserrat text-sm font-bold tracking-[0.2em] uppercase">
-              Blog
+              {t("businessCTA.subtitle")}
             </span>
             <div className="w-12 h-[2px] bg-brand-primary/60" />
           </div>
 
           <h2
-            id="blog-heading"
-            className="font-montserrat text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4"
+            id="business-cta-heading"
+            className="font-montserrat text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-8"
           >
-            {t("blogTeaser.title")}
+            {t("businessCTA.title")}
           </h2>
 
-          <p className="text-brand-primary font-montserrat text-xl md:text-2xl mb-8">
-            {t("blogTeaser.subtitle")}
-          </p>
-
           <p className="font-montserrat text-lg text-text-secondary max-w-xl mb-12 leading-relaxed">
-            {t("blogTeaser.description")}
+            {t("businessCTA.description")}
           </p>
 
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link
-              href="/blog"
-              className="group relative inline-flex items-center gap-3 font-montserrat bg-transparent hover:bg-brand-primary text-brand-primary hover:text-background border-2 border-brand-primary active:opacity-60 transition-all duration-300 active:scale-90 font-bold text-xl px-8 py-4 rounded-full"
+              href="/business"
+              className="group relative inline-flex items-center gap-3 font-montserrat bg-brand-primary hover:bg-transparent text-background hover:text-brand-primary border-2 border-brand-primary active:opacity-60 transition-all duration-300 active:scale-90 font-bold text-xl px-8 py-4 rounded-full"
             >
-              <span>{t("blogTeaser.ctaButton")}</span>
+              <span>{t("businessCTA.ctaButton")}</span>
               <svg
                 width="20"
                 height="20"
@@ -715,28 +708,6 @@ const BlogTeaserSection = () => {
               </svg>
             </Link>
           </motion.div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.6, y: -200 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{
-            type: "spring",
-            ease: "anticipate",
-            duration: 1,
-            delay: 0.2,
-          }}
-          viewport={{ margin: "0px 0px 200px 0px" }}
-          className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16"
-        >
-          {["React", "TypeScript", "Next.js", "Design"].map((tag) => (
-            <span
-              key={tag}
-              className="font-montserrat text-sm text-text-secondary/60 hover:text-brand-primary/80 transition-colors cursor-default"
-            >
-              {tag}
-            </span>
-          ))}
         </motion.div>
       </div>
     </section>
@@ -895,7 +866,7 @@ export default function Home() {
       <GraphicsSection />
       <WebDevSection />
       <PhotosSection />
-      <BlogTeaserSection />
+      <BusinessCTASection />
       <AboutSection />
     </div>
   );
