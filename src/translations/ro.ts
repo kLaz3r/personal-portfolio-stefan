@@ -16,8 +16,8 @@ export const ro = {
   hero: {
     greeting: "Salut, sunt",
     name: "Stefan,",
-    role1: "Un",
-    role2: "Meșter Digital",
+    role1: "Designer. Developer.",
+    role2: "PROBLEM SOLVER.",
     description:
       "Rezolv probleme complexe, creez grafică frumoasă și capturez cele mai bune momente ale vieții.",
     complex: "complexe",

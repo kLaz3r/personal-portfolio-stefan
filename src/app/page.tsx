@@ -24,10 +24,10 @@ const HeroSection = () => {
     <section
       aria-labelledby="home-heading"
       id="home"
-      className="text-foreground overflow-clip relative min-h-screen pt-20 border-b-2 border-background-tertiary"
+      className="text-foreground overflow-clip relative min-h-screen pt-16 md:pt-20 border-b-2 border-background-tertiary"
     >
       <div className="hidden absolute md:block right-0 saturate-0 brightness-20 dark:opacity-100 opacity-7 blur-md bg-cover w-1/2 min-h-screen -z-50"></div>
-      <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-center min-h-[calc(100vh-5rem)]">
+      <div className="container md:flex-row mx-auto flex flex-col items-start md:items-center justify-between md:justify-center min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-5rem)]">
         <motion.div
           viewport={{ once: true }}
           initial={{ opacity: 0, scale: 0.6, x: -200 }}
@@ -41,13 +41,25 @@ const HeroSection = () => {
         >
           <h1
             id="home-heading"
-            className="text-5xl/14 md:text-7xl/20 font-bold font-montserrat"
+            className="font-bold font-montserrat text-[clamp(1.9rem,5vw,3.75rem)] leading-[1.05]"
           >
             {t("hero.greeting")}{" "}
             <span className="text-brand-primary">{t("hero.name")}</span>
             <br />
-            {t("hero.role1")}{" "}
-            <span className="text-brand-primary underline">
+            <span className="text-brand-primary">
+              {t("hero.role1")}
+            </span>
+            <br />
+            <span className="relative inline-block z-0 whitespace-nowrap">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 right-0 z-[-1] bg-[var(--brand-primary)]"
+                style={{
+                  bottom: "-0.03em",
+                  height: "0.33em",
+                  transform: "skewX(-1deg)",
+                }}
+              />
               {t("hero.role2")}
             </span>
           </h1>
@@ -107,7 +119,7 @@ const HeroSection = () => {
             ease: "easeInOut",
             duration: 1.5,
           }}
-          className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none"
+          className="will-change-transform will-change-opacity px-4 w-full flex items-center justify-end bg-cover md:bg-none mb-12 md:mb-0"
         >
           <Image
             width={700}

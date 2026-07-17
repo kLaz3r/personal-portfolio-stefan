@@ -46,7 +46,7 @@ function getLabels(language: string): WhatsAppLabels {
       purpose: "🎯 Scop:",
       footage: "🎥 Materiale:",
       notes: "📝 Note:",
-      greeting: "Salut Stefan! Am primit cardul tău de vizită și sunt interesat să colaborăm.",
+      greeting: "Salut Stefan! Am primit cartea ta de vizită și sunt interesat să colaborăm.",
     };
   }
   return {
