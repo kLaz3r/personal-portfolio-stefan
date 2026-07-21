@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslation } from "../hooks/useTranslation";
@@ -18,6 +18,13 @@ interface ImageCarouselProps {
   variant?: "default" | "card" | "modal";
 }
 
+const slideTransition = {
+  type: "spring" as const,
+  stiffness: 300,
+  damping: 30,
+  mass: 0.8,
+};
+
 export default function ImageCarousel({
   images,
   autoPlay = true,
@@ -26,20 +33,32 @@ export default function ImageCarousel({
 }: ImageCarouselProps) {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
+  }, [images.length]);
 
-  const previousImage = () => {
+  const previousImage = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  }, [images.length]);
 
-  const goToImage = (index: number) => {
-    setCurrentIndex(index);
-  };
+  const goToImage = useCallback(
+    (index: number) => {
+      if (index === currentIndex) return;
+      const diff = index - currentIndex;
+      const absDiff = Math.abs(diff);
+      const wrapDiff = images.length - absDiff;
+      const goForward = absDiff <= wrapDiff ? diff >= 0 : diff < 0;
+      setDirection(goForward ? 1 : -1);
+      setCurrentIndex(index);
+    },
+    [currentIndex, images.length],
+  );
 
   useEffect(() => {
     if (autoPlay && !isHovered) {
@@ -51,7 +70,7 @@ export default function ImageCarousel({
         clearInterval(intervalRef.current);
       }
     };
-  }, [autoPlay, isHovered, interval, images.length]);
+  }, [autoPlay, isHovered, interval, nextImage]);
 
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
@@ -106,6 +125,21 @@ export default function ImageCarousel({
     modal: "(max-width: 1024px) 100vw, 600px",
   };
 
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  };
+
   return (
     <div
       role="region"
@@ -124,7 +158,11 @@ export default function ImageCarousel({
         aria-live="polite"
         aria-atomic="true"
       >
-        <AnimatePresence mode="wait">
+        <AnimatePresence
+          initial={false}
+          custom={direction}
+          mode="popLayout"
+        >
           <motion.div
             key={currentIndex}
             role="group"
@@ -132,23 +170,20 @@ export default function ImageCarousel({
             aria-label={`${t("carousel.slide")} ${currentIndex + 1} ${t(
               "carousel.of",
             )} ${images.length}: ${images[currentIndex].alt}`}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut",
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-            }}
-            className="absolute inset-0"
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={slideTransition}
+            className="absolute inset-0 will-change-transform"
+            style={{ backfaceVisibility: "hidden" }}
           >
             <Image
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               fill
-              loading="lazy"
+              priority={currentIndex < 2}
               quality={75}
               className="object-cover"
               sizes={sizes[variant]}
